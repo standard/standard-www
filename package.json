@@ -1,0 +1,33 @@
+{
+  "name": "standard-www",
+  "description": "web site for feross/standard",
+  "version": "1.0.0",
+  "author": "Dan Flettre <fletd01@yahoo.com>",
+  "bugs": {
+    "url": "https://github.com/flet/standard-www/issues"
+  },
+  "devDependencies": {
+    "markdown-styles": "^2.4.0",
+    "shelljs": "^0.5.1",
+    "standard": "*"
+  },
+  "homepage": "https://github.com/flet/standard-www",
+  "keywords": [
+    "site",
+    "standard",
+    "web",
+    "website",
+    "www"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flet/standard-www.git"
+  },
+  "scripts": {
+    "build": "node gensite.js",
+    "md": "generate-md --layout ./layout --input ./tmp/markdown --output ./build",
+    "test": "standard"
+  }
+}
