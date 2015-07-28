@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Standard Style</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+
+  </head>
+<body>
+<div class="content"><h1 id="javascript-standard-style"><a class="header-link" href="#javascript-standard-style"></a>JavaScript Standard Style</h1>
+<p><a href="https://travis-ci.org/feross/standard"><img src="https://img.shields.io/travis/feross/standard.svg?style=flat" alt="travis"></a>
+<a href="https://npmjs.org/package/standard"><img src="https://img.shields.io/npm/v/standard.svg?style=flat" alt="npm"></a>
+<a href="https://npmjs.org/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg?style=flat" alt="downloads"></a></p>
+<h3 id="one-style-to-rule-them-all"><a class="header-link" href="#one-style-to-rule-them-all"></a>One Style to Rule Them All</h3>
+<p>No decisions to make. No <code>.eslintrc</code>, <code>.jshintrc</code>, or <code>.jscsrc</code> files to manage. It just
+works.</p>
+<p>This module saves you (and others!) time in two ways:</p>
+<ul class="list">
+<li><strong>No configuration.</strong> The easiest way to enforce consistent style in your project. Just
+drop it in.</li>
+<li><strong>Catch style errors before they&#39;re submitted in PRs.</strong> Saves precious code review time
+by eliminating back-and-forth between maintainer and contributor.</li>
+</ul>
+<h2 id="install"><a class="header-link" href="#install"></a>Install</h2>
+<pre class="hljs"><code>npm install standard</code></pre><h2 id="rules"><a class="header-link" href="#rules"></a>Rules</h2>
+<ul class="list">
+<li><strong>2 spaces</strong> – for indentation</li>
+<li><strong>Single quotes for strings</strong> – except to avoid escaping</li>
+<li><strong>No unused variables</strong> – this one catches <em>tons</em> of bugs!</li>
+<li><strong>No semicolons</strong> – <a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">It&#39;s</a> <a href="http://inimino.org/~inimino/blog/javascript_semicolons">fine.</a> <a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">Really!</a></li>
+<li><strong>Never start a line with <code>(</code> or <code>[</code></strong><ul class="list">
+<li>This is the <strong>only</strong> gotcha with omitting semicolons – <em>automatically checked for you!</em></li>
+<li><a href="rules.html#automatic-semicolon-insertion-asi">More details</a></li>
+</ul>
+</li>
+<li><strong>Space after keywords</strong> <code>if (condition) { ... }</code></li>
+<li><strong>Space after function name</strong> <code>function name (arg) { ... }</code></li>
+<li>Always use <code>===</code> instead of <code>==</code> – but <code>obj == null</code> is allowed to check <code>null || undefined</code>.</li>
+<li>Always handle the node.js <code>err</code> function parameter</li>
+<li>Always prefix browser globals with <code>window</code> – except <code>document</code> and <code>navigator</code> are okay<ul class="list">
+<li>Prevents accidental use of poorly-named browser globals like <code>open</code>, <code>length</code>,
+<code>event</code>, and <code>name</code>.</li>
+</ul>
+</li>
+<li><strong>And <a href="rules.html#javascript-standard-style">more goodness</a></strong> – <em>give <code>standard</code> a try today!</em></li>
+</ul>
+<p>To get a better idea, take a look at
+<a href="https://github.com/feross/bittorrent-dht/blob/master/client.js">a sample file</a> written
+in JavaScript Standard Style, or check out some of
+<a href="https://github.com/feross/standard/blob/master/test/clone.js">the repositories</a> that use
+<code>standard</code>.</p>
+<h2 id="badge"><a class="header-link" href="#badge"></a>Badge</h2>
+<p>Use this in one of your projects? Include one of these badges in your readme to
+let people know that your code is using the standard style.</p>
+<p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg" alt="js-standard-style"></a></p>
+<pre class="hljs"><code>[<span class="hljs-link_label">![js-standard-style</span>](<span class="hljs-link_url">https://cdn.rawgit.com/feross/standard/master/badge.svg</span>)](<span class="hljs-link_url">https://github.com/feross/standard</span>)</code></pre><p><a href="https://github.com/feross/standard"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat" alt="js-standard-style"></a></p>
+<pre class="hljs"><code>[<span class="hljs-link_label">![js-standard-style</span>](<span class="hljs-link_url">https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat</span>)](<span class="hljs-link_url">https://github.com/feross/standard</span>)</code></pre><h2 id="usage"><a class="header-link" href="#usage"></a>Usage</h2>
+<p>The easiest way to use JavaScript Standard Style to check your code is to install it
+globally as a Node command line program. To do so, simply run the following command in
+your terminal (flag <code>-g</code> installs <code>standard</code> globally on your system, omit it if you want
+to install in the current working directory):</p>
+<pre class="hljs"><code>npm install standard -g</code></pre><p>After you&#39;ve done that you should be able to use the <code>standard</code> program. The simplest use
+case would be checking the style of all JavaScript files in the current working directory:</p>
+<pre class="hljs"><code>$ standard
+Error: Use JavaScript Standard Style
+  lib/torrent.js:<span class="hljs-number">950</span>:<span class="hljs-number">11</span>: Expected <span class="hljs-string">'==='</span> and instead saw <span class="hljs-string">'=='</span>.</code></pre><p>You can optionally pass in a directory using the glob pattern:</p>
+<pre class="hljs"><code>$ standard src/util/**/*.js</code></pre><p><strong>Note:</strong> by default <code>standard</code> will look for all files matching the patterns: <code>**/*.js</code>, <code>**/*.jsx</code>.</p>
+<h3 id="text-editor-plugins"><a class="header-link" href="#text-editor-plugins"></a>Text editor plugins</h3>
+<p>First, install <code>standard</code>. Then, install the appropriate plugin for your editor:</p>
+<h4 id="-sublime-text-https-www-sublimetext-com-"><a class="header-link" href="#-sublime-text-https-www-sublimetext-com-"></a><a href="https://www.sublimetext.com/">Sublime Text</a></h4>
+<p>Using <strong><a href="https://packagecontrol.io/">Package Control</a></strong>, install <strong><a href="http://www.sublimelinter.com/en/latest/">SublimeLinter</a></strong> and
+<strong><a href="https://packagecontrol.io/packages/SublimeLinter-contrib-standard">SublimeLinter-contrib-standard</a></strong>.</p>
+<p>For automatic formatting on save, install <strong><a href="https://packagecontrol.io/packages/StandardFormat">StandardFormat</a></strong>.</p>
+<h4 id="-atom-https-atom-io-"><a class="header-link" href="#-atom-https-atom-io-"></a><a href="https://atom.io">Atom</a></h4>
+<p>Install <strong><a href="https://atom.io/packages/linter">Linter</a></strong> and <strong><a href="https://atom.io/packages/linter-js-standard">linter-js-standard</a></strong>.</p>
+<h4 id="-vim-http-www-vim-org-"><a class="header-link" href="#-vim-http-www-vim-org-"></a><a href="http://www.vim.org/">Vim</a></h4>
+<p>Install <strong><a href="https://github.com/scrooloose/syntastic">Syntastic</a></strong> and add this line to <code>.vimrc</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">let</span> <span class="hljs-variable">g:syntastic_javascript_checkers</span> = [<span class="hljs-string">'standard'</span>]</code></pre><p>For automatic formatting on save, add these two lines to <code>.vimrc</code>:</p>
+<pre class="hljs"><code><span class="hljs-keyword">autocmd</span> bufwritepost *.js <span class="hljs-keyword">silent</span> !standard % --format
+<span class="hljs-keyword">set</span> autoread</code></pre><h4 id="-emacs-https-www-gnu-org-software-emacs-"><a class="header-link" href="#-emacs-https-www-gnu-org-software-emacs-"></a><a href="https://www.gnu.org/software/emacs/">Emacs</a></h4>
+<p>Install <strong><a href="http://www.flycheck.org">Flycheck</a></strong> and check out the <strong><a href="http://www.flycheck.org/manual/latest/index.html">manual</a></strong> to learn how to
+enable it in your projects.</p>
+<h4 id="-brackets-http-brackets-io-"><a class="header-link" href="#-brackets-http-brackets-io-"></a><a href="http://brackets.io/">Brackets</a></h4>
+<p>Search the extension registry for <strong><a href="https://github.com/ishamf/brackets-standard/">&quot;Standard Code Style&quot;</a></strong>.</p>
+<h3 id="what-you-might-do-if-you-re-clever"><a class="header-link" href="#what-you-might-do-if-you-re-clever"></a>What you might do if you&#39;re clever</h3>
+<ol class="list">
+<li><p>Add it to <code>package.json</code></p>
+<pre class="hljs"><code>{
+ "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"my-cool-package"</span></span>,
+ "<span class="hljs-attribute">devDependencies</span>": <span class="hljs-value">{
+   "<span class="hljs-attribute">standard</span>": <span class="hljs-value"><span class="hljs-string">"^3.0.0"</span>
+ </span>}</span>,
+ "<span class="hljs-attribute">scripts</span>": <span class="hljs-value">{
+   "<span class="hljs-attribute">test</span>": <span class="hljs-value"><span class="hljs-string">"standard &amp;&amp; node my-tests.js"</span>
+ </span>}
+</span>}</code></pre></li>
+<li><p>Check style automatically when you run <code>npm test</code></p>
+<pre class="hljs"><code>$ <span class="hljs-built_in">npm</span> test
+<span class="hljs-attribute">Error</span>: Use JavaScript Standard Style
+ lib/torrent.<span class="hljs-attribute">js</span>:<span class="hljs-number">950</span>:<span class="hljs-number">11</span>: Expected <span class="hljs-string">'==='</span> <span class="hljs-keyword">and</span> instead saw <span class="hljs-string">'=='</span>.</code></pre></li>
+<li><p>Never give style feedback on a pull request again!</p>
+</li>
+</ol>
+<h2 id="faq"><a class="header-link" href="#faq"></a>FAQ</h2>
+<h3 id="why-would-i-use-javascript-standard-style-"><a class="header-link" href="#why-would-i-use-javascript-standard-style-"></a>Why would I use JavaScript Standard Style?</h3>
+<p>The beauty of JavaScript Standard Style is that it&#39;s simple. No one wants to maintain
+multiple hundred-line style configuration files for every module/project they work on.
+Enough of this madness!</p>
+<p>This module saves you time in two ways:</p>
+<ul class="list">
+<li><strong>No configuration.</strong> The easiest way to enforce consistent style in your project. Just
+drop it in.</li>
+<li><strong>Catch style errors before they&#39;re submitted in PRs.</strong> Saves precious code review time
+by eliminating back-and-forth between maintainer and contributor.</li>
+</ul>
+<p>Adopting <code>standard</code> style means ranking the importance of code clarity and community
+conventions higher than personal style. This might not make sense for 100% of projects and
+development cultures, however open source can be a hostile place for newbies. Setting up
+clear, automated contributor expectations makes a project healthier.</p>
+<h3 id="i-disagree-with-rule-x-can-you-change-it-"><a class="header-link" href="#i-disagree-with-rule-x-can-you-change-it-"></a>I disagree with rule X, can you change it?</h3>
+<p>No. The whole point of <code>standard</code> is to avoid <a href="https://www.freebsd.org/doc/en_US.ISO8859-1/books/faq/misc.html#idp60694736">bikeshedding</a> about
+style. There are lots of debates online about tabs vs. spaces, etc. that will never be
+resolved. These debates just distract from getting stuff done. At the end of the day you
+have to &#39;just pick something&#39;, and that&#39;s the whole philosophy of <code>standard</code> -- its a
+bunch of sensible &#39;just pick something&#39; opinions. Hopefully, users see the value in that
+over defending their own opinions.</p>
+<h3 id="but-this-isn-t-a-real-web-standard-"><a class="header-link" href="#but-this-isn-t-a-real-web-standard-"></a>But this isn&#39;t a real web standard!</h3>
+<p>Of course it&#39;s not! The style laid out here is not affiliated with any official web
+standards groups, which is why this repo is called <code>feross/standard</code> and not
+<code>ECMA/standard</code>.</p>
+<p>The word &quot;standard&quot; has more meanings than just &quot;web standard&quot; :-) For example:</p>
+<ul class="list">
+<li>This module helps hold our code to a high <em>standard of quality</em>.</li>
+<li>This module ensures that new contributors follow some basic <em>style standards</em>.</li>
+</ul>
+<h3 id="is-there-an-automatic-formatter-"><a class="header-link" href="#is-there-an-automatic-formatter-"></a>Is there an automatic formatter?</h3>
+<p>Yes! Just run <code>standard --format filename.js</code>. This uses
+<a href="https://github.com/maxogden">Max Ogden</a>&#39;s automatic formatter
+<a href="https://github.com/maxogden/standard-format"><code>standard-format</code></a>, which can automatically
+fix most code issues.</p>
+<p>While most issues can be fixed, some, like not handling errors in node-style callbacks,
+must be fixed manually.</p>
+<h3 id="how-do-i-ignore-files-"><a class="header-link" href="#how-do-i-ignore-files-"></a>How do I ignore files?</h3>
+<p>The paths <code>node_modules/**</code>, <code>*.min.js</code>, <code>bundle.js</code>, <code>coverage/**</code>, hidden files/folders
+(beginning with <code>.</code>), and all patterns in a project&#39;s root <code>.gitignore</code> file are
+automatically ignored.</p>
+<p>Sometimes you need to ignore additional folders or specific minfied files. To do that, add
+a <code>standard.ignore</code> property to <code>package.json</code>:</p>
+<pre class="hljs"><code><span class="hljs-string">"standard"</span>: {
+  "<span class="hljs-attribute">ignore</span>": <span class="hljs-value">[
+    <span class="hljs-string">"**/out/"</span>,
+    <span class="hljs-string">"/lib/select2/"</span>,
+    <span class="hljs-string">"/lib/ckeditor/"</span>,
+    <span class="hljs-string">"tmp.js"</span>
+  ]
+</span>}</code></pre><h3 id="how-do-i-hide-a-certain-warning-"><a class="header-link" href="#how-do-i-hide-a-certain-warning-"></a>How do I hide a certain warning?</h3>
+<p>In rare cases, you&#39;ll need to break a rule and hide the warning generated by <code>standard</code>.</p>
+<p>JavaScript Standard Style uses <a href="http://eslint.org/"><code>eslint</code></a> under-the-hood and you can
+hide warnings as you normally would if you used <code>eslint</code> directly.</p>
+<p>To get verbose output (so you can find the particular rule name to ignore), run:</p>
+<pre class="hljs"><code>$ standard --verbose
+Error: Use JavaScript Standard Style
+  routes/error.js:<span class="hljs-number">20</span>:<span class="hljs-number">36</span>: <span class="hljs-string">'file'</span> was used before it was defined. (no-use-before-define)</code></pre><p>Disable <strong>all rules</strong> on a specific line:</p>
+<pre class="hljs"><code>file = <span class="hljs-string">'I know what I am doing'</span> <span class="hljs-comment">// eslint-disable-line</span></code></pre><p>Or, disable <strong>only</strong> the <code>&quot;no-use-before-define&quot;</code> rule:</p>
+<pre class="hljs"><code>file = <span class="hljs-string">'I know what I am doing'</span> <span class="hljs-comment">// eslint-disable-line no-use-before-define</span></code></pre><p>Or, disable the <code>&quot;no-use-before-define&quot;</code> rule for <strong>multiple lines</strong>:</p>
+<pre class="hljs"><code><span class="hljs-comment">/*eslint-disable no-use-before-define */</span>
+<span class="hljs-comment">// offending code here...</span>
+<span class="hljs-comment">// offending code here...</span>
+<span class="hljs-comment">// offending code here...</span>
+<span class="hljs-comment">/*eslint-enable no-use-before-define */</span></code></pre><h3 id="i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors-"><a class="header-link" href="#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors-"></a>I use a library that pollutes the global namespace. How do I prevent &quot;variable is not defined&quot; errors?</h3>
+<p>Some packages (e.g. <code>mocha</code>) put their functions (e.g. <code>describe</code>, <code>it</code>) on the global
+object (poor form!). Since these functions are not defined or <code>require</code>d anywhere in your
+code, <code>standard</code> will warn that you&#39;re using a variable that is not defined (usually, this
+rule is really useful for catching typos!). But we want to disable it for these global
+variables.</p>
+<p>To let <code>standard</code> (as well as humans reading your code) know that certain variables are
+global in your code, add this to the top of your file:</p>
+<pre class="hljs"><code>/<span class="hljs-keyword">*</span> global myVar1, myVar2 <span class="hljs-keyword">*</span>/</code></pre><p>If you have hundreds of files, adding comments to every file can be tedious. In these
+cases, you can add this to <code>package.json</code>:</p>
+<pre class="hljs"><code>{
+  <span class="hljs-string">"standard"</span>: {
+    <span class="hljs-string">"global"</span>: [ <span class="hljs-string">"myVar1"</span>, <span class="hljs-string">"myVar2"</span> ]
+  }
+}</code></pre><h3 id="can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"><a class="header-link" href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"></a>Can I use a custom JS parser for bleeding-edge ES6 or ES7 support?</h3>
+<p><code>standard</code> supports custom JS parsers. To use a custom parser, install it from npm
+(example: <code>npm install babel-eslint</code>) and add this to your <code>package.json</code>:</p>
+<pre class="hljs"><code>{
+  <span class="hljs-string">"standard"</span>: {
+    <span class="hljs-string">"parser"</span>: <span class="hljs-string">"babel-eslint"</span>
+  }
+}</code></pre><h3 id="can-you-make-rule-x-configurable-"><a class="header-link" href="#can-you-make-rule-x-configurable-"></a>Can you make rule X configurable?</h3>
+<p>No. The point of <code>standard</code> is to save you time by picking reasonable rules so you can
+spend your time solving actual problems. If you really do want to configure hundreds of
+eslint rules individually, you can always use <code>eslint</code> directly.</p>
+<p>If you just want to tweak a couple rules, consider using
+<a href="https://github.com/feross/eslint-config-standard">this shareable config</a> and layering
+your changes on top.</p>
+<p>Pro tip: Just use <code>standard</code> and move on. There are actual real problems that you could
+spend your time solving! :P</p>
+<h3 id="what-about-web-workers-"><a class="header-link" href="#what-about-web-workers-"></a>What about Web Workers?</h3>
+<p>Web workers have a magic global variable called <code>self</code>. In regular JS files, <code>standard</code>
+won&#39;t let you use <code>self</code> directly, as it wants to prevent accidental use of
+<code>window.self</code>. But <code>standard</code> has no way of knowing when you are in a <code>worker</code> and
+therefore does not know when to allow usage of <code>self</code> directly.</p>
+<p>Until we figure out a better solution, we recommend adding this to the top of workers:</p>
+<pre class="hljs"><code>/<span class="hljs-keyword">*</span> global self <span class="hljs-keyword">*</span>/</code></pre><p>This lets <code>standard</code> (as well as humans reading your code) know that <code>self</code> is a global
+in web worker code.</p>
+<h3 id="is-there-a-git-pre-commit-hook-"><a class="header-link" href="#is-there-a-git-pre-commit-hook-"></a>Is there a Git <code>pre-commit</code> hook?</h3>
+<p>Funny you should ask!</p>
+<pre class="hljs"><code><span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-comment"># Ensure all javascript files staged for commit pass standard code style</span>
+git diff --name-only --cached --relative | grep <span class="hljs-string">'\.js$'</span> | xargs standard
+<span class="hljs-built_in">exit</span> $?</code></pre><p>Alternatively, <a href="https://github.com/brigade/overcommit">overcommit</a> is a Git hook
+manager that includes support for running <code>standard</code> as a Git pre-commit hook.
+To enable this, add the following to your <code>.overcommit.yml</code> file:</p>
+<pre class="hljs"><code><span class="hljs-attribute">PreCommit</span>:
+  <span class="hljs-attribute">Standard</span>:
+    <span class="hljs-attribute">enabled</span>: true</code></pre><h3 id="how-do-i-make-the-output-all-colorful-and-pretty-"><a class="header-link" href="#how-do-i-make-the-output-all-colorful-and-pretty-"></a>How do I make the output all colorful and <em>pretty</em>?</h3>
+<p>Install <strong><a href="https://github.com/feross/snazzy">snazzy</a></strong>:</p>
+<pre class="hljs"><code>npm <span class="hljs-keyword">install</span> snazzy</code></pre><p>And run:</p>
+<pre class="hljs"><code>$ standard --verbose | snazzy</code></pre><h3 id="i-want-to-contribute-to-standard-what-packages-should-i-know-about-"><a class="header-link" href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about-"></a>I want to contribute to <code>standard</code>. What packages should I know about?</h3>
+<ul class="list">
+<li><strong><a href="https://github.com/eslint/eslint">eslint</a></strong> - the linter that powers standard</li>
+<li><strong><a href="https://github.com/feross/standard">standard</a></strong> - this repo<ul class="list">
+<li><strong><a href="https://github.com/feross/eslint-config-standard">eslint-config-standard</a></strong> - eslint rules for standard</li>
+<li><strong><a href="https://github.com/feross/eslint-config-standard-react">eslint-config-standard-react</a></strong> - eslint rules for React and JSX</li>
+<li><strong><a href="https://github.com/xjamundx/eslint-plugin-standard">eslint-plugin-standard</a></strong> - custom eslint rules for standard (not part of eslint core)</li>
+<li><strong><a href="https://github.com/maxogden/standard-format">standard-format</a></strong> - automatic code formatter</li>
+</ul>
+</li>
+<li><strong><a href="https://github.com/flet/standard-engine">standard-engine</a></strong> - cli engine for arbitrary eslint rules</li>
+<li><strong><a href="https://github.com/feross/snazzy">snazzy</a></strong> - pretty terminal output for standard</li>
+<li><strong><a href="https://github.com/Flet/semistandard">semistandard</a></strong> - standard, with semicolons (if you must)</li>
+</ul>
+<p>There are also many <a href="https://github.com/feross/standard#editor-plugins">editor plugins</a>.</p>
+<h2 id="license"><a class="header-link" href="#license"></a>License</h2>
+<p>MIT. Copyright (c) <a href="http://feross.org">Feross Aboukhadijeh</a>.</p>
+</div><nav>
+<ul>
+    <li><a href="index.html#">Home</a></li>
+    <li><a href="index.html#install">Install</a></li>
+    <li><a href="index.html#rules">Rules</a></li>
+    <li><a href="index.html#badge">Badge</a></li>
+    <li><a href="index.html#usage">Usage</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#license">License</a></li>
+    <li><a href="https://github.com/feross/standard">Github</a>
+</ul>
+<nav>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Standard Style</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css" />
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+
+  </head>
+<body>
+<div class="content"><h1 id="javascript-standard-style"><a class="header-link" href="#javascript-standard-style"></a>JavaScript Standard Style</h1>
+<p>Right now, the best way to learn about <code>standard</code> is to just install it and give it a try
+on your code. Over time, we hope to enumerate all the rules here. So far, only the most
+important rules are listed here. Please send PRs!</p>
+<h2 id="high-level-rules"><a class="header-link" href="#high-level-rules"></a>High-Level Rules</h2>
+<ul class="list">
+<li><strong>2 spaces</strong> – for indentation</li>
+<li><strong>Single quotes for strings</strong> – except to avoid escaping</li>
+<li><strong>No unused variables</strong> – this one catches <em>tons</em> of bugs!</li>
+<li><strong>No semicolons</strong> – <a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">It&#39;s</a> <a href="http://inimino.org/~inimino/blog/javascript_semicolons">totally</a> <a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">fine.</a> [Really!][4]</li>
+<li><strong>Never start a line with <code>(</code> or <code>[</code></strong><ul class="list">
+<li>This is the <strong>only</strong> gotcha with omitting semicolons – <em>automatically checked for you!</em></li>
+</ul>
+</li>
+<li><strong>Space after keywords</strong> <code>if (condition) { ... }</code></li>
+<li><strong>Space after function name</strong> <code>function name (arg) { ... }</code></li>
+<li>Always use <code>===</code> instead of <code>==</code> – but <code>obj == null</code> is allowed to check <code>null || undefined</code>.</li>
+<li>Always handle the node.js <code>err</code> function parameter</li>
+<li>Always prefix browser globals with <code>window</code> – except <code>document</code> and <code>navigator</code> are okay<ul class="list">
+<li>Prevents accidental use of poorly-named browser globals like <code>open</code>, <code>length</code>,
+<code>event</code>, and <code>name</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="automatic-semicolon-insertion-asi-"><a class="header-link" href="#automatic-semicolon-insertion-asi-"></a>Automatic semicolon insertion (ASI)</h2>
+<h5 id="required-reading-"><a class="header-link" href="#required-reading-"></a>Required reading:</h5>
+<ul class="list">
+<li><a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">An Open Letter to JavaScript Leaders Regarding Semicolons</a></li>
+<li><a href="http://inimino.org/~inimino/blog/javascript_semicolons">JavaScript Semicolon Insertion – Everything you need to know</a></li>
+</ul>
+<h5 id="and-a-helpful-video-"><a class="header-link" href="#and-a-helpful-video-"></a>And a helpful video:</h5>
+<ul class="list">
+<li><a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">Are Semicolons Necessary in JavaScript? - YouTube</a></li>
+</ul>
+<h5 id="excerpt-from-an-open-letter-to-javascript-leaders-regarding-semicolons-1-"><a class="header-link" href="#excerpt-from-an-open-letter-to-javascript-leaders-regarding-semicolons-1-"></a>Excerpt from <em><a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">&quot;An Open Letter to JavaScript Leaders Regarding Semicolons&quot;</a></em>:</h5>
+<p>[Relying on automatic semicolon insertion] is quite safe, and perfectly valid JS that every browser understands. Closure compiler, yuicompressor, packer, and jsmin all can properly minify it. There is no performance impact anywhere.</p>
+<p>I am sorry that, instead of educating you, the leaders in this language community have given you lies and fear.  That was shameful. I recommend learning how statements in JS are actually terminated (and in which cases they are not terminated), so that you can write code that you find beautiful.</p>
+<p>In general, <code>\n</code> ends a statement unless:</p>
+<ol class="list">
+<li>The statement has an unclosed paren, array literal, or object literal or ends in some
+other way that is not a valid way to end a statement. (For instance, ending with <code>.</code>
+or <code>,</code>.)</li>
+<li>The line is <code>--</code> or <code>++</code> (in which case it will decrement/increment the next token.)</li>
+<li>It is a <code>for()</code>, <code>while()</code>, <code>do</code>, <code>if()</code>, or <code>else</code>, and there is no <code>{</code></li>
+<li>The next line starts with <code>[</code>, <code>(</code>, <code>+</code>, <code>*</code>, <code>/</code>, <code>-</code>, <code>,</code>, <code>.</code>, or some other
+binary operator that can only be found between two tokens in a single expression.</li>
+</ol>
+<p>The first is pretty obvious. Even JSLint is ok with <code>\n</code> chars in JSON and parenthesized constructs, and with <code>var</code> statements that span multiple lines ending in <code>,</code>.</p>
+<p>The second is super weird. I’ve never seen a case (outside of these sorts of conversations) where you’d want to do write <code>i\n++\nj</code>, but, point of fact, that’s parsed as <code>i; ++j</code>, not <code>i++; j</code>.</p>
+<p>The third is well understood, if generally despised. <code>if (x)\ny()</code> is equivalent to <code>if (x) { y() }</code>. The construct doesn’t end until it reaches either a block, or a statement.</p>
+<p><code>;</code> is a valid JavaScript statement, so <code>if(x);</code> is equivalent to <code>if(x){}</code> or, “If x, do nothing.” This is more commonly applied to loops where the loop check also is the update function. Unusual, but not unheard of.</p>
+<p>The fourth is generally the fud-inducing “oh noes, you need semicolons!” case. But, as it turns out, it’s quite easy to <em>prefix</em> those lines with semicolons if you don’t mean them to be continuations of the previous line. For example, instead of this:</p>
+<pre class="hljs"><code>foo();
+[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].forEach(bar);</code></pre><p>you could do this:</p>
+<pre class="hljs"><code>foo()
+;[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].forEach(bar)</code></pre><p>The advantage is that the prefixes are easier to notice, once you are accustomed to never seeing lines starting with <code>(</code> or <code>[</code> without semis.</p>
+<p><em>End quote from &quot;An Open Letter to JavaScript Leaders Regarding Semicolons&quot;.</em></p>
+<h3 id="avoid-clever-short-hands"><a class="header-link" href="#avoid-clever-short-hands"></a>Avoid clever short-hands</h3>
+<p>Clever short-hands are discouraged, in favor of clear and readable expressions, whenever
+possible. So, while this is allowed:</p>
+<pre class="hljs"><code>;[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].forEach(bar)</code></pre><p>This is much preferred:</p>
+<pre class="hljs"><code><span class="hljs-keyword">var</span> nums = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+nums.forEach(bar)</code></pre></div><nav>
+<ul>
+    <li><a href="index.html#">Home</a></li>
+    <li><a href="index.html#install">Install</a></li>
+    <li><a href="index.html#rules">Rules</a></li>
+    <li><a href="index.html#badge">Badge</a></li>
+    <li><a href="index.html#usage">Usage</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="index.html#license">License</a></li>
+    <li><a href="https://github.com/feross/standard">Github</a>
+</ul>
+<nav>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+</body>
+</html>
