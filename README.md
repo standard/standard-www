@@ -10,6 +10,8 @@ This repository is used to generate a web site for [standard](https://github.com
 ```bash
 git clone https://github.com/flet/standard-www
 npm install
+npm run build
+git commit -am "gen site"
 npm run deploy
 ```
 
