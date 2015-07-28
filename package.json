@@ -7,6 +7,8 @@
     "url": "https://github.com/flet/standard-www/issues"
   },
   "devDependencies": {
+    "browser-sync": "^2.8.0",
+    "ecstatic": "^0.8.0",
     "markdown-styles": "^2.4.0",
     "shelljs": "^0.5.1",
     "standard": "*"
@@ -26,7 +28,9 @@
     "url": "https://github.com/flet/standard-www.git"
   },
   "scripts": {
+    "deploy": "git subtree push --prefix build origin gh-pages",
     "build": "node gensite.js",
+    "serve": "ecstatic ./build",
     "md": "generate-md --layout ./layout --input ./tmp/markdown --output ./build",
     "test": "standard"
   }
