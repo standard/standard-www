@@ -49,7 +49,7 @@ https://github.com/AndrewBelt/WiTeX
 
 body {
   background-color: white;
-  font-size: 13pt;
+  font-size: 15pt;
 }
 
 body {
@@ -60,10 +60,6 @@ h1, h2, h3, h4, h5, h6 {
 	border: none;
 	font-weight: bold;
 	margin-top:3em;
-}
-
-.toc-heading-1, .toc-heading-3, .toc-heading-4 {
-	display: none;
 }
 
 body > div > p:nth-child(2) {
@@ -82,12 +78,13 @@ nav > ul {
 	-webkit-margin-before: 0px;
   -webkit-margin-after: 0px;
   -webkit-padding-start: 0px;
-
+  padding-top: 1em;
 }
 
 nav > ul > li {
 	display: inline;
 	margin:1em;
+	font-size: 18pt;
 }
 
 a, a:visited {
