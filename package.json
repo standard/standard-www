@@ -1,10 +1,9 @@
 {
   "name": "standard-www",
-  "description": "web site for feross/standard",
+  "description": "Website for feross/standard",
   "version": "1.0.0",
-  "author": "Dan Flettre <fletd01@yahoo.com>",
   "bugs": {
-    "url": "https://github.com/flet/standard-www/issues"
+    "url": "https://github.com/feross/standard-www/issues"
   },
   "devDependencies": {
     "browser-sync": "^2.8.0",
@@ -13,7 +12,7 @@
     "shelljs": "^0.5.1",
     "standard": "*"
   },
-  "homepage": "https://github.com/flet/standard-www",
+  "homepage": "https://github.com/feross/standard-www",
   "keywords": [
     "site",
     "standard",
@@ -22,10 +21,10 @@
     "www"
   ],
   "license": "ISC",
-  "main": "index.js",
+  "private":true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/flet/standard-www.git"
+    "url": "https://github.com/feross/standard-www.git"
   },
   "scripts": {
     "deploy": "git subtree push --prefix build origin gh-pages",
