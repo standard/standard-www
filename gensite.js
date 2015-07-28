@@ -20,6 +20,9 @@ if (sh.test('-d', stdPath)) {
 }
 
 sh.rm('-rf', buildPath)
+sh.rm('-rf', mdPath)
+sh.mkdir(buildPath)
+sh.mkdir(mdPath)
 sh.cp('-f', path.join(stdPath, '*.md'), mdPath)
 
 // runs generate-md
