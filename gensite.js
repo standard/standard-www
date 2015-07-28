@@ -34,3 +34,6 @@ sh.sed('-i', /RULES\.md/g, 'rules.html', path.join(buildPath, 'README.html'))
 // rename files to be internet friendly
 sh.mv('-f', path.join(buildPath, 'README.html'), path.join(buildPath, 'index.html'))
 sh.mv('-f', path.join(buildPath, 'RULES.html'), path.join(buildPath, 'rules.html'))
+
+// copy CNAME to build
+sh.cp('CNAME', buildPath)
