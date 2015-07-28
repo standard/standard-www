@@ -70,6 +70,7 @@ nav {
 	text-align: center;
 	position: absolute;
 	top:0px;
+	width:98%;
 }
 
 nav > ul {
@@ -118,4 +119,3 @@ dl dd {
 	/* center definitions (most useful for display equations) */
 	text-align: center;
 }
-
