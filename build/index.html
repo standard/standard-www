@@ -235,7 +235,36 @@ To enable this, add the following to your <code>.overcommit.yml</code> file:</p>
 <li><strong><a href="https://github.com/feross/snazzy">snazzy</a></strong> - pretty terminal output for standard</li>
 <li><strong><a href="https://github.com/Flet/semistandard">semistandard</a></strong> - standard, with semicolons (if you must)</li>
 </ul>
-<p>There are also many <a href="https://github.com/feross/standard#editor-plugins">editor plugins</a>.</p>
+<p>There are also many <a href="https://github.com/feross/standard#text-editor-plugins">editor plugins</a>.</p>
+<h2 id="api-usage"><a class="header-link" href="#api-usage"></a>API Usage</h2>
+<h3 id="-standard-linttext-text-opts-callback-"><a class="header-link" href="#-standard-linttext-text-opts-callback-"></a><code>standard.lintText(text, [opts], callback)</code></h3>
+<p>Lint the provided source <code>text</code> to enforce JavaScript Standard Style. An <code>opts</code> object may
+be provided:</p>
+<pre class="hljs"><code>{
+  globals: [],  <span class="hljs-comment">// global variables to declare</span>
+  parser: <span class="hljs-string">''</span>    <span class="hljs-comment">// custom js parser (e.g. babel-eslint)</span>
+}</code></pre><p>The <code>callback</code> will be called with an <code>Error</code> and <code>results</code> object:</p>
+<pre class="hljs"><code>{
+  results: [
+    {
+      filePath: <span class="hljs-string">''</span>,
+      messages: [
+        { ruleId: <span class="hljs-string">''</span>, message: <span class="hljs-string">''</span>, line: <span class="hljs-number">0</span>, column: <span class="hljs-number">0</span> }
+      ],
+      errorCount: <span class="hljs-number">0</span>,
+      warningCount: <span class="hljs-number">0</span>
+    }
+  ],
+  errorCount: <span class="hljs-number">0</span>,
+  warningCount: <span class="hljs-number">0</span>
+}</code></pre><h3 id="-standard-lintfiles-files-opts-callback-"><a class="header-link" href="#-standard-lintfiles-files-opts-callback-"></a><code>standard.lintFiles(files, [opts], callback)</code></h3>
+<p>Lint the provided <code>files</code> globs. An <code>opts</code> object may be provided:</p>
+<pre class="hljs"><code>{
+  globals: [],  <span class="hljs-comment">// global variables to declare</span>
+  parser: <span class="hljs-string">''</span>,   <span class="hljs-comment">// custom js parser (e.g. babel-eslint)</span>
+  ignore: [],   <span class="hljs-comment">// file globs to ignore (has sane defaults)</span>
+  cwd: <span class="hljs-string">''</span>       <span class="hljs-comment">// current working directory (default: process.cwd())</span>
+}</code></pre><p>The <code>callback</code> will be called with an <code>Error</code> and <code>results</code> object (same as above).</p>
 <h2 id="license"><a class="header-link" href="#license"></a>License</h2>
 <p>MIT. Copyright (c) <a href="http://feross.org">Feross Aboukhadijeh</a>.</p>
 </div><nav>
