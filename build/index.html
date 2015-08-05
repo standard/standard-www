@@ -191,7 +191,9 @@ cases, you can add this to <code>package.json</code>:</p>
   <span class="hljs-string">"standard"</span>: {
     <span class="hljs-string">"parser"</span>: <span class="hljs-string">"babel-eslint"</span>
   }
-}</code></pre><h3 id="can-you-make-rule-x-configurable-"><a class="header-link" href="#can-you-make-rule-x-configurable-"></a>Can you make rule X configurable?</h3>
+}</code></pre><p>If you&#39;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also need to
+install <code>babel-eslint</code> globally with <code>npm install babel-eslint -g</code>.</p>
+<h3 id="can-you-make-rule-x-configurable-"><a class="header-link" href="#can-you-make-rule-x-configurable-"></a>Can you make rule X configurable?</h3>
 <p>No. The point of <code>standard</code> is to save you time by picking reasonable rules so you can
 spend your time solving actual problems. If you really do want to configure hundreds of
 eslint rules individually, you can always use <code>eslint</code> directly.</p>
@@ -219,9 +221,11 @@ To enable this, add the following to your <code>.overcommit.yml</code> file:</p>
 <pre class="hljs"><code><span class="hljs-attribute">PreCommit</span>:
   <span class="hljs-attribute">Standard</span>:
     <span class="hljs-attribute">enabled</span>: true</code></pre><h3 id="how-do-i-make-the-output-all-colorful-and-pretty-"><a class="header-link" href="#how-do-i-make-the-output-all-colorful-and-pretty-"></a>How do I make the output all colorful and <em>pretty</em>?</h3>
-<p>Install <strong><a href="https://github.com/feross/snazzy">snazzy</a></strong>:</p>
+<p>The built-in output is simple and straightforward, but if you like shiny things,
+install <a href="https://www.npmjs.com/package/snazzy">snazzy</a>:</p>
 <pre class="hljs"><code>npm <span class="hljs-keyword">install</span> snazzy</code></pre><p>And run:</p>
-<pre class="hljs"><code>$ standard --verbose | snazzy</code></pre><h3 id="i-want-to-contribute-to-standard-what-packages-should-i-know-about-"><a class="header-link" href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about-"></a>I want to contribute to <code>standard</code>. What packages should I know about?</h3>
+<pre class="hljs"><code>$ standard --verbose | snazzy</code></pre><p>There&#39;s also <a href="https://www.npmjs.com/package/standard-tap">standard-tap</a>, <a href="https://www.npmjs.com/package/standard-json">standard-json</a>, and <a href="https://www.npmjs.com/package/standard-reporter">standard-reporter</a></p>
+<h3 id="i-want-to-contribute-to-standard-what-packages-should-i-know-about-"><a class="header-link" href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about-"></a>I want to contribute to <code>standard</code>. What packages should I know about?</h3>
 <ul class="list">
 <li><strong><a href="https://github.com/eslint/eslint">eslint</a></strong> - the linter that powers standard</li>
 <li><strong><a href="https://github.com/feross/standard">standard</a></strong> - this repo<ul class="list">
