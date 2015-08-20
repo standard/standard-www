@@ -21,6 +21,7 @@ if (sh.test('-d', stdPath)) {
 
 sh.rm('-rf', buildPath)
 sh.rm('-rf', mdPath)
+
 sh.mkdir(buildPath)
 sh.mkdir(mdPath)
 sh.cp('-f', path.join(stdPath, '*.md'), mdPath)
@@ -35,5 +36,7 @@ sh.sed('-i', /RULES\.md/g, 'rules.html', path.join(buildPath, 'README.html'))
 sh.mv('-f', path.join(buildPath, 'README.html'), path.join(buildPath, 'index.html'))
 sh.mv('-f', path.join(buildPath, 'RULES.html'), path.join(buildPath, 'rules.html'))
 
-// copy CNAME to build
-sh.cp('CNAME', buildPath)
+// once everything is built, copy it to root
+sh.rm('../*.html')
+sh.rm('-rf', '../assets')
+sh.cp('-Rf', path.resolve(buildPath, '*'), path.resolve(__dirname, '..'))

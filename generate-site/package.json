@@ -9,8 +9,8 @@
     "browser-sync": "^2.8.0",
     "ecstatic": "^0.8.0",
     "markdown-styles": "^2.4.0",
-    "shelljs": "^0.5.1",
-    "standard": "*"
+    "semistandard": "^7.0.2",
+    "shelljs": "^0.5.1"
   },
   "homepage": "https://github.com/feross/standard-www",
   "keywords": [
@@ -21,16 +21,15 @@
     "www"
   ],
   "license": "ISC",
-  "private":true,
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/feross/standard-www.git"
   },
   "scripts": {
-    "deploy": "git subtree push --prefix build origin gh-pages",
     "build": "node gensite.js",
-    "serve": "ecstatic ./build",
     "md": "generate-md --layout ./layout --input ./tmp/markdown --output ./build",
+    "serve": "ecstatic ..",
     "test": "standard"
   }
 }
