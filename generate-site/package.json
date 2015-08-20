@@ -21,13 +21,14 @@
     "www"
   ],
   "license": "ISC",
+  "main": "gensite.js",
   "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/feross/standard-www.git"
   },
   "scripts": {
-    "build": "node gensite.js",
+    "start": "node gensite.js",
     "md": "generate-md --layout ./layout --input ./tmp/markdown --output ./build",
     "serve": "ecstatic ..",
     "test": "standard"
