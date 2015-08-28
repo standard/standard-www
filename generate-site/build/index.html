@@ -76,6 +76,7 @@ Error: Use JavaScript Standard Style
 <p>For automatic formatting on save, install <strong><a href="https://packagecontrol.io/packages/StandardFormat">StandardFormat</a></strong>.</p>
 <h4 id="-atom-https-atom-io-"><a class="header-link" href="#-atom-https-atom-io-"></a><a href="https://atom.io">Atom</a></h4>
 <p>Install <strong><a href="https://atom.io/packages/linter">Linter</a></strong> and <strong><a href="https://atom.io/packages/linter-js-standard">linter-js-standard</a></strong>.</p>
+<p>For automatic formatting, install <strong><a href="https://atom.io/packages/standard-formatter">standard-formatter</a></strong>.</p>
 <h4 id="-vim-http-www-vim-org-"><a class="header-link" href="#-vim-http-www-vim-org-"></a><a href="http://www.vim.org/">Vim</a></h4>
 <p>Install <strong><a href="https://github.com/scrooloose/syntastic">Syntastic</a></strong> and add this line to <code>.vimrc</code>:</p>
 <pre class="hljs"><code><span class="hljs-keyword">let</span> <span class="hljs-variable">g:syntastic_javascript_checkers</span> = [<span class="hljs-string">'standard'</span>]</code></pre><p>For automatic formatting on save, add these two lines to <code>.vimrc</code>:</p>
@@ -181,17 +182,17 @@ global in your code, add this to the top of your file:</p>
 <pre class="hljs"><code>/<span class="hljs-keyword">*</span> global myVar1, myVar2 <span class="hljs-keyword">*</span>/</code></pre><p>If you have hundreds of files, adding comments to every file can be tedious. In these
 cases, you can add this to <code>package.json</code>:</p>
 <pre class="hljs"><code>{
-  <span class="hljs-string">"standard"</span>: {
-    <span class="hljs-string">"global"</span>: [ <span class="hljs-string">"myVar1"</span>, <span class="hljs-string">"myVar2"</span> ]
-  }
-}</code></pre><h3 id="can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"><a class="header-link" href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"></a>Can I use a custom JS parser for bleeding-edge ES6 or ES7 support?</h3>
+  "<span class="hljs-attribute">standard</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">global</span>": <span class="hljs-value">[ <span class="hljs-string">"myVar1"</span>, <span class="hljs-string">"myVar2"</span> ]
+  </span>}
+</span>}</code></pre><h3 id="can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"><a class="header-link" href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support-"></a>Can I use a custom JS parser for bleeding-edge ES6 or ES7 support?</h3>
 <p><code>standard</code> supports custom JS parsers. To use a custom parser, install it from npm
 (example: <code>npm install babel-eslint</code>) and add this to your <code>package.json</code>:</p>
 <pre class="hljs"><code>{
-  <span class="hljs-string">"standard"</span>: {
-    <span class="hljs-string">"parser"</span>: <span class="hljs-string">"babel-eslint"</span>
-  }
-}</code></pre><p>If you&#39;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also need to
+  "<span class="hljs-attribute">standard</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">parser</span>": <span class="hljs-value"><span class="hljs-string">"babel-eslint"</span>
+  </span>}
+</span>}</code></pre><p>If you&#39;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also need to
 install <code>babel-eslint</code> globally with <code>npm install babel-eslint -g</code>.</p>
 <h3 id="can-you-make-rule-x-configurable-"><a class="header-link" href="#can-you-make-rule-x-configurable-"></a>Can you make rule X configurable?</h3>
 <p>No. The point of <code>standard</code> is to save you time by picking reasonable rules so you can
@@ -244,11 +245,11 @@ install <a href="https://www.npmjs.com/package/snazzy">snazzy</a>:</p>
 <h3 id="-standard-linttext-text-opts-callback-"><a class="header-link" href="#-standard-linttext-text-opts-callback-"></a><code>standard.lintText(text, [opts], callback)</code></h3>
 <p>Lint the provided source <code>text</code> to enforce JavaScript Standard Style. An <code>opts</code> object may
 be provided:</p>
-<pre class="hljs"><code>{
+<pre class="hljs"><code><span class="hljs-keyword">var</span> opts = {
   globals: [],  <span class="hljs-comment">// global variables to declare</span>
   parser: <span class="hljs-string">''</span>    <span class="hljs-comment">// custom js parser (e.g. babel-eslint)</span>
 }</code></pre><p>The <code>callback</code> will be called with an <code>Error</code> and <code>results</code> object:</p>
-<pre class="hljs"><code>{
+<pre class="hljs"><code><span class="hljs-keyword">var</span> results = {
   results: [
     {
       filePath: <span class="hljs-string">''</span>,
@@ -263,7 +264,7 @@ be provided:</p>
   warningCount: <span class="hljs-number">0</span>
 }</code></pre><h3 id="-standard-lintfiles-files-opts-callback-"><a class="header-link" href="#-standard-lintfiles-files-opts-callback-"></a><code>standard.lintFiles(files, [opts], callback)</code></h3>
 <p>Lint the provided <code>files</code> globs. An <code>opts</code> object may be provided:</p>
-<pre class="hljs"><code>{
+<pre class="hljs"><code><span class="hljs-keyword">var</span> opts = {
   globals: [],  <span class="hljs-comment">// global variables to declare</span>
   parser: <span class="hljs-string">''</span>,   <span class="hljs-comment">// custom js parser (e.g. babel-eslint)</span>
   ignore: [],   <span class="hljs-comment">// file globs to ignore (has sane defaults)</span>
@@ -273,7 +274,8 @@ be provided:</p>
 <p>MIT. Copyright (c) <a href="http://feross.org">Feross Aboukhadijeh</a>.</p>
 </div><nav>
 <ul>
-    <li><a href="index.html#">Home</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="demo.html">Try It Out</a></li>
     <li><a href="index.html#install">Install</a></li>
     <li><a href="index.html#rules">Rules</a></li>
     <li><a href="index.html#badge">Badge</a></li>
