@@ -11,31 +11,97 @@
   </head>
 <body>
 <div class="content"><h1 id="javascript-standard-style"><a class="header-link" href="#javascript-standard-style"></a>JavaScript Standard Style</h1>
-<p>Right now, the best way to learn about <code>standard</code> is to just install it and give it a try
-on your code. Over time, we hope to enumerate all the rules here. So far, only the most
-important rules are listed here. Please send PRs!</p>
-<h2 id="high-level-rules"><a class="header-link" href="#high-level-rules"></a>High-Level Rules</h2>
+<p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg" alt="js-standard-style"></a></p>
+<p>This is a TL;DR of the <a href="https://github.com/feross/standard">standard</a> JavaScript
+rules.</p>
+<p>The best way to learn about <code>standard</code> is to just install it and give it a try on
+your code.</p>
+<h2 id="rules"><a class="header-link" href="#rules"></a>Rules</h2>
 <ul class="list">
-<li><strong>2 spaces</strong> – for indentation</li>
-<li><strong>Single quotes for strings</strong> – except to avoid escaping</li>
-<li><strong>No unused variables</strong> – this one catches <em>tons</em> of bugs!</li>
-<li><strong>No semicolons</strong> – <a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">It&#39;s</a> <a href="http://inimino.org/~inimino/blog/javascript_semicolons">fine.</a> <a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">Really!</a></li>
-<li><strong>Never start a line with <code>(</code> or <code>[</code></strong><ul class="list">
-<li>This is the <strong>only</strong> gotcha with omitting semicolons – <em>automatically checked for you!</em></li>
+<li><p><strong>Use 2 spaces</strong> for indentation.</p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hello</span> <span class="hljs-params">(name)</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hi'</span>, name)
+}</code></pre></li>
+<li><p><strong>Use single quotes for strings</strong> except to avoid escaping.</p>
+<pre class="hljs"><code><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello there'</span>)
+$(<span class="hljs-string">"&lt;div class='box'&gt;"</span>)</code></pre></li>
+<li><p><strong>No unused variables.</strong></p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myFunction</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">var</span> result = something()   <span class="hljs-comment">// ✗ avoid</span>
+}</code></pre></li>
+<li><p><strong>Add a space after keywords.</strong></p>
+<pre class="hljs"><code><span class="hljs-keyword">if</span> (condition) { ... }   <span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span>(condition) { ... }    <span class="hljs-comment">// ✗ avoid</span></code></pre></li>
+<li><p><strong>Add a space after function names.</strong></p>
+<pre class="hljs"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span> <span class="hljs-params">(arg)</span> </span>{ ... }   <span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span><span class="hljs-params">(arg)</span> </span>{ ... }    <span class="hljs-comment">// ✗ avoid</span>
+
+run(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ ... })      <span class="hljs-comment">// ✓ ok</span>
+run(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{ ... })       <span class="hljs-comment">// ✗ avoid</span></code></pre></li>
+<li><p><strong>Always use</strong> <code>===</code> instead of <code>==</code>.<br>
+Exception: <code>obj == null</code> is allowed to check for <code>null || undefined</code>.</p>
+<pre class="hljs"><code><span class="hljs-keyword">if</span> (name === <span class="hljs-string">'John'</span>)   <span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span> (name == <span class="hljs-string">'John'</span>)    <span class="hljs-comment">// ✗ avoid</span></code></pre><pre class="hljs"><code><span class="hljs-keyword">if</span> (name !== <span class="hljs-string">'John'</span>)   <span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span> (name != <span class="hljs-string">'John'</span>)    <span class="hljs-comment">// ✗ avoid</span></code></pre></li>
+<li><p><strong>Infix operators</strong> must be spaced.</p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> message = <span class="hljs-string">'hello, '</span> + name + <span class="hljs-string">'!'</span>;</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
+<span class="hljs-keyword">var</span> x=<span class="hljs-number">2</span>;
+<span class="hljs-keyword">var</span> message = <span class="hljs-string">'hello, '</span>+name+<span class="hljs-string">'!'</span>;</code></pre></li>
+<li><p><strong>Commas should have a space</strong> after it.</p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">var</span> list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span> <span class="hljs-params">(name, options)</span> </span>{ ... }</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
+<span class="hljs-keyword">var</span> list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span> <span class="hljs-params">(name,options)</span> </span>{ ... }</code></pre></li>
+<li><p><strong>Keep else statements</strong> in the same line as its curly braces.</p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span> (condition) {
+  <span class="hljs-comment">// ...</span>
+} <span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// ...</span>
+}</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
+<span class="hljs-keyword">if</span> (condition) {
+  <span class="hljs-comment">// ...</span>
+}
+<span class="hljs-keyword">else</span> {
+  <span class="hljs-comment">// ...</span>
+}</code></pre></li>
+<li><p><strong>For multi-line if statements,</strong> use curly braces.</p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span> (options.quiet !== <span class="hljs-literal">true</span>) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done'</span>)</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">if</span> (options.quiet !== <span class="hljs-literal">true</span>) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done'</span>)
+}</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
+<span class="hljs-keyword">if</span> (options.quiet !== <span class="hljs-literal">true</span>)
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'done'</span>)</code></pre></li>
+<li><p><strong>Always handle the</strong> <code>err</code> function parameter.</p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+run(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err
+  <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'done'</span>)
+})
+
+<span class="hljs-comment">// ✗ avoid</span>
+run(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+  <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'done'</span>)
+})</code></pre></li>
+<li><p><strong>Always prefix browser globals</strong> with <code>window.</code>.<br>
+Exceptions are: <code>document</code>, <code>console</code> and <code>navigator</code>.</p>
+<pre class="hljs"><code><span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>)   <span class="hljs-comment">// ✓ ok</span></code></pre></li>
 </ul>
-</li>
-<li><strong>Space after keywords</strong> <code>if (condition) { ... }</code></li>
-<li><strong>Space after function name</strong> <code>function name (arg) { ... }</code></li>
-<li>Always use <code>===</code> instead of <code>==</code> – but <code>obj == null</code> is allowed to check <code>null || undefined</code>.</li>
-<li>Always handle the node.js <code>err</code> function parameter</li>
-<li>Always prefix browser globals with <code>window</code> – except <code>document</code> and <code>navigator</code> are okay<ul class="list">
-<li>Prevents accidental use of poorly-named browser globals like <code>open</code>, <code>length</code>,
-<code>event</code>, and <code>name</code>.</li>
+<h2 id="semicolons"><a class="header-link" href="#semicolons"></a>Semicolons</h2>
+<ul class="list">
+<li><p>No semicolons. (see: <a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">1</a>, <a href="http://inimino.org/%7Einimino/blog/javascript_semicolons">2</a>, <a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">3</a>)</p>
+<pre class="hljs"><code><span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>)   <span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>);  <span class="hljs-comment">// ✗ avoid</span></code></pre></li>
+<li><p>Never start a line with <code>(</code> or <code>[</code>. This is the only gotcha with omitting semicolons. (see: <a href="https://github.com/feross/standard/blob/master/RULES.md#automatic-semicolon-insertion-asi">1</a>)</p>
+<pre class="hljs"><code>;(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'ok'</span>)
+}())</code></pre></li>
 </ul>
-</li>
-</ul>
-<h2 id="automatic-semicolon-insertion-asi-"><a class="header-link" href="#automatic-semicolon-insertion-asi-"></a>Automatic semicolon insertion (ASI)</h2>
-<h5 id="required-reading-"><a class="header-link" href="#required-reading-"></a>Required reading:</h5>
+<h2 id="required-reading"><a class="header-link" href="#required-reading"></a>Required reading</h2>
 <ul class="list">
 <li><a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">An Open Letter to JavaScript Leaders Regarding Semicolons</a></li>
 <li><a href="http://inimino.org/~inimino/blog/javascript_semicolons">JavaScript Semicolon Insertion – Everything you need to know</a></li>
@@ -67,6 +133,7 @@ binary operator that can only be found between two tokens in a single expression
 <pre class="hljs"><code>foo()
 ;[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].forEach(bar)</code></pre><p>The advantage is that the prefixes are easier to notice, once you are accustomed to never seeing lines starting with <code>(</code> or <code>[</code> without semis.</p>
 <p><em>End quote from &quot;An Open Letter to JavaScript Leaders Regarding Semicolons&quot;.</em></p>
+<h2 id="tips"><a class="header-link" href="#tips"></a>Tips</h2>
 <h3 id="avoid-clever-short-hands"><a class="header-link" href="#avoid-clever-short-hands"></a>Avoid clever short-hands</h3>
 <p>Clever short-hands are discouraged, in favor of clear and readable expressions, whenever
 possible. So, while this is allowed:</p>
@@ -77,13 +144,10 @@ nums.forEach(bar)</code></pre></div><nav>
     <li><a href="index.html">Home</a></li>
     <li><a href="demo.html">Try It Out</a></li>
     <li><a href="index.html#install">Install</a></li>
-    <li><a href="index.html#rules">Rules</a></li>
-    <li><a href="index.html#badge">Badge</a></li>
+    <li><a href="rules.html">Rules</a></li>
     <li><a href="index.html#usage">Usage</a></li>
     <li><a href="index.html#faq">FAQ</a></li>
-    <li><a href="index.html#api-usage">API Usage</a></li>
     <li><a href="awesome.html">Ecosystem</a></li>
-    <li><a href="index.html#license">License</a></li>
     <li><a href="https://github.com/feross/standard">Github</a>
 </ul>
 <nav>
