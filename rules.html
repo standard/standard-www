@@ -49,13 +49,13 @@ Exception: <code>obj == null</code> is allowed to check for <code>null || undefi
 <span class="hljs-keyword">var</span> message = <span class="hljs-string">'hello, '</span> + name + <span class="hljs-string">'!'</span>;</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
 <span class="hljs-keyword">var</span> x=<span class="hljs-number">2</span>;
 <span class="hljs-keyword">var</span> message = <span class="hljs-string">'hello, '</span>+name+<span class="hljs-string">'!'</span>;</code></pre></li>
-<li><p><strong>Commas should have a space</strong> after it.</p>
+<li><p><strong>Commas should have a space</strong> after them.</p>
 <pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
 <span class="hljs-keyword">var</span> list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span> <span class="hljs-params">(name, options)</span> </span>{ ... }</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
 <span class="hljs-keyword">var</span> list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span> <span class="hljs-params">(name,options)</span> </span>{ ... }</code></pre></li>
-<li><p><strong>Keep else statements</strong> in the same line as its curly braces.</p>
+<li><p><strong>Keep else statements</strong> on the same line as their curly braces.</p>
 <pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
 <span class="hljs-keyword">if</span> (condition) {
   <span class="hljs-comment">// ...</span>
@@ -81,21 +81,30 @@ Exception: <code>obj == null</code> is allowed to check for <code>null || undefi
 run(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
   <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err
   <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'done'</span>)
-})
-
-<span class="hljs-comment">// ✗ avoid</span>
+})</code></pre><pre class="hljs"><code><span class="hljs-comment">// ✗ avoid</span>
 run(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
   <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'done'</span>)
 })</code></pre></li>
 <li><p><strong>Always prefix browser globals</strong> with <code>window.</code>.<br>
 Exceptions are: <code>document</code>, <code>console</code> and <code>navigator</code>.</p>
 <pre class="hljs"><code><span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>)   <span class="hljs-comment">// ✓ ok</span></code></pre></li>
+<li><p><strong>Multiple blank lines not allowed.</strong></p>
+<pre class="hljs"><code><span class="hljs-comment">// ✓ ok</span>
+<span class="hljs-keyword">var</span> value = <span class="hljs-string">'hello world'</span>
+<span class="hljs-built_in">console</span>.log(value)</code></pre><p>```js
+// ✗ avoid
+var value = &#39;hello world&#39;</p>
+</li>
 </ul>
-<h2 id="semicolons"><a class="header-link" href="#semicolons"></a>Semicolons</h2>
-<ul class="list">
-<li><p>No semicolons. (see: <a href="http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding">1</a>, <a href="http://inimino.org/%7Einimino/blog/javascript_semicolons">2</a>, <a href="https://www.youtube.com/watch?v=gsfbh17Ax9I">3</a>)</p>
-<pre class="hljs"><code><span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>)   <span class="hljs-comment">// ✓ ok</span>
-<span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'hi'</span>);  <span class="hljs-comment">// ✗ avoid</span></code></pre></li>
+<p>  console.log(value)</p>
+<pre class="hljs"><code>
+<span class="hljs-header">## Semicolons</span>
+
+<span class="hljs-bullet">* </span>No semicolons. (see: [<span class="hljs-link_label">1</span>](<span class="hljs-link_url">http://blog.izs.me/post/2353458699/an-open-letter-to-javascript-leaders-regarding</span>), [<span class="hljs-link_label">2</span>](<span class="hljs-link_url">http://inimino.org/%7Einimino/blog/javascript_semicolons</span>), [<span class="hljs-link_label">3</span>](<span class="hljs-link_url">https://www.youtube.com/watch?v=gsfbh17Ax9I</span>))
+
+  <span class="hljs-code">```</span>js
+  window.alert('hi')   // ✓ ok
+  window.alert('hi');  // ✗ avoid</code></pre><ul class="list">
 <li><p>Never start a line with <code>(</code> or <code>[</code>. This is the only gotcha with omitting semicolons. (see: <a href="https://github.com/feross/standard/blob/master/RULES.md#automatic-semicolon-insertion-asi">1</a>)</p>
 <pre class="hljs"><code>;(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
   <span class="hljs-built_in">window</span>.alert(<span class="hljs-string">'ok'</span>)

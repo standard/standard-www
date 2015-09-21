@@ -26,7 +26,14 @@ Paste your code here to validate using JavaScript Standard Style. Press "Format 
     text-align: center;
     font-weight: bold;
   }
-
+ .versioninfo {
+    padding: 5px;
+    margin: 5px;
+    background-color: lightblue;
+    border:1px solid darkblue;
+    font-weight: bold;
+    font-size: 12pt;
+  }
   #javascript-editor {
     display: inline-block;
     width: 650px;
