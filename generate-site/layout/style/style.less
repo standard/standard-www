@@ -21,35 +21,35 @@ https://github.com/AndrewBelt/WiTeX
 	font-family: 'Latin Modern Roman';
 	font-weight: normal;
 	font-style: normal;
-	src: url('../fonts/lmroman10-regular.woff') format('woff');
+	src: url('fonts/lmroman10-regular.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Latin Modern Roman';
 	font-weight: bold;
 	font-style: normal;
-	src: url('../fonts/lmroman10-bold.woff') format('woff');
+	src: url('fonts/lmroman10-bold.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Latin Modern Roman';
 	font-weight: normal;
 	font-style: italic;
-	src: url('../fonts/lmroman10-italic.woff') format('woff');
+	src: url('fonts/lmroman10-italic.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Latin Modern Roman';
 	font-weight: bold;
 	font-style: italic;
-	src: url('../fonts/lmroman10-bolditalic.woff') format('woff');
+	src: url('fonts/lmroman10-bolditalic.woff') format('woff');
 }
 
 /* Page Layout */
 
 body {
   background-color: white;
-  font-size: 15pt;
+  font-size: 20px;
 }
 
 body {
@@ -60,6 +60,13 @@ h1, h2, h3, h4, h5, h6 {
 	border: none;
 	font-weight: bold;
 	margin-top:3em;
+}
+
+.deep-link {
+	a, a:visited {
+		text-decoration: none;
+		color: black;
+	}
 }
 
 body > div > p:nth-child(2) {
@@ -118,4 +125,12 @@ ul {
 dl dd {
 	/* center definitions (most useful for display equations) */
 	text-align: center;
+}
+
+.editor {
+	overflow-x: auto;
+}
+
+.highlight {
+	font-size: 18px;
 }

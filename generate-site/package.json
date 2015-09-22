@@ -1,13 +1,16 @@
 {
   "name": "standard-www",
-  "description": "Website for feross/standard",
+  "description": "Website for feross/standard - http://www.standardjs.com",
   "version": "1.0.0",
   "bugs": {
     "url": "https://github.com/feross/standard-www/issues"
   },
   "devDependencies": {
     "browser-sync": "^2.8.0",
+    "browserify": "^11.2.0",
+    "catw": "^1.0.1",
     "ecstatic": "^0.8.0",
+    "less": "^2.5.3",
     "markdown-styles": "^2.4.0",
     "semistandard": "^7.0.2",
     "shelljs": "^0.5.1"
@@ -28,9 +31,17 @@
     "url": "https://github.com/feross/standard-www.git"
   },
   "scripts": {
-    "start": "node gensite.js",
-    "md": "generate-md --layout ./layout --input ./tmp/markdown --output ./build",
+    "build-css": "catw -c 'lessc --include-path=layout/style -' 'layout/style/*.less' > ../main.css && cp -a layout/fonts ../fonts",
+    "build-html": "node gensite.js",
+    "build-js": "browserify browser/app.js > ../standard-www.js",
+    "start": "npm run build-css && npm run build-html && npm run build-js",
     "serve": "ecstatic ..",
     "test": "standard"
+  },
+  "dependencies": {
+    "github-slugger": "^1.0.0",
+    "handlebars": "^4.0.3",
+    "marky-deep-links": "^1.0.0",
+    "marky-markdown": "flet/marky-markdown#bananaslug"
   }
 }
