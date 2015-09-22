@@ -12,7 +12,7 @@
 <body>
 <div class="content"><h1 id="try-it-out"><a class="header-link" href="#try-it-out"></a>Try it out</h1>
 <p>Paste your code here to validate using JavaScript Standard Style. Press &quot;Format Code&quot; to reformat code automatically!</p>
-<p><div id="javascript-editor" class="editor"></div><div id="messages"></div></p>
+<p><div id="versioninfo"></div><div id="javascript-editor" class="editor"></div><div id="messages"></div></p>
 <p><script src="bundle.js"></script></p>
 <style>
   .content {
@@ -22,39 +22,38 @@
   div#messages {
     display: inline-block;
     vertical-align: top;
-    width:300px;
+    width:280px;
   }
   .message {
     padding: 10px;
     margin: 5px;
     background-color: lightyellow;
     border:1px solid burlywood;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: auto;
   }
-  .message.success {
+  .success {
     background-color: lightgreen;
     border:1px solid darkgreen;
     text-align: center;
     font-weight: bold;
   }
- .versioninfo {
-    padding: 5px;
-    margin: 5px;
-    background-color: lightblue;
-    border:1px solid darkblue;
-    font-weight: bold;
-    font-size: 12pt;
+  #versioninfo {
+    font-size: 9pt;
   }
+
   #javascript-editor {
     display: inline-block;
-    width: 650px;
+    width: 670px;
     height: 600px;
     font-size:16px;
   }
 
   button {
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
-  }
+  }      
 </style>
 </div><nav>
 <ul>
