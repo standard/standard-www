@@ -48,10 +48,9 @@ var files = sh.ls(mdPath)
 files.forEach(function (file) {
   var fileData = fs.readFileSync(join(mdPath, file), 'utf8')
   var name = path.parse(file).name
-  var gen = name === 'demo'? genDemo : genPage
+  var gen = name === 'demo' ? genDemo : genPage
 
   var htmlData = gen({data: fileData})
-  
   var fileName = slugger.slug(name) + '.html'
 
   fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
