@@ -32,7 +32,7 @@ by eliminating back-and-forth between maintainer and contributor.</li>
 <li><strong>Never start a line with <code>(</code> or <code>[</code></strong>
 <ul>
 <li>This is the <strong>only</strong> gotcha with omitting semicolons &#x2013; <em>automatically checked for you!</em></li>
-<li><a href="rules.html#automatic-semicolon-insertion-asi">More details</a></li>
+<li><a href="rules.html#semicolons">More details</a></li>
 </ul>
 </li>
 <li><strong>Space after keywords</strong> <code>if (condition) { ... }</code></li>
@@ -57,8 +57,8 @@ in JavaScript Standard Style, or check out some of
 let people know that your code is using the standard style.</p>
 <p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg"></a></p>
 <pre><code class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>js-standard-style</span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>https://cdn.rawgit.com/feross/standard/master/badge.svg</span><span class="punctuation end gfm"><span>)</span></span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>https://github.com/feross/standard</span><span class="punctuation end gfm"><span>)</span></span></span></span></span></div></pre></code></pre>
-<p class="badge-only"><a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat" class="badge"></a></p>
-<pre><code class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>js-standard-style</span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat</span><span class="punctuation end gfm"><span>)</span></span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>http://standardjs.com/</span><span class="punctuation end gfm"><span>)</span></span></span></span></span></div></pre></code></pre>
+<p class="badge-only"><a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" class="badge"></a></p>
+<pre><code class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>js-standard-style</span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>https://img.shields.io/badge/code%20style-standard-brightgreen.svg</span><span class="punctuation end gfm"><span>)</span></span></span><span class="punctuation end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation begin gfm"><span>(</span></span><span>http://standardjs.com/</span><span class="punctuation end gfm"><span>)</span></span></span></span></span></div></pre></code></pre>
 <h2 id="user-content-usage" class="deep-link"><a href="#usage">Usage</a></h2>
 <p>The easiest way to use JavaScript Standard Style to check your code is to install it
 globally as a Node command line program. To do so, simply run the following command in
@@ -91,6 +91,9 @@ For snippets, install <strong><a href="https://atom.io/packages/standardjs-snipp
 enable it in your projects.</p>
 <h4><a href="http://brackets.io/">Brackets</a></h4>
 <p>Search the extension registry for <strong><a href="https://github.com/ishamf/brackets-standard/">&quot;Standard Code Style&quot;</a></strong>.</p>
+<h4><a href="https://code.visualstudio.com/">Visual Studio Code</a></h4>
+<p>Install <strong><a href="https://marketplace.visualstudio.com/items/chenxsan.vscode-standardjs">vscode-standardjs</a></strong>.</p>
+<p>For automatic formatting, install <strong><a href="https://marketplace.visualstudio.com/items/chenxsan.vscode-standard-format">vscode-standard-format</a></strong>.</p>
 <h3 id="user-content-what-you-might-do-if-youre-clever" class="deep-link"><a href="#what-you-might-do-if-youre-clever">What you might do if you&apos;re clever</a></h3>
 <ol>
 <li>Add it to <code>package.json</code></li>
@@ -224,9 +227,13 @@ install <a href="https://www.npmjs.com/package/snazzy">snazzy</a>:</p>
 </ul>
 </li>
 <li><strong><a href="https://github.com/feross/snazzy">snazzy</a></strong> - pretty terminal output for standard</li>
+<li><strong><a href="https://github.com/feross/standard-www">standard-www</a></strong> - code for http://standardjs.com</li>
 <li><strong><a href="https://github.com/Flet/semistandard">semistandard</a></strong> - standard, with semicolons (if you must)</li>
 </ul>
-<p>There are also many <a href="https://github.com/feross/standard#text-editor-plugins">editor plugins</a> and other <a href="https://github.com/feross/awesome-standard">awesome standard packages</a>.</p>
+<p>There are also many <strong><a href="#text-editor-plugins">editor plugins</a></strong>, a list of
+<strong><a href="https://github.com/feross/standard-packages">npm packages that use <code>standard</code></a></strong>, and
+an awesome list of
+<strong><a href="https://github.com/feross/awesome-standard">packages in the <code>standard</code> ecosystem</a></strong>.</p>
 <h2 id="user-content-nodejs-api" class="deep-link"><a href="#nodejs-api">Node.js API</a></h2>
 <h3 id="user-content-standardlinttexttext-opts-callback" class="deep-link"><a href="#standardlinttexttext-opts-callback"><code>standard.lintText(text, [opts], callback)</code></a></h3>
 <p>Lint the provided source <code>text</code> to enforce JavaScript Standard Style. An <code>opts</code> object may
