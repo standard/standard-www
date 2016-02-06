@@ -7,15 +7,32 @@ var rehash = require('marky-deep-links')
 
 rehash()
 
-},{"marky-deep-links":7}],2:[function(require,module,exports){
-module.exports = function(arr, obj){
-  if (arr.indexOf) return arr.indexOf(obj);
-  for (var i = 0; i < arr.length; ++i) {
-    if (arr[i] === obj) return i;
-  }
-  return -1;
-};
-},{}],3:[function(require,module,exports){
+},{"marky-deep-links":2}],2:[function(require,module,exports){
+module.exports = markyDeepLinks
+
+var hashchange = require('hashchange')
+var domReady = require('detect-dom-ready')
+
+function markyDeepLinks (prefix) {
+  hashchange.update(function (hash) {
+    var prefix = prefix || 'user-content-'
+
+    if (hash.indexOf(prefix) === 0) {
+      hashchange.updateHash(hash.replace(prefix, ''))
+    } else {
+      var anchor = document.getElementById(prefix + hash)
+      if (anchor) {
+        window.scrollTo(window.scrollX, anchor.getBoundingClientRect().top + window.scrollY)
+      }
+    }
+  })
+
+  domReady(function () {
+    hashchange.update()
+  })
+}
+
+},{"detect-dom-ready":3,"hashchange":5}],3:[function(require,module,exports){
 /*
  * detect-dom-ready
  * http://github.amexpub.com/modules/detect-dom-ready
@@ -73,30 +90,6 @@ module.exports = function(callback){
     }
 };
 },{}],5:[function(require,module,exports){
-
-var hasOwn = Object.prototype.hasOwnProperty;
-var toString = Object.prototype.toString;
-
-module.exports = function forEach (obj, fn, ctx) {
-    if (toString.call(fn) !== '[object Function]') {
-        throw new TypeError('iterator must be a function');
-    }
-    var l = obj.length;
-    if (l === +l) {
-        for (var i = 0; i < l; i++) {
-            fn.call(ctx, obj[i], i, obj);
-        }
-    } else {
-        for (var k in obj) {
-            if (hasOwn.call(obj, k)) {
-                fn.call(ctx, obj[k], k, obj);
-            }
-        }
-    }
-};
-
-
-},{}],6:[function(require,module,exports){
 var each = require('each'),
 	indexOf = require('indexof');
 
@@ -187,29 +180,36 @@ hashChange = new HashChange();
 
 module.exports = hashChange;
 
-},{"each":5,"indexof":2}],7:[function(require,module,exports){
-module.exports = markyDeepLinks
+},{"each":7,"indexof":6}],6:[function(require,module,exports){
+module.exports = function(arr, obj){
+  if (arr.indexOf) return arr.indexOf(obj);
+  for (var i = 0; i < arr.length; ++i) {
+    if (arr[i] === obj) return i;
+  }
+  return -1;
+};
+},{}],7:[function(require,module,exports){
 
-var hashchange = require('hashchange')
-var domReady = require('detect-dom-ready')
+var hasOwn = Object.prototype.hasOwnProperty;
+var toString = Object.prototype.toString;
 
-function markyDeepLinks (prefix) {
-  hashchange.update(function (hash) {
-    var prefix = prefix || 'user-content-'
-
-    if (hash.indexOf(prefix) === 0) {
-      hashchange.updateHash(hash.replace(prefix, ''))
-    } else {
-      var anchor = document.getElementById(prefix + hash)
-      if (anchor) {
-        window.scrollTo(window.scrollX, anchor.getBoundingClientRect().top + window.scrollY)
-      }
+module.exports = function forEach (obj, fn, ctx) {
+    if (toString.call(fn) !== '[object Function]') {
+        throw new TypeError('iterator must be a function');
     }
-  })
+    var l = obj.length;
+    if (l === +l) {
+        for (var i = 0; i < l; i++) {
+            fn.call(ctx, obj[i], i, obj);
+        }
+    } else {
+        for (var k in obj) {
+            if (hasOwn.call(obj, k)) {
+                fn.call(ctx, obj[k], k, obj);
+            }
+        }
+    }
+};
 
-  domReady(function () {
-    hashchange.update()
-  })
-}
 
-},{"detect-dom-ready":3,"hashchange":6}]},{},[1]);
+},{}]},{},[1]);
