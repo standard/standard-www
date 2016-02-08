@@ -64,7 +64,7 @@ sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
 // once everything is built, copy it to root
 sh.rm('../*.html')
-sh.cp('-Rf', resolve(buildPath, '*'), resolve(__dirname, '..'))
+sh.cp('-R', buildPath + '/', resolve(__dirname, '..'))
 
 // copy standard-demo bundle.js to root
 sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, '..', 'standard-demo.js'))
