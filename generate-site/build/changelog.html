@@ -49,7 +49,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <li>Ensure that <code>new Promise()</code> is instantiated with the parameter names
 <code>resolve</code>, <code>reject</code> (<a href="https://github.com/feross/standard/issues/282">#282</a>) (<a href="https://github.com/xjamundx/eslint-plugin-promise#param-names">promise/param-names</a>) [1%]</li>
 <li>Enforce Usage of Spacing in Template Strings (<a href="http://eslint.org/docs/2.0.0/rules/template-curly-spacing">template-curly-spacing</a>) [1%]</li>
-<li>Template strings are only allowed when necessary, i.e. template&#xA0;string features are being used (eslint got stricter: https://github.com/eslint/eslint/issues/5147) [1%]</li>
+<li>Template strings are only allowed when necessary, i.e. template&#xA0;string features are being used (eslint got stricter: <a href="https://github.com/eslint/eslint/issues/5147">https://github.com/eslint/eslint/issues/5147</a>) [1%]</li>
 <li>Better dead code detection after conditional statements (eslint got stricter) [1%]</li>
 <li>Enforce spaces around <code>*</code> in <code>yield * something</code> (<a href="https://github.com/feross/standard/issues/335">#335</a>) (<a href="http://eslint.org/docs/2.0.0/rules/yield-star-spacing">yield-star-spacing</a>) [0%]</li>
 <li>Disallow labels on loops/switch statements too (made rule stricter) (<a href="http://eslint.org/docs/2.0.0/rules/no-labels.html">no-labels</a>) [0%]</li>
@@ -72,7 +72,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 </ul>
 <p>To set custom ESLint plugins, rules, or envs, use the command line <code>--plugin</code>, <code>--rules</code>, and <code>--env</code> flags.</p>
 <p>In <code>package.json</code>, use the &quot;standard&quot; property:</p>
-<pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation string begin json"><span>&quot;</span></span><span>plugins</span><span class="punctuation string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation array begin json"><span>[</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation string begin json"><span>&quot;</span></span><span>my-plugin</span><span class="punctuation string end json"><span>&quot;</span></span></span><span>&#xA0;</span><span class="punctuation array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation dictionary end json"><span>}</span></span></span></span></div></pre>
+<pre><code class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>plugins</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>my-plugin</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></code></pre>
 <h3 id="user-content-upgrade-to-eslint-v2" class="deep-link"><a href="#upgrade-to-eslint-v2">Upgrade to ESLint v2</a></h3>
 <ul>
 <li>There may be slight behavior changes to existing rules. When possible, we&apos;ve noted these in the &quot;New Rules&quot; and &quot;Removed Rules&quot; section.</li>
@@ -84,7 +84,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <h3 id="user-content-known-issues" class="deep-link"><a href="#known-issues">Known Issues</a></h3>
 <ul>
 <li>Using prerelease eslint version (2.0.0-rc.0). There may be breaking changes before the stable release.</li>
-<li><code>no-return-assign</code> behavior changed with arrow functions (https://github.com/eslint/eslint/issues/5150)</li>
+<li><code>no-return-assign</code> behavior changed with arrow functions (<a href="https://github.com/eslint/eslint/issues/5150">https://github.com/eslint/eslint/issues/5150</a>)</li>
 </ul>
 <h3 id="user-content-relevant-diffs" class="deep-link"><a href="#relevant-diffs">Relevant diffs</a></h3>
 <ul>
@@ -186,14 +186,14 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 </ul>
 </li>
 <li>Added white background to badge.svg to make it work with dark backgrounds (<a href="https://github.com/feross/standard/issues/234">Closes #234</a>)</li>
-<li>Minor updates to README.md</li>
+<li>Minor updates to <a href="http://README.md">README.md</a></li>
 </ul>
 <h2 id="user-content-511---2015-08-28" class="deep-link"><a href="#511---2015-08-28">5.1.1 - 2015-08-28</a></h2>
 <p><a href="https://github.com/feross/standard/compare/v5.1.0...v5.1.1">view diff</a></p>
 <h3 id="user-content-fixed-4" class="deep-link"><a href="#fixed-4">Fixed</a></h3>
 <ul>
-<li>Update to RULES.md to remove a missing hyperlink</li>
-<li>Add atom linter information to README.md</li>
+<li>Update to <a href="http://RULES.md">RULES.md</a> to remove a missing hyperlink</li>
+<li>Add atom linter information to <a href="http://README.md">README.md</a></li>
 <li>Fixed duplicated word in the tagline message on the CLI</li>
 <li>Removed failing repository from tests (yoshuawuyts/initialize)</li>
 </ul>
@@ -217,7 +217,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <ul>
 <li>Bump eslint from 1.0.0 to 1.2.0 (<a href="https://github.com/eslint/eslint/blob/master/CHANGELOG.md">CHANGELOG</a>)</li>
 <li>Added more test repositories and disabled some that were failing</li>
-<li>Update bikeshedding link on README.md</li>
+<li>Update bikeshedding link on <a href="http://README.md">README.md</a></li>
 </ul>
 <h2 id="user-content-502---2015-08-06" class="deep-link"><a href="#502---2015-08-06">5.0.2 - 2015-08-06</a></h2>
 <p><a href="https://github.com/feross/standard/compare/v5.0.1...v5.0.2">view diff</a></p>
@@ -278,6 +278,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
     <li><a href="index.html#usage">Usage</a></li>
     <li><a href="index.html#faq">FAQ</a></li>
     <li><a href="awesome.html">Ecosystem</a></li>
+    <li><a href="changelog.html">Change Log</a></li>
     <li><a href="https://github.com/feross/standard">Github</a>
 </ul>
 <nav>
