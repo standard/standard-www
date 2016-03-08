@@ -13,6 +13,7 @@ var buildPath = 'build'
 var demoPath = join('tmp/standard-demo')
 var mdPath = join('tmp/markdown')
 var stdPath = join('tmp/standard')
+var stdDocsPath = join('tmp/standard/docs')
 var page = join('layout/page.html')
 var demoPage = join('layout/demo.html')
 
@@ -39,6 +40,7 @@ sh.mkdir(mdPath)
 
 sh.cp('-f', join('markdown/*.md'), mdPath)
 sh.cp('-f', join(stdPath, '*.md'), mdPath)
+sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
 sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
 
 var genPage = markybars.compile(page, partials)
@@ -58,6 +60,7 @@ files.forEach(function (file) {
 
 // replace all RULES.md instances in links with rules.html
 sh.sed('-i', /RULES\.md/g, 'rules.html', join(buildPath, 'readme.html'))
+sh.sed('-i', /\".*docs\/webstorm\.md\"/g, '\"webstorm.html\"', join(buildPath, 'readme.html'))
 
 // rename files to be internet friendly
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))

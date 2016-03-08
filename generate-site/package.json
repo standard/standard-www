@@ -11,7 +11,7 @@
     "ecstatic": "^1.4.0",
     "less": "^2.6.0",
     "shelljs": "^0.6.0",
-    "standard": "^6.0.4"
+    "standard": "^6.0.8"
   },
   "homepage": "https://github.com/feross/standard-www",
   "keywords": [
@@ -40,6 +40,6 @@
     "github-slugger": "^1.0.1",
     "handlebars": "^4.0.3",
     "marky-deep-links": "^1.0.0",
-    "marky-markdown": "^6.0.3"
+    "marky-markdown": "^7.0.0"
   }
 }
