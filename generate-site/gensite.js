@@ -60,7 +60,7 @@ files.forEach(function (file) {
 
 // replace all RULES.md instances in links with rules.html
 sh.sed('-i', /RULES\.md/g, 'rules.html', join(buildPath, 'readme.html'))
-sh.sed('-i', /\".*docs\/webstorm\.md\"/g, '\"webstorm.html\"', join(buildPath, 'readme.html'))
+sh.sed('-i', /".*docs\/webstorm\.md"/g, '"webstorm.html"', join(buildPath, 'readme.html'))
 
 // rename files to be internet friendly
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
