@@ -9,7 +9,7 @@
 <div class="content">
 <h1>
   <br>
-  <img src="https://cdn.rawgit.com/feross/standard/master/sticker.svg" width="200">
+  <a href="http://standardjs.com"><img src="https://cdn.rawgit.com/feross/standard/master/sticker.svg" width="200"></a>
   <br>
   JavaScript Standard Style
   <br>
@@ -17,15 +17,9 @@
 </h1>
 <p></p><h4>One Style to Rule Them All</h4><p></p>
 <p>
-  <a href="https://travis-ci.org/feross/standard">
-    <img src="https://travis-ci.org/feross/standard.svg?branch=master" class="badge">
-  </a>
-  <a href="https://www.npmjs.com/package/standard">
-    <img src="https://img.shields.io/npm/dm/standard.svg" class="badge">
-  </a>
-  <a href="https://www.npmjs.com/package/standard">
-    <img src="https://img.shields.io/npm/v/standard.svg" class="badge">
-  </a>
+  <a href="https://travis-ci.org/feross/standard"><img src="https://travis-ci.org/feross/standard.svg?branch=master" class="badge"></a>
+  <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg" class="badge"></a>
+  <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/v/standard.svg" class="badge"></a>
 </p>
 <br>
 <p>No decisions to make. No <code>.eslintrc</code>, <code>.jshintrc</code>, or <code>.jscsrc</code> files to manage. It just
@@ -84,8 +78,8 @@ to install in the current working directory):</p>
 <p>After you&apos;ve done that you should be able to use the <code>standard</code> program. The simplest use
 case would be checking the style of all JavaScript files in the current working directory:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard</span></span></div><div class="line"><span class="text"><span>Error:&#xA0;Use&#xA0;JavaScript&#xA0;Standard&#xA0;Style</span></span></div><div class="line"><span class="text"><span>&#xA0;&#xA0;lib/torrent.js:950:11:&#xA0;Expected&#xA0;&apos;===&apos;&#xA0;and&#xA0;instead&#xA0;saw&#xA0;&apos;==&apos;.</span></span></div></pre></div>
-<p>You can optionally pass in a directory using the glob pattern:</p>
-<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;src/util/**/*.js</span></span></div></pre></div>
+<p>You can optionally pass in a directory (or directories) using the glob pattern. Be sure to quote paths containing glob patterns so that they are expanded by standard instead of your shell:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;&quot;src/util/**/*.js&quot;&#xA0;&quot;test/**/*.js&quot;</span></span></div></pre></div>
 <p><strong>Note:</strong> by default <code>standard</code> will look for all files matching the patterns: <code>**/*.js</code>, <code>**/*.jsx</code>.</p>
 <h3 id="user-content-text-editor-plugins" class="deep-link"><a href="#text-editor-plugins">Text editor plugins</a></h3>
 <p>First, install <code>standard</code>. Then, install the appropriate plugin for your editor:</p>
@@ -221,7 +215,7 @@ documentation. For a list of what globals are available for these environments, 
 the <a href="https://github.com/sindresorhus/globals/blob/master/globals.json">globals</a> npm module.</p>
 <h3 id="user-content-is-there-a-git-pre-commit-hook" class="deep-link"><a href="#is-there-a-git-pre-commit-hook">Is there a Git <code>pre-commit</code> hook?</a></h3>
 <p>Funny you should ask!</p>
-<div class="highlight sh"><pre class="editor editor-colors"><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>!/bin/sh</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&#xA0;Ensure&#xA0;all&#xA0;javascript&#xA0;files&#xA0;staged&#xA0;for&#xA0;commit&#xA0;pass&#xA0;standard&#xA0;code&#xA0;style</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span>git&#xA0;diff&#xA0;--name-only&#xA0;--cached&#xA0;--relative&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;grep&#xA0;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&apos;</span></span><span>\.js$</span><span class="punctuation definition string end shell"><span>&apos;</span></span></span><span>&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;xargs&#xA0;standard</span></span></div><div class="line"><span class="source shell"><span class="support function builtin shell"><span>exit</span></span><span>&#xA0;</span><span class="variable other shell"><span class="punctuation definition variable shell"><span>$</span></span><span>?</span></span></span></div></pre></div>
+<div class="highlight sh"><pre class="editor editor-colors"><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>!/bin/sh</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&#xA0;Ensure&#xA0;all&#xA0;javascript&#xA0;files&#xA0;staged&#xA0;for&#xA0;commit&#xA0;pass&#xA0;standard&#xA0;code&#xA0;style</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span>git&#xA0;diff&#xA0;--name-only&#xA0;--cached&#xA0;--relative&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;grep&#xA0;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&apos;</span></span><span>\.jsx\?$</span><span class="punctuation definition string end shell"><span>&apos;</span></span></span><span>&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;xargs&#xA0;standard</span></span></div><div class="line"><span class="source shell"><span class="meta scope shell"><span class="keyword control shell"><span>if</span></span><span>&#xA0;[&#xA0;</span><span class="variable other shell"><span class="punctuation definition variable shell"><span>$</span></span><span>?</span></span><span>&#xA0;-ne&#xA0;0&#xA0;]</span><span class="keyword operator list shell"><span>;</span></span><span>&#xA0;</span><span class="keyword control shell"><span>then</span></span><span>&#xA0;</span><span class="support function builtin shell"><span>exit</span></span><span>&#xA0;1</span><span class="keyword operator list shell"><span>;</span></span><span>&#xA0;</span><span class="keyword control shell"><span>fi</span></span></span></span></div></pre></div>
 <p>Alternatively, <a href="https://github.com/brigade/overcommit">overcommit</a> is a Git hook
 manager that includes support for running <code>standard</code> as a Git pre-commit hook.
 To enable this, add the following to your <code>.overcommit.yml</code> file:</p>
@@ -232,7 +226,8 @@ install <a href="https://www.npmjs.com/package/snazzy">snazzy</a>:</p>
 <div><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;snazzy</span></span></div></pre></div>
 <p>And run:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--verbose&#xA0;|&#xA0;snazzy</span></span></div></pre></div>
-<p>There&apos;s also <a href="https://www.npmjs.com/package/standard-tap">standard-tap</a>, <a href="https://www.npmjs.com/package/standard-json">standard-json</a>, and <a href="https://www.npmjs.com/package/standard-reporter">standard-reporter</a></p>
+<p>There&apos;s also <a href="https://www.npmjs.com/package/standard-tap">standard-tap</a>, <a href="https://www.npmjs.com/package/standard-json">standard-json</a>,  <a href="https://www.npmjs.com/package/standard-reporter">standard-reporter</a>, and
+<a href="https://www.npmjs.com/package/standard-summary">standard-summary</a>.</p>
 <h3 id="user-content-i-want-to-contribute-to-standard-what-packages-should-i-know-about" class="deep-link"><a href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about">I want to contribute to <code>standard</code>. What packages should I know about?</a></h3>
 <ul>
 <li><strong><a href="https://github.com/feross/standard">standard</a></strong> - this repo
