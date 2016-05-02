@@ -30,6 +30,33 @@
 <h1 id="user-content-change-log" class="deep-link"><a href="#change-log">Change Log</a></h1>
 <p>All notable changes to this project will be documented in this file.
 This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p>
+<h2 id="user-content-700---2016-05-02" class="deep-link"><a href="#700---2016-05-02">7.0.0 - 2016-05-02</a></h2>
+<h3 id="user-content-changes" class="deep-link"><a href="#changes">Changes</a></h3>
+<ul>
+<li>Upgrade eslint to version ~2.9.0</li>
+<li>Remove &quot;rules&quot; configuration option (<a href="https://github.com/feross/standard/issues/367">https://github.com/feross/standard/issues/367</a>) from <code>package.json</code> (Reasoning is <a href="https://github.com/feross/standard/issues/399#issuecomment-180961891">here</a>)</li>
+</ul>
+<h3 id="user-content-new-rules" class="deep-link"><a href="#new-rules">New rules</a></h3>
+<p><em>Estimated % of affected standard users, based on test suite</em></p>
+<ul>
+<li>Require camelCase (<a href="http://eslint.org/docs/rules/camelcase">camelcase</a>) [4%]</li>
+<li>Disallow unnecessary escape usage (<a href="http://eslint.org/docs/rules/no-useless-escape">no-useless-escape</a>) [4% -- but, including many bugs]</li>
+<li>Disallow duplicate imports (<a href="http://eslint.org/docs/rules/no-duplicate-imports">no-duplicate-imports</a>) [0%]</li>
+<li>Disallow unmodified conditions of loops (<a href="http://eslint.org/docs/2.0.0/rules/no-unmodified-loop-condition">no-unmodified-loop-condition</a>) [0%]</li>
+<li>Disallow whitespace before properties (<a href="http://eslint.org/docs/2.0.0/rules/no-whitespace-before-property">no-whitespace-before-property</a>) [0%]</li>
+<li>Disallow control flow statements in <code>finally</code> blocks (<a href="http://eslint.org/docs/rules/no-unsafe-finally">no-unsafe-finally</a>) [0%]</li>
+<li>Disallow unnecessary computed property keys on objects (<a href="http://eslint.org/docs/rules/no-useless-computed-key">no-useless-computed-key</a>) [0%]</li>
+<li>Validate spacing before closing bracket in JSX (<a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-space-before-closing.md">react/jsx-space-before-closing</a>) [0%]</li>
+</ul>
+<h3 id="user-content-removed-rules" class="deep-link"><a href="#removed-rules">Removed rules</a></h3>
+<ul>
+<li>Require parens in arrow function arguments (<a href="http://eslint.org/docs/rules/arrow-parens">arrow-parens</a>)</li>
+</ul>
+<h2 id="user-content-608---2016-03-07" class="deep-link"><a href="#608---2016-03-07">6.0.8 - 2016-03-07</a></h2>
+<ul>
+<li>Pin eslint to version ~2.2.0</li>
+<li>Update eslint-plugin-react to version 4.0.0</li>
+</ul>
 <h2 id="user-content-607---2016-02-18" class="deep-link"><a href="#607---2016-02-18">6.0.7 - 2016-02-18</a></h2>
 <ul>
 <li>Revert: Use install location of standard as eslint <code>cwd</code> (fixes <a href="https://github.com/feross/standard/issues/429">#429</a>)</li>
@@ -74,7 +101,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <li>There were only a few React-specific rules, but they made it extremely difficult for users of alternatives like <code>virtual-dom</code> or <code>deku</code>, and unecessarily tied <code>standard</code> to a single library.</li>
 <li>JSX rules come from <code>eslint-config-standard-jsx</code>. The <code>eslint-config-standard-react</code> dependency was removed.</li>
 </ul>
-<h3 id="user-content-new-rules" class="deep-link"><a href="#new-rules">New Rules</a></h3>
+<h3 id="user-content-new-rules-1" class="deep-link"><a href="#new-rules-1">New Rules</a></h3>
 <p><em>The percentage (%) of users that rule changes will effect, based on real-world testing of the top ~400 npm packages is denoted in brackets.</em></p>
 <ul>
 <li>Disallow <code>__dirname</code>/<code>__filename</code> string concatenation (<a href="https://github.com/feross/standard/issues/403">#403</a>) (<a href="http://eslint.org/docs/2.0.0/rules/no-path-concat">no-path-concat</a>) [5%]</li>
@@ -91,7 +118,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <li>Disallow Symbol Constructor (<a href="http://eslint.org/docs/2.0.0/rules/no-new-symbol">no-new-symbol</a>) [0%]</li>
 <li>Disallow Self Assignment (<a href="http://eslint.org/docs/2.0.0/rules/no-self-assign">no-self-assign</a>) [0%]</li>
 </ul>
-<h3 id="user-content-removed-rules" class="deep-link"><a href="#removed-rules">Removed Rules</a></h3>
+<h3 id="user-content-removed-rules-1" class="deep-link"><a href="#removed-rules-1">Removed Rules</a></h3>
 <ul>
 <li><code>parseInt()</code> radix rule because ES5 fixes this issue (<a href="https://github.com/feross/standard/issues/384">#384</a>)&#x2029; (<a href="http://eslint.org/docs/2.0.0/rules/radix.html">radix</a>) [0%]</li>
 </ul>
