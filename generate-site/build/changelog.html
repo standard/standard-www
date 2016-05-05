@@ -30,6 +30,11 @@
 <h1 id="user-content-change-log" class="deep-link"><a href="#change-log">Change Log</a></h1>
 <p>All notable changes to this project will be documented in this file.
 This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p>
+<h2 id="user-content-701---2016-05-04" class="deep-link"><a href="#701---2016-05-04">7.0.1 - 2016-05-04</a></h2>
+<ul>
+<li>Relax &quot;no-duplicate-imports&quot; rule to not include <code>export</code> so the following is allowed:</li>
+</ul>
+<div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="keyword control js"><span>import</span></span><span>&#xA0;</span><span class="meta brace curly js"><span>{</span></span><span>&#xA0;foo&#xA0;</span><span class="meta brace curly js"><span>}</span></span><span>&#xA0;from&#xA0;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>bar</span><span class="punctuation definition string end js"><span>&apos;</span></span></span></span></div><div class="line"><span class="source js"><span class="storage modifier js"><span>export</span></span><span>&#xA0;</span><span class="keyword operator js"><span>*</span></span><span>&#xA0;from&#xA0;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>bar</span><span class="punctuation definition string end js"><span>&apos;</span></span></span></span></div></pre></div>
 <h2 id="user-content-700---2016-05-02" class="deep-link"><a href="#700---2016-05-02">7.0.0 - 2016-05-02</a></h2>
 <h3 id="user-content-changes" class="deep-link"><a href="#changes">Changes</a></h3>
 <ul>
