@@ -10,7 +10,7 @@ function compile (page, partials) {
 
   Object.keys(partials).forEach(function (p) {
     var partialContent = fs.readFileSync(partials[p], 'utf8')
-    markybars.registerPartial(p, partialContent)
+    markybars.registerPartial(p, '\n' + partialContent)
   })
 
   markybars.registerHelper('markdown', function (data) {
