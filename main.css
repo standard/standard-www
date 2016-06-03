@@ -343,9 +343,6 @@ h4 {
   text-decoration: none;
   color: black;
 }
-body > div > p:nth-child(2) {
-  text-align: center;
-}
 nav {
   text-align: center;
   width: 100%;
