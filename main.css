@@ -22,14 +22,18 @@ div#messages {
   font-weight: bold;
 }
 #versioninfo {
-  font-size: 9pt;
-  width: 670px;
+  display: inline-block;
+  font-size: 5pt;
 }
 #javascript-editor {
   display: inline-block;
   width: 670px;
   height: 600px;
   font-size: 16px;
+  text-align: left;
+}
+#editor-wrapper {
+  text-align: center;
 }
 button {
   padding: 5px;

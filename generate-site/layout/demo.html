@@ -28,9 +28,15 @@
 <body>
 <div class="content">
 {{markdown data}}
+<p id="msg"><strong>PROTIP:</strong> Load a Github Gist by appending <strong>?gist=some_gist_id</strong> (and optionally <strong>&file=somefile.js</strong>) to this URL. <a href="?gist=5bb585ed2585430e0c53&file=index.js">Here is an example.</a></p>
 </div>
 
-<div id="versioninfo"></div><div id="javascript-editor" class="editor"></div><div id="messages"></div>
+<div id="editor-wrapper">
+  <div id="versioninfo"></div>
+</div>
+<div id="editor-wrapper">
+  <div id="javascript-editor" class="editor"></div><div id="messages"></div>
+</div>
 
 {{~> toc}}
 <script src="standard-www.js"></script>
