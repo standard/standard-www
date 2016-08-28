@@ -48,14 +48,15 @@
   <br>
   JavaScript Standard Style
   <br>
+  <br>
 </h1>
-<p><a href="https://travis-ci.org/feross/standard"><img src="https://travis-ci.org/feross/standard.svg?branch=master" class="badge"></a>
-<a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg" class="badge"></a>
-<a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/v/standard.svg" class="badge"></a>
-<a href="https://github.com/RichardLitt/standard-readme"><img src="https://img.shields.io/badge/standard--readme-OK-green.svg" class="badge"></a></p>
-<blockquote>
-<p>JavaScript Standard Style Guide <a href="http://standardjs.com">http://standardjs.com</a></p>
-</blockquote>
+<p></p><h4>One JavaScript Style Guide to Rule Them All</h4><p></p>
+<p>
+  <a href="https://travis-ci.org/feross/standard"><img src="https://img.shields.io/travis/feross/standard/master.svg" class="badge"></a>
+  <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg" class="badge"></a>
+  <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/v/standard.svg" class="badge"></a>
+</p>
+<br>
 <p>No decisions to make. No <code>.eslintrc</code>, <code>.jshintrc</code>, or <code>.jscsrc</code> files to manage. It just
 works.</p>
 <p>This module saves you (and others!) time in two ways:</p>
@@ -115,7 +116,8 @@ in JavaScript Standard Style, or check out some of
 <li><a href="#how-do-i-ignore-files">How do I ignore files?</a></li>
 <li><a href="#how-do-i-hide-a-certain-warning">How do I hide a certain warning?</a></li>
 <li><a href="#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors">I use a library that pollutes the global namespace. How do I prevent &quot;variable is not defined&quot; errors?</a></li>
-<li><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support">Can I use a custom JS parser for bleeding-edge ES6 or ES7 support?</a></li>
+<li><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support">Can I use a custom JS parser for bleeding-edge ES next support?</a></li>
+<li><a href="#can-i-use-a-javascript-language-variant-like-flow">Can I use a JavaScript language variant, like Flow?</a></li>
 <li><a href="#can-you-make-rule-x-configurable">Can you make rule X configurable?</a></li>
 <li><a href="#what-about-web-workers">What about Web Workers?</a></li>
 <li><a href="#what-about-mocha-jasmine-qunit-etc">What about Mocha, Jasmine, QUnit, etc?</a></li>
@@ -234,10 +236,16 @@ standards groups, which is why this repo is called <code>feross/standard</code> 
 <li>This module ensures that new contributors follow some basic <em>style standards</em>.</li>
 </ul>
 <h3 id="user-content-is-there-an-automatic-formatter" class="deep-link"><a href="#is-there-an-automatic-formatter">Is there an automatic formatter?</a></h3>
-<p>Yes! you can install <a href="https://github.com/maxogden">Max Ogden</a>&apos;s <a href="https://github.com/maxogden/standard-format"><code>standard-format</code></a> module
-with <code>npm install -g standard-format</code>.</p>
-<p><code>standard-format filename.js</code> will automatically fix most issues though some,
-like not handling errors in node-style callbacks, must be fixed manually.</p>
+<p>Yes! You can use <code>standard --fix</code> to automatically fix most issues automatically.</p>
+<p><code>standard --fix</code> is built into <code>standard</code> (since v8.0.0) for maximum convenience.
+Lots of problems are fixable, but some errors, like not handling errors in
+node-style callbacks, must be fixed manually.</p>
+<p>To save you time, <code>standard</code> outputs a message (&quot;Run <code>standard --fix</code> to automatically fix some
+problems.&quot;) when it detects problems that can be fixed automatically.</p>
+<p>Alternatively, if you have an ES5-only codebase, you can try
+<a href="https://github.com/maxogden/standard-format"><code>standard-format</code></a> (a separate package), but it likely will not
+be maintained going forward since <code>standard --fix</code> works so well, and does not
+require us to maintain two tools with separate rule configurations.</p>
 <h3 id="user-content-how-do-i-ignore-files" class="deep-link"><a href="#how-do-i-ignore-files">How do I ignore files?</a></h3>
 <p>The paths <code>node_modules/**</code>, <code>*.min.js</code>, <code>bundle.js</code>, <code>coverage/**</code>, hidden
 files/folders (beginning with <code>.</code>), and all patterns in a project&apos;s root
@@ -270,12 +278,26 @@ are global in your code, add this to the top of your file:</p>
 <p>If you have hundreds of files, adding comments to every file can be tedious. In
 these cases, you can add this to <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>globals</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>myVar1</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>myVar2</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
-<h3 id="user-content-can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support" class="deep-link"><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es6-or-es7-support">Can I use a custom JS parser for bleeding-edge ES6 or ES7 support?</a></h3>
+<h3 id="user-content-can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support" class="deep-link"><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support">Can I use a custom JS parser for bleeding-edge ES next support?</a></h3>
+<p>Before you use a custom parser, consider whether the added complexity in your
+build process is worth it.</p>
 <p><code>standard</code> supports custom JS parsers. To use a custom parser, install it from npm
 (example: <code>npm install babel-eslint</code>) and add this to your <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>parser</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>babel-eslint</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
 <p>If you&apos;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also
 need to install <code>babel-eslint</code> globally with <code>npm install babel-eslint -g</code>.</p>
+<h3 id="user-content-can-i-use-a-javascript-language-variant-like-flow" class="deep-link"><a href="#can-i-use-a-javascript-language-variant-like-flow">Can I use a JavaScript language variant, like Flow?</a></h3>
+<p>Before you use a custom JS language variant, consider whether the added complexity
+in your build process (and effort required to get new contributors up-to-speed) is
+worth it.</p>
+<p><code>standard</code> supports ESLint plugins. Use one of these to transform your code into
+valid JavaScript before <code>standard</code> sees it. To use a custom parser, install it from
+npm (example: <code>npm install eslint-plugin-flowtype</code>) and add this to your
+<code>package.json</code>:</p>
+<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>plugins</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>flowtype</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
+<p>If you&apos;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also
+need to install <code>eslint-plugin-flowtype</code> globally with
+<code>npm install eslint-plugin-flowtype -g</code>.</p>
 <h3 id="user-content-can-you-make-rule-x-configurable" class="deep-link"><a href="#can-you-make-rule-x-configurable">Can you make rule X configurable?</a></h3>
 <p>No. The point of <code>standard</code> is to save you time by picking reasonable rules so you
 can spend your time solving actual problems. If you really do want to configure

@@ -46,6 +46,68 @@
 <h1 id="user-content-change-log" class="deep-link"><a href="#change-log">Change Log</a></h1>
 <p>All notable changes to this project will be documented in this file.
 This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p>
+<h2 id="user-content-800---2016-08-23" class="deep-link"><a href="#800---2016-08-23">8.0.0 - 2016-08-23</a></h2>
+<p>This release contains a bunch of goodies, including new rules that catch potential
+programmer errors (i.e. bugs) and enforce additional code consistency.</p>
+<p>However, the best feature is surely the new <code>--fix</code> command line flag to
+automatically fix problems. If you ever used
+<a href="https://www.npmjs.com/package/standard-format"><code>standard-format</code></a>
+and ran into issues with the lack of ES2015+ support, you&apos;ll be happy about
+<code>--fix</code>.</p>
+<p><code>standard --fix</code> is built into <code>standard</code> v8.0.0 for maximum convenience, it
+supports ES2015, and it&apos;s lightweight (no additional dependencies since it&apos;s part
+of ESLint which powers <code>standard</code>). Lots of problems are already fixable, and more
+are getting added with each ESLint release.</p>
+<p><code>standard</code> also outputs a message (&quot;Run <code>standard --fix</code> to automatically fix
+some problems.&quot;) when it detects problems that can be fixed automatically so you
+can save time!</p>
+<p>With <code>standard</code> v8.0.0, we are also dropping support for Node.js versions prior to</p>
+<ol>
+<li>Node.js 0.10 and 0.12 are in maintenance mode and will be unsupported at the end
+of 2016. Node.js 4 is the current LTS version. If you are using an older version of
+Node.js, we recommend upgrading to at least Node.js 4 as soon as possible. If you
+are unable to upgrade to Node.js 4 or higher, then we recommend continuing to use
+<code>standard</code> v7.x until you are ready to upgrade Node.js.</li>
+</ol>
+<p><strong>Important:</strong> We will not be updating the <code>standard</code> v7.x versions going forward.
+All bug fixes and enhancements will land in <code>standard</code> v8.x.</p>
+<p>Full changelog below. Cheers!</p>
+<h3 id="user-content-new-features" class="deep-link"><a href="#new-features">New features</a></h3>
+<ul>
+<li>Upgrade to ESLint v3 (<a href="http://eslint.org/docs/user-guide/migrating-to-3.0.0">http://eslint.org/docs/user-guide/migrating-to-3.0.0</a>) <a href="https://github.com/feross/standard/pull/565">#565</a>
+<ul>
+<li><strong>BREAKING:</strong> Drop support for node &lt; 4 (this was a decision made by the ESLint team)</li>
+</ul>
+</li>
+<li>Expose ESLint&apos;s <code>--fix</code> command line flag <a href="https://github.com/feross/standard/issues/540">#540</a> <a href="https://github.com/Flet/standard-engine/issues/107">standard-engine/#107</a>
+<ul>
+<li>Lightweight, no additional dependencies, fixes dozens of rules automatically</li>
+</ul>
+</li>
+</ul>
+<h3 id="user-content-new-rules" class="deep-link"><a href="#new-rules">New rules</a></h3>
+<p><em>(Estimated % of affected standard users, based on test suite in parens)</em></p>
+<ul>
+<li>Enforce placing object properties on separate lines (<a href="http://eslint.org/docs/rules/object-property-newline">object-property-newline</a>) <a href="https://github.com/feross/standard/issues/524">#524</a> (2%)</li>
+<li>Require block comments to be balanced (<a href="http://eslint.org/docs/rules/spaced-comment">spaced-comment &quot;balanced&quot;</a>) <a href="https://github.com/feross/standard/issues/572">#572</a> (2%)</li>
+<li>Disallow constant expressions in conditions (<a href="http://eslint.org/docs/rules/no-constant-condition">no-constant-condition</a>) <a href="https://github.com/feross/standard/issues/563">#563</a> (1%)</li>
+<li>Disallow renaming import, export, and destructured assignments to the same name (<a href="http://eslint.org/docs/rules/no-useless-rename">no-useless-rename</a>) <a href="https://github.com/feross/standard/issues/537">#537</a> (0%)</li>
+<li>Disallow spacing between rest and spread operators and their expressions (<a href="http://eslint.org/docs/rules/rest-spread-spacing">rest-spread-spacing</a>) <a href="https://github.com/feross/standard/issues/567">#567</a> (0%)</li>
+<li>Disallow the Unicode Byte Order Mark (BOM) (<a href="http://eslint.org/docs/rules/unicode-bom">unicode-bom</a>) <a href="https://github.com/feross/standard/issues/538">#538</a> (0%)</li>
+<li>Disallow assignment to native objects/global variables (<a href="http://eslint.org/docs/rules/no-global-assign">no-global-assign</a>) <a href="https://github.com/feross/standard/issues/596">#596</a> (0%)</li>
+<li>Disallow negating the left operand of relational operators (<a href="http://eslint.org/docs/rules/no-unsafe-negation">no-unsafe-negation</a>) <a href="https://github.com/feross/standard/issues/595">#595</a> (0%)</li>
+<li>Disallow template literal placeholder syntax in regular strings (<a href="http://eslint.org/docs/rules/no-template-curly-in-string">no-template-curly-in-string</a>) <a href="https://github.com/feross/standard/issues/594">#594</a> (0%)</li>
+<li>Disallow tabs in file (<a href="http://eslint.org/docs/rules/no-tabs">no-tabs</a>) <a href="https://github.com/feross/standard/issues/593">#593</a> (0%)</li>
+</ul>
+<h3 id="user-content-changed-rules" class="deep-link"><a href="#changed-rules">Changed rules</a></h3>
+<ul>
+<li>Relax rule: Allow template literal strings (backtick strings) to avoid escaping&#x2029; <a href="https://github.com/feross/standard/issues/421">#421</a></li>
+<li>Relax rule: Do not enforce spacing around * in generator functions (<a href="https://github.com/feross/standard/issues/564#issuecomment-234699126">https://github.com/feross/standard/issues/564#issuecomment-234699126</a>)
+<ul>
+<li>This is a temporary workaround for <code>babel</code> users who use async generator functions.</li>
+</ul>
+</li>
+</ul>
 <h2 id="user-content-712---2016-06-03" class="deep-link"><a href="#712---2016-06-03">7.1.2 - 2016-06-03</a></h2>
 <ul>
 <li>Fix install errors for some users by updating eslint peer dependency</li>
@@ -67,9 +129,9 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <h3 id="user-content-changes" class="deep-link"><a href="#changes">Changes</a></h3>
 <ul>
 <li>Upgrade eslint to version ~2.9.0</li>
-<li>Remove &quot;rules&quot; configuration option (<a href="https://github.com/feross/standard/issues/367">https://github.com/feross/standard/issues/367</a>) from <code>package.json</code> (Reasoning is <a href="https://github.com/feross/standard/issues/399#issuecomment-180961891">here</a>)</li>
+<li>Remove &quot;rules&quot; configuration option <a href="https://github.com/feross/standard/issues/367">#367</a> from <code>package.json</code> (Reasoning is <a href="https://github.com/feross/standard/issues/399#issuecomment-180961891">here</a>)</li>
 </ul>
-<h3 id="user-content-new-rules" class="deep-link"><a href="#new-rules">New rules</a></h3>
+<h3 id="user-content-new-rules-1" class="deep-link"><a href="#new-rules-1">New rules</a></h3>
 <p><em>Estimated % of affected standard users, based on test suite</em></p>
 <ul>
 <li>Require camelCase (<a href="http://eslint.org/docs/rules/camelcase">camelcase</a>) [4%]</li>
@@ -134,7 +196,7 @@ This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p
 <li>There were only a few React-specific rules, but they made it extremely difficult for users of alternatives like <code>virtual-dom</code> or <code>deku</code>, and unecessarily tied <code>standard</code> to a single library.</li>
 <li>JSX rules come from <code>eslint-config-standard-jsx</code>. The <code>eslint-config-standard-react</code> dependency was removed.</li>
 </ul>
-<h3 id="user-content-new-rules-1" class="deep-link"><a href="#new-rules-1">New Rules</a></h3>
+<h3 id="user-content-new-rules-2" class="deep-link"><a href="#new-rules-2">New Rules</a></h3>
 <p><em>The percentage (%) of users that rule changes will effect, based on real-world testing of the top ~400 npm packages is denoted in brackets.</em></p>
 <ul>
 <li>Disallow <code>__dirname</code>/<code>__filename</code> string concatenation (<a href="https://github.com/feross/standard/issues/403">#403</a>) (<a href="http://eslint.org/docs/2.0.0/rules/no-path-concat">no-path-concat</a>) [5%]</li>
