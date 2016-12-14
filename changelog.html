@@ -46,6 +46,45 @@
 <h1 id="user-content-change-log" class="deep-link"><a href="#change-log">Change Log</a></h1>
 <p>All notable changes to this project will be documented in this file.
 This project adheres to <a href="http://semver.org/">Semantic Versioning</a>.</p>
+<h2 id="user-content-860---2016-11-22" class="deep-link"><a href="#860---2016-11-22">8.6.0 - 2016-11-22</a></h2>
+<ul>
+<li>Update ESLint from 3.8.x to 3.10.x.</li>
+<li>3 additional rules are now fixable with <code>standard --fix</code>!</li>
+</ul>
+<h2 id="user-content-850---2016-10-25" class="deep-link"><a href="#850---2016-10-25">8.5.0 - 2016-10-25</a></h2>
+<ul>
+<li>Update ESLint from 3.7.x to 3.8.x.</li>
+<li>2 additional rules are now fixable with <code>standard --fix</code>!</li>
+</ul>
+<h2 id="user-content-840---2016-10-10" class="deep-link"><a href="#840---2016-10-10">8.4.0 - 2016-10-10</a></h2>
+<ul>
+<li>Update ESLint from 3.6.x to 3.7.x.</li>
+<li>5 additional rules are now fixable with <code>standard --fix</code>!</li>
+<li>Use more conservative semver ranges <a href="https://github.com/feross/standard/issues/654">#654</a></li>
+</ul>
+<h2 id="user-content-830---2016-09-29" class="deep-link"><a href="#830---2016-09-29">8.3.0 - 2016-09-29</a></h2>
+<p>The last release (<code>8.2.0</code>) added ES7 support. This release (<code>8.3.0</code>) adds ES8
+support ...just 3 days later!</p>
+<p>This release should eliminate the need to specify <code>babel-eslint</code> as a custom
+parser, since <code>standard</code> can now parse ES8 (i.e. ES2017) syntax out of the box.
+That means <code>async</code> and <code>await</code> will just work.</p>
+<ul>
+<li>Support ES8 (i.e. ES2017) syntax.</li>
+</ul>
+<h2 id="user-content-820---2016-09-26" class="deep-link"><a href="#820---2016-09-26">8.2.0 - 2016-09-26</a></h2>
+<p>For many users, this release should eliminate the need to specify <code>babel-eslint</code> as
+a custom parser, since <code>standard</code> can now parse ES7 (i.e. ES2016) syntax out of the
+box.</p>
+<ul>
+<li>Support ES7 (i.e. ES2016) syntax.</li>
+<li>Update ESLint from 3.5.x to 3.6.x.</li>
+<li>4 additional rules are now fixable with <code>standard --fix</code>!</li>
+</ul>
+<h2 id="user-content-810---2016-09-17" class="deep-link"><a href="#810---2016-09-17">8.1.0 - 2016-09-17</a></h2>
+<ul>
+<li>Update ESLint from 3.3.x to 3.5.x.</li>
+<li>Around 10 additional rules are now fixable with <code>standard --fix</code>!</li>
+</ul>
 <h2 id="user-content-800---2016-08-23" class="deep-link"><a href="#800---2016-08-23">8.0.0 - 2016-08-23</a></h2>
 <p>This release contains a bunch of goodies, including new rules that catch potential
 programmer errors (i.e. bugs) and enforce additional code consistency.</p>
@@ -61,14 +100,12 @@ are getting added with each ESLint release.</p>
 <p><code>standard</code> also outputs a message (&quot;Run <code>standard --fix</code> to automatically fix
 some problems.&quot;) when it detects problems that can be fixed automatically so you
 can save time!</p>
-<p>With <code>standard</code> v8.0.0, we are also dropping support for Node.js versions prior to</p>
-<ol>
-<li>Node.js 0.10 and 0.12 are in maintenance mode and will be unsupported at the end
-of 2016. Node.js 4 is the current LTS version. If you are using an older version of
-Node.js, we recommend upgrading to at least Node.js 4 as soon as possible. If you
-are unable to upgrade to Node.js 4 or higher, then we recommend continuing to use
-<code>standard</code> v7.x until you are ready to upgrade Node.js.</li>
-</ol>
+<p>With <code>standard</code> v8.0.0, we are also dropping support for Node.js versions prior to
+v4. Node.js 0.10 and 0.12 are in maintenance mode and will be unsupported at the
+end of 2016. Node.js 4 is the current LTS version. If you are using an older
+version of Node.js, we recommend upgrading to at least Node.js 4 as soon as
+possible. If you are unable to upgrade to Node.js 4 or higher, then we recommend
+continuing to use <code>standard</code> v7.x until you are ready to upgrade Node.js.</p>
 <p><strong>Important:</strong> We will not be updating the <code>standard</code> v7.x versions going forward.
 All bug fixes and enhancements will land in <code>standard</code> v8.x.</p>
 <p>Full changelog below. Cheers!</p>
