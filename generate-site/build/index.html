@@ -55,6 +55,9 @@
   <a href="https://travis-ci.org/feross/standard"><img src="https://img.shields.io/travis/feross/standard/master.svg" class="badge"></a>
   <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg" class="badge"></a>
   <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/v/standard.svg" class="badge"></a>
+  <br>
+  Readme Translation: <a href="docs/README-ptbr.md">Portugu&#xEA;s</a>
+  Readme Translation: <a href="docs/README-esla.md">Spanish</a>
 </p>
 <br>
 <p>No decisions to make. No <code>.eslintrc</code>, <code>.jshintrc</code>, or <code>.jscsrc</code> files to manage. It just
@@ -67,7 +70,7 @@ project. Just drop it in.</li>
 review time by eliminating back-and-forth between maintainer and contributor.</li>
 </ul>
 <p>Install with:</p>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;standard</span></span></div></pre></div>
+<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;standard&#xA0;--save-dev</span></span></div></pre></div>
 <h3 id="user-content-the-rules" class="deep-link"><a href="#the-rules">The Rules</a></h3>
 <ul>
 <li><strong>2 spaces</strong> &#x2013; for indentation</li>
@@ -241,9 +244,9 @@ in node-style callbacks, must be fixed manually.</p>
 automatically fix some problems.&quot;) when it detects problems that can be fixed
 automatically.</p>
 <h3 id="user-content-how-do-i-ignore-files" class="deep-link"><a href="#how-do-i-ignore-files">How do I ignore files?</a></h3>
-<p>The paths <code>node_modules/**</code>, <code>*.min.js</code>, <code>bundle.js</code>, <code>coverage/**</code>, hidden
-files/folders (beginning with <code>.</code>), and all patterns in a project&apos;s root
-<code>.gitignore</code> file are automatically ignored.</p>
+<p>Certain paths (<code>node_modules/</code>, <code>coverage/</code>, <code>vendor/</code>, <code>*.min.js</code>, <code>bundle.js</code>,
+and files/folders that begin with <code>.</code> like <code>.git/</code>) are automatically ignored.</p>
+<p>Paths in a project&apos;s root <code>.gitignore</code> file are also automatically ignored.</p>
 <p>Sometimes you need to ignore additional folders or specific minified files. To do
 that, add a <code>standard.ignore</code> property to <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>:&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>ignore</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>**/out/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>/lib/select2/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>/lib/ckeditor/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>tmp.js</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
