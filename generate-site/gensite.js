@@ -10,6 +10,7 @@ var resolve = require('path').resolve
 
 var awesomePath = join('tmp/awesome-standard')
 var buildPath = 'build'
+var logoPath = join(buildPath, 'docs')
 var demoPath = join('tmp/standard-demo')
 var mdPath = join('tmp/markdown')
 var stdPath = join('tmp/standard')
@@ -37,13 +38,15 @@ sh.rm('-rf', buildPath)
 sh.rm('-rf', mdPath)
 
 sh.mkdir(buildPath)
+sh.mkdir('-p', logoPath)
+sh.mkdir(mdPath)
 sh.mkdir(mdPath)
 
 sh.cp('-f', join('markdown/*.md'), mdPath)
 sh.cp('-f', join(stdPath, '*.md'), mdPath)
 sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
 sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
-
+sh.cp('-R', join(stdDocsPath, 'logos'), logoPath)
 var genPage = markybars.compile(page, partials)
 var genDemo = markybars.compile(demoPage, partials)
 
