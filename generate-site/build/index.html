@@ -50,14 +50,19 @@
   <br>
   <br>
 </h1>
-<p></p><h4>One JavaScript Style Guide to Rule Them All</h4><p></p>
 <p>
   <a href="https://travis-ci.org/feross/standard"><img src="https://img.shields.io/travis/feross/standard/master.svg" class="badge"></a>
+  <a href="http://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" class="badge"></a>
   <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/dm/standard.svg" class="badge"></a>
   <a href="https://www.npmjs.com/package/standard"><img src="https://img.shields.io/npm/v/standard.svg" class="badge"></a>
-  <br>
-  Readme Translation: <a href="readme-ptbr.html">Portugu&#xEA;s</a>
-  Readme Translation: <a href="readme-esla.html">Spanish</a>
+</p>
+<p></p><h4>One JavaScript Style to Rule Them All</h4><p></p>
+<p>
+  <em>
+    Translations:
+    <a href="readme-ptbr.html">Portugu&#xEA;s</a>,
+    <a href="readme-esla.html">Spanish</a>
+  </em>
 </p>
 <br>
 <p>No decisions to make. No <code>.eslintrc</code>, <code>.jshintrc</code>, or <code>.jscsrc</code> files to manage. It just
@@ -71,7 +76,7 @@ review time by eliminating back-and-forth between maintainer and contributor.</l
 </ul>
 <p>Install with:</p>
 <div><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;standard&#xA0;--save-dev</span></span></div></pre></div>
-<h3 id="user-content-the-rules" class="deep-link"><a href="#the-rules">The Rules</a></h3>
+<h2 id="user-content-the-rules" class="deep-link"><a href="#the-rules">The Rules</a></h2>
 <ul>
 <li><strong>2 spaces</strong> &#x2013; for indentation</li>
 <li><strong>Single quotes for strings</strong> &#x2013; except to avoid escaping</li>
@@ -102,108 +107,69 @@ in JavaScript Standard Style. Or, check out one of the
 that use <code>standard</code>!</p>
 <h2 id="user-content-table-of-contents" class="deep-link"><a href="#table-of-contents">Table of Contents</a></h2>
 <ul>
-<li><a href="#install">Install</a></li>
-<li><a href="#usage">Usage</a>
+<li>Quick start
 <ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#usage">Usage</a></li>
 <li><a href="#what-you-might-do-if-youre-clever">What you might do if you&apos;re clever</a></li>
-<li><a href="#badge">Badge</a></li>
-<li><a href="#text-editor-plugins">Text editor plugins</a></li>
 </ul>
 </li>
-<li><a href="#faq">FAQ</a>
+<li>FAQ
 <ul>
-<li><a href="#why-would-i-use-javascript-standard-style">Why would I use JavaScript Standard Style?</a></li>
+<li><a href="#why-should-i-use-javascript-standard-style">Why should I use JavaScript Standard Style?</a></li>
+<li><a href="#who-uses-javascript-standard-style">Who uses JavaScript Standard Style?</a></li>
+<li><a href="#are-there-text-editor-plugins">Are there text editor plugins?</a></li>
+<li><a href="#is-there-a-readme-badge">Is there a readme badge?</a></li>
 <li><a href="#i-disagree-with-rule-x-can-you-change-it">I disagree with rule X, can you change it?</a></li>
 <li><a href="#but-this-isnt-a-real-web-standard">But this isn&apos;t a real web standard!</a></li>
 <li><a href="#is-there-an-automatic-formatter">Is there an automatic formatter?</a></li>
 <li><a href="#how-do-i-ignore-files">How do I ignore files?</a></li>
 <li><a href="#how-do-i-hide-a-certain-warning">How do I hide a certain warning?</a></li>
 <li><a href="#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors">I use a library that pollutes the global namespace. How do I prevent &quot;variable is not defined&quot; errors?</a></li>
-<li><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support">Can I use a custom JS parser for bleeding-edge ES next support?</a></li>
+<li><a href="#how-do-i-use-experimental-javascript-es-next-features">How do I use experimental JavaScript (ES Next) features?</a></li>
 <li><a href="#can-i-use-a-javascript-language-variant-like-flow">Can I use a JavaScript language variant, like Flow?</a></li>
-<li><a href="#can-you-make-rule-x-configurable">Can you make rule X configurable?</a></li>
-<li><a href="#what-about-web-workers">What about Web Workers?</a></li>
 <li><a href="#what-about-mocha-jasmine-qunit-etc">What about Mocha, Jasmine, QUnit, etc?</a></li>
+<li><a href="#what-about-web-workers">What about Web Workers?</a></li>
+<li><a href="#can-i-check-code-inside-of-markdown-or-html-files">Can I check code inside of Markdown or HTML files?</a></li>
 <li><a href="#is-there-a-git-pre-commit-hook">Is there a Git <code>pre-commit</code> hook?</a></li>
 <li><a href="#how-do-i-make-the-output-all-colorful-and-pretty">How do I make the output all colorful and <em>pretty</em>?</a></li>
-<li><a href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about">I want to contribute to <code>standard</code>. What packages should I know about?</a></li>
+<li><a href="#is-there-a-nodejs-api">Is there a Node.js API?</a></li>
+<li><a href="#how-do-i-contribute-to-standard">How do I contribute to <code>standard</code>?</a></li>
 </ul>
 </li>
-<li><a href="#nodejs-api">Node.js API</a>
-<ul>
-<li><a href="#standardlinttexttext-opts-callback"><code>standard.lintText(text, [opts], callback)</code></a></li>
-<li><a href="#standardlintfilesfiles-opts-callback"><code>standard.lintFiles(files, [opts], callback)</code></a></li>
-</ul>
-</li>
-<li><a href="#irc-channel">IRC channel</a></li>
 <li><a href="#license">License</a></li>
 </ul>
 <h2 id="user-content-install" class="deep-link"><a href="#install">Install</a></h2>
-<p>The easiest way to use JavaScript Standard Style to check your code is to install
-it globally as a Node command line program. To do so, simply run the following
-command in your terminal (flag <code>-g</code> installs <code>standard</code> globally on your system,
-omit it if you want to install in the current working directory):</p>
-<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;standard&#xA0;--global</span></span></div></pre></div>
-<p>Or, you can run this command to install <code>standard</code> locally, for use in your module:</p>
-<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;standard&#xA0;--save-dev</span></span></div></pre></div>
-<p><a href="http://nodejs.org">Node.js</a> and <a href="https://npmjs.com">npm</a> are required to run the preceding commands.</p>
+<p>The easiest way to use JavaScript Standard Style is to install it globally as a
+Node command line program. Run the following command in Terminal:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;install&#xA0;standard&#xA0;--global</span></span></div></pre></div>
+<p>Or, you can install <code>standard</code> locally, for use in a single project:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;install&#xA0;standard&#xA0;--save-dev</span></span></div></pre></div>
+<p><em>Note: To run the preceding commands, <a href="http://nodejs.org">Node.js</a> and <a href="https://npmjs.com">npm</a> must be installed.</em></p>
 <h2 id="user-content-usage" class="deep-link"><a href="#usage">Usage</a></h2>
 <p>After you&apos;ve installed <code>standard</code>, you should be able to use the <code>standard</code> program. The
 simplest use case would be checking the style of all JavaScript files in the
 current working directory:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard</span></span></div><div class="line"><span class="text"><span>Error:&#xA0;Use&#xA0;JavaScript&#xA0;Standard&#xA0;Style</span></span></div><div class="line"><span class="text"><span>&#xA0;&#xA0;lib/torrent.js:950:11:&#xA0;Expected&#xA0;&apos;===&apos;&#xA0;and&#xA0;instead&#xA0;saw&#xA0;&apos;==&apos;.</span></span></div></pre></div>
 <p>You can optionally pass in a directory (or directories) using the glob pattern. Be
-sure to quote paths containing glob patterns so that they are expanded by standard
-instead of your shell:</p>
+sure to quote paths containing glob patterns so that they are expanded by
+<code>standard</code> instead of your shell:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;&quot;src/util/**/*.js&quot;&#xA0;&quot;test/**/*.js&quot;</span></span></div></pre></div>
 <p><strong>Note:</strong> by default <code>standard</code> will look for all files matching the patterns:
 <code>**/*.js</code>, <code>**/*.jsx</code>.</p>
-<h3 id="user-content-what-you-might-do-if-youre-clever" class="deep-link"><a href="#what-you-might-do-if-youre-clever">What you might do if you&apos;re clever</a></h3>
+<h2 id="user-content-what-you-might-do-if-youre-clever" class="deep-link"><a href="#what-you-might-do-if-youre-clever">What you might do if you&apos;re clever</a></h2>
 <ol>
 <li>Add it to <code>package.json</code></li>
 </ol>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>name</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>my-cool-package</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator dictionary json"><span>,</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>devDependencies</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>*</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span><span class="punctuation separator dictionary json"><span>,</span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>scripts</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>test</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard&#xA0;&amp;&amp;&#xA0;node&#xA0;my-tests.js</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
 <ol>
-<li>Check style automatically when you run <code>npm test</code></li>
+<li>Style is checked automatically when you run <code>npm test</code></li>
 </ol>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;test</span></span></div><div class="line"><span class="text"><span>Error:&#xA0;Use&#xA0;JavaScript&#xA0;Standard&#xA0;Style</span></span></div><div class="line"><span class="text"><span>&#xA0;&#xA0;lib/torrent.js:950:11:&#xA0;Expected&#xA0;&apos;===&apos;&#xA0;and&#xA0;instead&#xA0;saw&#xA0;&apos;==&apos;.</span></span></div></pre></div>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;test</span></span></div><div class="line"><span class="text"><span>Error:&#xA0;Use&#xA0;JavaScript&#xA0;Standard&#xA0;Style</span></span></div><div class="line"><span class="text"><span>&#xA0;&#xA0;lib/torrent.js:950:11:&#xA0;Expected&#xA0;&apos;===&apos;&#xA0;and&#xA0;instead&#xA0;saw&#xA0;&apos;==&apos;.</span></span></div></pre></div>
 <ol>
 <li>Never give style feedback on a pull request again!</li>
 </ol>
-<h3 id="user-content-badge" class="deep-link"><a href="#badge">Badge</a></h3>
-<p>Use this in one of your projects? Include one of these badges in your readme to
-let people know that your code is using the standard style.</p>
-<p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg"></a></p>
-<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation definition begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>Standard&#xA0;-&#xA0;JavaScript&#xA0;Style&#xA0;Guide</span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>https://cdn.rawgit.com/feross/standard/master/badge.svg</span><span class="punctuation definition end gfm"><span>)</span></span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>https://github.com/feross/standard</span><span class="punctuation definition end gfm"><span>)</span></span></span></span></span></div></pre></div>
-<p class="badge-only"><a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" class="badge"></a></p>
-<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source gfm"><span class="link"><span class="punctuation definition begin gfm"><span>[!</span><span>[</span></span><span class="entity gfm"><span>Standard&#xA0;-&#xA0;JavaScript&#xA0;Style&#xA0;Guide</span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>https://img.shields.io/badge/code%20style-standard-brightgreen.svg</span><span class="punctuation definition end gfm"><span>)</span></span></span><span class="punctuation definition end gfm"><span>]</span></span><span class="markup underline link gfm"><span class="punctuation definition begin gfm"><span>(</span></span><span>http://standardjs.com/</span><span class="punctuation definition end gfm"><span>)</span></span></span></span></span></div></pre></div>
-<h3 id="user-content-text-editor-plugins" class="deep-link"><a href="#text-editor-plugins">Text editor plugins</a></h3>
-<p>First, install <code>standard</code>. Then, install the appropriate plugin for your editor:</p>
-<h4><a href="https://www.sublimetext.com/">Sublime Text</a></h4>
-<p>Using <strong><a href="https://packagecontrol.io/">Package Control</a></strong>, install <strong><a href="http://www.sublimelinter.com/en/latest/">SublimeLinter</a></strong> and
-<strong><a href="https://packagecontrol.io/packages/SublimeLinter-contrib-standard">SublimeLinter-contrib-standard</a></strong>.</p>
-<p>For automatic formatting on save, install <strong><a href="https://packagecontrol.io/packages/StandardFormat">StandardFormat</a></strong>.</p>
-<h4><a href="https://atom.io">Atom</a></h4>
-<p>Install <strong><a href="https://atom.io/packages/linter-js-standard">linter-js-standard</a></strong>.</p>
-<p>For automatic formatting, install <strong><a href="https://atom.io/packages/standard-formatter">standard-formatter</a></strong>. For snippets,
-install <strong><a href="https://atom.io/packages/standardjs-snippets">standardjs-snippets</a></strong>.</p>
-<h4><a href="http://www.vim.org/">Vim</a></h4>
-<p>Install <strong><a href="https://github.com/scrooloose/syntastic">Syntastic</a></strong> and add this line to <code>.vimrc</code>:</p>
-<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>let&#xA0;g:syntastic_javascript_checkers&#xA0;=&#xA0;[&apos;standard&apos;]</span></span></div></pre></div>
-<p>For automatic formatting on save, add these two lines to <code>.vimrc</code>:</p>
-<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>autocmd&#xA0;bufwritepost&#xA0;*.js&#xA0;silent&#xA0;!standard&#xA0;--fix&#xA0;%</span></span></div><div class="line"><span class="text"><span>set&#xA0;autoread</span></span></div></pre></div>
-<h4><a href="https://www.gnu.org/software/emacs/">Emacs</a></h4>
-<p>Install <strong><a href="http://www.flycheck.org">Flycheck</a></strong> and check out the <strong><a href="http://www.flycheck.org/en/latest/user/installation.html">manual</a></strong> to learn
-how to enable it in your projects.</p>
-<h4><a href="http://brackets.io/">Brackets</a></h4>
-<p>Search the extension registry for <strong><a href="https://github.com/ishamf/brackets-standard/">&quot;Standard Code Style&quot;</a></strong>.</p>
-<h4><a href="https://code.visualstudio.com/">Visual Studio Code</a></h4>
-<p>Install <strong><a href="https://marketplace.visualstudio.com/items/chenxsan.vscode-standardjs">vscode-standardjs</a></strong>. (Includes support for automatic formatting.)</p>
-<p>For JS snippets, install: <strong><a href="https://marketplace.visualstudio.com/items?itemName=capaj.vscode-standardjs-snippets">vscode-standardjs-snippets</a></strong>. For React snippets, install <strong><a href="https://marketplace.visualstudio.com/items/TimonVS.ReactSnippetsStandard">vscode-react-standard</a></strong>.</p>
-<h4><a href="https://www.jetbrains.com/webstorm/">WebStorm/PhpStorm</a></h4>
-<p>Both WebStorm and PhpStorm can be <a href="webstorm.html">configured for Standard Style</a>.</p>
-<h2 id="user-content-faq" class="deep-link"><a href="#faq">FAQ</a></h2>
-<h3 id="user-content-why-would-i-use-javascript-standard-style" class="deep-link"><a href="#why-would-i-use-javascript-standard-style">Why would I use JavaScript Standard Style?</a></h3>
+<h2 id="user-content-why-should-i-use-javascript-standard-style" class="deep-link"><a href="#why-should-i-use-javascript-standard-style">Why should I use JavaScript Standard Style?</a></h2>
 <p>The beauty of JavaScript Standard Style is that it&apos;s simple. No one wants to
 maintain multiple hundred-line style configuration files for every module/project
 they work on. Enough of this madness!</p>
@@ -219,14 +185,133 @@ community conventions higher than personal style. This might not make sense for
 100% of projects and development cultures, however open source can be a hostile
 place for newbies. Setting up clear, automated contributor expectations makes a
 project healthier.</p>
-<h3 id="user-content-i-disagree-with-rule-x-can-you-change-it" class="deep-link"><a href="#i-disagree-with-rule-x-can-you-change-it">I disagree with rule X, can you change it?</a></h3>
-<p>No. The whole point of <code>standard</code> is to avoid <a href="https://www.freebsd.org/doc/en/books/faq/misc.html#bikeshed-painting">bikeshedding</a> about
-style. There are lots of debates online about tabs vs. spaces, etc. that will never
-be resolved. These debates just distract from getting stuff done. At the end of the
-day you have to &apos;just pick something&apos;, and that&apos;s the whole philosophy of
-<code>standard</code> -- its a bunch of sensible &apos;just pick something&apos; opinions. Hopefully,
-users see the value in that over defending their own opinions.</p>
-<h3 id="user-content-but-this-isnt-a-real-web-standard" class="deep-link"><a href="#but-this-isnt-a-real-web-standard">But this isn&apos;t a real web standard!</a></h3>
+<h2 id="user-content-who-uses-javascript-standard-style" class="deep-link"><a href="#who-uses-javascript-standard-style">Who uses JavaScript Standard Style?</a></h2>
+<p>Lots of folks!</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.npmjs.com"><img width="150" src="docs/logos/npm.png"></a></th>
+<th><a href="https://github.com"><img width="150" src="docs/logos/github.png"></a></th>
+<th><a href="https://opbeat.com"><img width="150" src="docs/logos/opbeat.png"></a></th>
+<th><a href="http://www.nearform.com"><img width="150" src="docs/logos/nearform.png"></a></th>
+<th><a href="https://www.brave.com"><img width="150" src="docs/logos/brave.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://zeit.co"><img width="150" src="docs/logos/zeit.png"></a></th>
+<th><a href="https://www.zendesk.com"><img width="150" src="docs/logos/zendesk.png"></a></th>
+<th><a href="https://www.mongodb.com"><img width="150" src="docs/logos/mongodb.jpg"></a></th>
+<th><a href="https://www.typeform.com"><img width="150" src="docs/logos/typeform.jpg"></a></th>
+<th><a href="https://gds.blog.gov.uk"><img width="150" src="docs/logos/gov-uk.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="http://expressjs.com"><img width="150" src="docs/logos/express.png"></a></th>
+<th><a href="https://webtorrent.io"><img width="150" src="docs/logos/webtorrent.png"></a></th>
+<th><a href="https://ipfs.io"><img width="150" src="docs/logos/ipfs.png"></a></th>
+<th><a href="https://datproject.org"><img width="150" src="docs/logos/dat.png"></a></th>
+<th><a href="https://bitcoinjs.org"><img width="150" src="docs/logos/bitcoinjs.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://atom.io"><img width="150" src="docs/logos/atom.png"></a></th>
+<th><a href="http://electron.atom.io"><img width="150" src="docs/logos/electron.png"></a></th>
+<th><a href="https://voltra.co"><img width="150" src="docs/logos/voltra.png"></a></th>
+<th><a href="https://www.treasuredata.com"><img width="150" src="docs/logos/treasuredata.png"></a></th>
+<th><a href="https://clevertech.biz"><img width="150" src="docs/logos/clevertech.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://www.apstudynotes.org"><img width="150" src="docs/logos/studynotes.jpg"></a></th>
+<th><a href="https://www.optiopay.com"><img width="150" src="docs/logos/optiopay.png"></a></th>
+<th><a href="https://www.jlrtechincubator.com/jlrti/"><img width="150" src="docs/logos/jaguar-landrover.png"></a></th>
+<th><a href="https://www.bustle.com"><img width="150" src="docs/logos/bustle.jpg"></a></th>
+<th><a href="https://www.zentrick.com"><img width="150" src="docs/logos/zentrick.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><a href="https://nodesource.com"><img width="150" src="docs/logos/nodesource.png"></a></th>
+<th><a href="https://greenkeeper.io"><img width="150" src="docs/logos/greenkeeper.png"></a></th>
+<th><a href="https://karma-runner.github.io"><img width="150" src="docs/logos/karma.png"></a></th>
+<th><a href="https://www.taser.com"><img width="150" src="docs/logos/taser.png"></a></th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>In addition to companies, many community members use <code>standard</code> on packages that
+are <a href="https://raw.githubusercontent.com/feross/standard-packages/master/all.json">too numerous</a>
+to list here.</p>
+<p><code>standard</code> is also the top-starred linter in GitHub&apos;s
+<a href="https://github.com/showcases/clean-code-linters">Clean Code Linter</a> showcase.</p>
+<h2 id="user-content-are-there-text-editor-plugins" class="deep-link"><a href="#are-there-text-editor-plugins">Are there text editor plugins?</a></h2>
+<p>First, install <code>standard</code>. Then, install the appropriate plugin for your editor:</p>
+<h3 id="user-content-sublime-text" class="deep-link"><a href="#sublime-text">Sublime Text</a></h3>
+<p>Using <strong><a href="https://packagecontrol.io/">Package Control</a></strong>, install <strong><a href="http://www.sublimelinter.com/en/latest/">SublimeLinter</a></strong> and
+<strong><a href="https://packagecontrol.io/packages/SublimeLinter-contrib-standard">SublimeLinter-contrib-standard</a></strong>.</p>
+<p>For automatic formatting on save, install <strong><a href="https://packagecontrol.io/packages/StandardFormat">StandardFormat</a></strong>.</p>
+<h3 id="user-content-atom" class="deep-link"><a href="#atom">Atom</a></h3>
+<p>Install <strong><a href="https://atom.io/packages/linter-js-standard">linter-js-standard</a></strong>.</p>
+<p>For automatic formatting, install <strong><a href="https://atom.io/packages/standard-formatter">standard-formatter</a></strong>. For snippets,
+install <strong><a href="https://atom.io/packages/standardjs-snippets">standardjs-snippets</a></strong>.</p>
+<h3 id="user-content-visual-studio-code" class="deep-link"><a href="#visual-studio-code">Visual Studio Code</a></h3>
+<p>Install <strong><a href="https://marketplace.visualstudio.com/items/chenxsan.vscode-standardjs">vscode-standardjs</a></strong>. (Includes support for automatic formatting.)</p>
+<p>For JS snippets, install: <strong><a href="https://marketplace.visualstudio.com/items?itemName=capaj.vscode-standardjs-snippets">vscode-standardjs-snippets</a></strong>. For React snippets, install <strong><a href="https://marketplace.visualstudio.com/items/TimonVS.ReactSnippetsStandard">vscode-react-standard</a></strong>.</p>
+<h3 id="user-content-vim" class="deep-link"><a href="#vim">Vim</a></h3>
+<p>Install <strong><a href="https://github.com/scrooloose/syntastic">Syntastic</a></strong> and add this line to <code>.vimrc</code>:</p>
+<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>let&#xA0;g:syntastic_javascript_checkers&#xA0;=&#xA0;[&apos;standard&apos;]</span></span></div></pre></div>
+<p>For automatic formatting on save, add these lines to <code>.vimrc</code>:</p>
+<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>autocmd&#xA0;bufwritepost&#xA0;*.js&#xA0;silent&#xA0;!standard&#xA0;--fix&#xA0;%</span></span></div><div class="line"><span class="text"><span>set&#xA0;autoread</span></span></div></pre></div>
+<h3 id="user-content-emacs" class="deep-link"><a href="#emacs">Emacs</a></h3>
+<p>Install <strong><a href="http://www.flycheck.org">Flycheck</a></strong> and check out the <strong><a href="http://www.flycheck.org/en/latest/user/installation.html">manual</a></strong> to learn
+how to enable it in your projects.</p>
+<h3 id="user-content-brackets" class="deep-link"><a href="#brackets">Brackets</a></h3>
+<p>Search the extension registry for <strong><a href="https://github.com/ishamf/brackets-standard/">&quot;Standard Code Style&quot;</a></strong> and click &quot;Install&quot;.</p>
+<h3 id="user-content-webstorm-phpstorm-intellij-rubymine-jetbrains-etc" class="deep-link"><a href="#webstorm-phpstorm-intellij-rubymine-jetbrains-etc">WebStorm (PhpStorm, IntelliJ, RubyMine, JetBrains, etc.)</a></h3>
+<p>WebStorm <a href="https://blog.jetbrains.com/webstorm/2017/01/webstorm-2017-1-eap-171-2272/">recently announced native support</a>
+for <code>standard</code> directly in the IDE.</p>
+<p>If you still prefer to configure <code>standard</code> manually, <a href="webstorm.html">follow this guide</a>. This applies to all JetBrains products, including PhpStorm, IntelliJ, RubyMine, etc.</p>
+<h2 id="user-content-is-there-a-readme-badge" class="deep-link"><a href="#is-there-a-readme-badge">Is there a readme badge?</a></h2>
+<p>Yes! If you use <code>standard</code> in your project, you can include one of these badges in
+your readme to let people know that your code is using the standard style.</p>
+<p><a href="https://github.com/feross/standard"><img src="https://cdn.rawgit.com/feross/standard/master/badge.svg"></a></p>
+<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>[![Standard&#xA0;-&#xA0;JavaScript&#xA0;Style&#xA0;Guide](</span><span class="markup underline link hyperlink"><span>https://cdn.rawgit.com/feross/standard/master/badge.svg</span></span><span>)](</span><span class="markup underline link hyperlink"><span>https://github.com/feross/standard</span></span><span>)</span></span></div></pre></div>
+<p class="badge-only"><a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" class="badge"></a></p>
+<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="text"><span>[![Standard&#xA0;-&#xA0;JavaScript&#xA0;Style&#xA0;Guide](</span><span class="markup underline link hyperlink"><span>https://img.shields.io/badge/code_style-standard-brightgreen.svg</span></span><span>)](</span><span class="markup underline link hyperlink"><span>http://standardjs.com/</span></span><span>)</span></span></div></pre></div>
+<h2 id="user-content-i-disagree-with-rule-x-can-you-change-it" class="deep-link"><a href="#i-disagree-with-rule-x-can-you-change-it">I disagree with rule X, can you change it?</a></h2>
+<p>No. The whole point of <code>standard</code> is to save you time by avoiding
+<a href="https://www.freebsd.org/doc/en/books/faq/misc.html#bikeshed-painting">bikeshedding</a> about code style. There are lots of debates online about
+tabs vs. spaces, etc. that will never be resolved. These debates just distract from
+getting stuff done. At the end of the day you have to &apos;just pick something&apos;, and
+that&apos;s the whole philosophy of <code>standard</code> -- its a bunch of sensible &apos;just pick
+something&apos; opinions. Hopefully, users see the value in that over defending their
+own opinions.</p>
+<p>If you really want to configure hundreds of ESLint rules individually, you can
+always use <code>eslint</code> directly with
+<a href="https://github.com/feross/eslint-config-standard">eslint-config-standard</a> to
+layer your changes on top.</p>
+<p>Pro tip: Just use <code>standard</code> and move on. There are actual real problems that you
+could spend your time solving! :P</p>
+<h2 id="user-content-but-this-isnt-a-real-web-standard" class="deep-link"><a href="#but-this-isnt-a-real-web-standard">But this isn&apos;t a real web standard!</a></h2>
 <p>Of course it&apos;s not! The style laid out here is not affiliated with any official web
 standards groups, which is why this repo is called <code>feross/standard</code> and not
 <code>ECMA/standard</code>.</p>
@@ -235,26 +320,25 @@ standards groups, which is why this repo is called <code>feross/standard</code> 
 <li>This module helps hold our code to a high <em>standard of quality</em>.</li>
 <li>This module ensures that new contributors follow some basic <em>style standards</em>.</li>
 </ul>
-<h3 id="user-content-is-there-an-automatic-formatter" class="deep-link"><a href="#is-there-an-automatic-formatter">Is there an automatic formatter?</a></h3>
+<h2 id="user-content-is-there-an-automatic-formatter" class="deep-link"><a href="#is-there-an-automatic-formatter">Is there an automatic formatter?</a></h2>
 <p>Yes! You can use <code>standard --fix</code> to automatically fix most issues automatically.</p>
-<p><code>standard --fix</code> is built into <code>standard</code> (since v8.0.0) for maximum convenience.
-Lots of problems are fixable, but some errors, like forgetting to handle the error
-in node-style callbacks, must be fixed manually.</p>
-<p>To save you time, <code>standard</code> outputs a message (&quot;Run <code>standard --fix</code> to
-automatically fix some problems.&quot;) when it detects problems that can be fixed
+<p><code>standard --fix</code> is built into <code>standard</code> for maximum convenience. Most problems
+are fixable, but some errors (like forgetting to handle errors) must be fixed
+manually.</p>
+<p>To save you time, <code>standard</code> outputs the message &quot;<code>Run standard --fix to automatically fix some problems</code>&quot; when it detects problems that can be fixed
 automatically.</p>
-<h3 id="user-content-how-do-i-ignore-files" class="deep-link"><a href="#how-do-i-ignore-files">How do I ignore files?</a></h3>
+<h2 id="user-content-how-do-i-ignore-files" class="deep-link"><a href="#how-do-i-ignore-files">How do I ignore files?</a></h2>
 <p>Certain paths (<code>node_modules/</code>, <code>coverage/</code>, <code>vendor/</code>, <code>*.min.js</code>, <code>bundle.js</code>,
 and files/folders that begin with <code>.</code> like <code>.git/</code>) are automatically ignored.</p>
 <p>Paths in a project&apos;s root <code>.gitignore</code> file are also automatically ignored.</p>
 <p>Sometimes you need to ignore additional folders or specific minified files. To do
 that, add a <code>standard.ignore</code> property to <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>:&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>ignore</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>**/out/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>/lib/select2/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>/lib/ckeditor/</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>tmp.js</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
-<h3 id="user-content-how-do-i-hide-a-certain-warning" class="deep-link"><a href="#how-do-i-hide-a-certain-warning">How do I hide a certain warning?</a></h3>
+<h2 id="user-content-how-do-i-hide-a-certain-warning" class="deep-link"><a href="#how-do-i-hide-a-certain-warning">How do I hide a certain warning?</a></h2>
 <p>In rare cases, you&apos;ll need to break a rule and hide the warning generated by
 <code>standard</code>.</p>
-<p>JavaScript Standard Style uses <a href="http://eslint.org/"><code>eslint</code></a> under-the-hood and
-you can hide warnings as you normally would if you used <code>eslint</code> directly.</p>
+<p>JavaScript Standard Style uses <a href="http://eslint.org/">ESLint</a> under-the-hood and
+you can hide warnings as you normally would if you used ESLint directly.</p>
 <p>To get verbose output (so you can find the particular rule name to ignore), run:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--verbose</span></span></div><div class="line"><span class="text"><span>Error:&#xA0;Use&#xA0;JavaScript&#xA0;Standard&#xA0;Style</span></span></div><div class="line"><span class="text"><span>&#xA0;&#xA0;routes/error.js:20:36:&#xA0;&apos;file&apos;&#xA0;was&#xA0;used&#xA0;before&#xA0;it&#xA0;was&#xA0;defined.&#xA0;(no-use-before-define)</span></span></div></pre></div>
 <p>Disable <strong>all rules</strong> on a specific line:</p>
@@ -263,55 +347,53 @@ you can hide warnings as you normally would if you used <code>eslint</code> dire
 <div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span>file&#xA0;</span><span class="keyword operator assignment js"><span>=</span></span><span>&#xA0;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>I&#xA0;know&#xA0;what&#xA0;I&#xA0;am&#xA0;doing</span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span>&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;eslint-disable-line&#xA0;no-use-before-define</span><span>&#xA0;</span></span></span></div></pre></div>
 <p>Or, disable the <code>&quot;no-use-before-define&quot;</code> rule for <strong>multiple lines</strong>:</p>
 <div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;eslint-disable&#xA0;no-use-before-define&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div><div class="line"><span class="source js"><span class="entity name type object console js"><span>console</span></span><span class="meta js"><span class="meta delimiter method period js"><span>.</span></span><span class="support function console js"><span>log</span></span><span class="meta js"><span class="punctuation definition begin round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>offending&#xA0;code&#xA0;goes&#xA0;here...</span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span class="punctuation definition end round js"><span>)</span></span></span></span></span></div><div class="line"><span class="source js"><span class="entity name type object console js"><span>console</span></span><span class="meta js"><span class="meta delimiter method period js"><span>.</span></span><span class="support function console js"><span>log</span></span><span class="meta js"><span class="punctuation definition begin round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>offending&#xA0;code&#xA0;goes&#xA0;here...</span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span class="punctuation definition end round js"><span>)</span></span></span></span></span></div><div class="line"><span class="source js"><span class="entity name type object console js"><span>console</span></span><span class="meta js"><span class="meta delimiter method period js"><span>.</span></span><span class="support function console js"><span>log</span></span><span class="meta js"><span class="punctuation definition begin round js"><span>(</span></span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span>offending&#xA0;code&#xA0;goes&#xA0;here...</span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span class="punctuation definition end round js"><span>)</span></span></span></span></span></div><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;eslint-enable&#xA0;no-use-before-define&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div></pre></div>
-<h3 id="user-content-i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors" class="deep-link"><a href="#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors">I use a library that pollutes the global namespace. How do I prevent &quot;variable is not defined&quot; errors?</a></h3>
+<h2 id="user-content-i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors" class="deep-link"><a href="#i-use-a-library-that-pollutes-the-global-namespace-how-do-i-prevent-variable-is-not-defined-errors">I use a library that pollutes the global namespace. How do I prevent &quot;variable is not defined&quot; errors?</a></h2>
 <p>Some packages (e.g. <code>mocha</code>) put their functions (e.g. <code>describe</code>, <code>it</code>) on the
-global object (poor form!). Since these functions are not defined or <code>require</code>d
+global object (poor form!). Since these functions are not defined or <code>require</code>&apos;d
 anywhere in your code, <code>standard</code> will warn that you&apos;re using a variable that is
 not defined (usually, this rule is really useful for catching typos!). But we want
 to disable it for these global variables.</p>
 <p>To let <code>standard</code> (as well as humans reading your code) know that certain variables
 are global in your code, add this to the top of your file:</p>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>/*&#xA0;global&#xA0;myVar1,&#xA0;myVar2&#xA0;*/</span></span></div></pre></div>
-<p>If you have hundreds of files, adding comments to every file can be tedious. In
-these cases, you can add this to <code>package.json</code>:</p>
+<div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;global&#xA0;myVar1,&#xA0;myVar2&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div></pre></div>
+<p>If you have hundreds of files, it may be desirable to avoid adding comments to
+every file. In this case, run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--global&#xA0;myVar1&#xA0;--global&#xA0;myVar2</span></span></div></pre></div>
+<p>Or, add this to <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>globals</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>myVar1</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator array json"><span>,</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>myVar2</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
-<h3 id="user-content-can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support" class="deep-link"><a href="#can-i-use-a-custom-js-parser-for-bleeding-edge-es-next-support">Can I use a custom JS parser for bleeding-edge ES next support?</a></h3>
-<p>Before you use a custom parser, consider whether the added complexity in your
-build process is worth it.</p>
-<p><code>standard</code> supports custom JS parsers. To use a custom parser, install it from npm
-(example: <code>npm install babel-eslint</code>) and add this to your <code>package.json</code>:</p>
+<p><em>Note: <code>global</code> and <code>globals</code> are equivalent.</em></p>
+<h2 id="user-content-how-do-i-use-experimental-javascript-es-next-features" class="deep-link"><a href="#how-do-i-use-experimental-javascript-es-next-features">How do I use experimental JavaScript (ES Next) features?</a></h2>
+<p><code>standard</code> supports the latest ECMAScript features, ES8 (ES2017), including
+language feature proposals that are in &quot;Stage 4&quot; of the proposal process.</p>
+<p>To support experimental language features, <code>standard</code> supports specifying a
+custom JavaScript parser. Before using a custom parser, consider whether the added
+complexity is worth it.</p>
+<p>To use a custom parser, install it from npm (example: <code>npm install babel-eslint</code>)
+and run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--parser&#xA0;babel-eslint</span></span></div></pre></div>
+<p>Or, add this to <code>package.json</code>:</p>
 <div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>parser</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>babel-eslint</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
-<p>If you&apos;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also
-need to install <code>babel-eslint</code> globally with <code>npm install babel-eslint -g</code>.</p>
-<h3 id="user-content-can-i-use-a-javascript-language-variant-like-flow" class="deep-link"><a href="#can-i-use-a-javascript-language-variant-like-flow">Can I use a JavaScript language variant, like Flow?</a></h3>
-<p>Before you use a custom JS language variant, consider whether the added complexity
-in your build process (and effort required to get new contributors up-to-speed) is
-worth it.</p>
+<p>If <code>standard</code> is installed globally (i.e. <code>npm install standard --global</code>), then
+be sure to install <code>babel-eslint</code> globally as well, with
+<code>npm install babel-eslint --global</code>.</p>
+<h2 id="user-content-can-i-use-a-javascript-language-variant-like-flow" class="deep-link"><a href="#can-i-use-a-javascript-language-variant-like-flow">Can I use a JavaScript language variant, like Flow?</a></h2>
+<p>Before using a custom JS language variant, consider whether the added complexity
+(and effort required to get new contributors up-to-speed) is worth it.</p>
 <p><code>standard</code> supports ESLint plugins. Use one of these to transform your code into
 valid JavaScript before <code>standard</code> sees it. To use a custom parser, install it from
-npm (example: <code>npm install eslint-plugin-flowtype</code>) and add this to your
-<code>package.json</code>:</p>
-<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>parser</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>babel-eslint</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="punctuation separator dictionary json"><span>,</span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>plugins</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>flowtype</span><span class="punctuation definition string end json"><span>&quot;</span></span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure array json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
-<p>If you&apos;re using <code>standard</code> globally (you installed it with <code>-g</code>), then you also
-need to install <code>eslint-plugin-flowtype</code> globally with
+npm (example: <code>npm install eslint-plugin-flowtype</code>) and run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--plugin&#xA0;flowtype</span></span></div></pre></div>
+<p>Or, add this to <code>package.json</code>:</p>
+<div class="highlight json"><pre class="editor editor-colors"><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>standard</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure dictionary json"><span class="punctuation definition dictionary begin json"><span>{</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>plugins</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span class="meta structure dictionary json"><span class="punctuation separator dictionary key-value json"><span>:</span></span><span>&#xA0;</span><span class="meta structure array json"><span class="punctuation definition array begin json"><span>[</span></span><span>&#xA0;</span><span class="string quoted double json"><span class="punctuation definition string begin json"><span>&quot;</span></span><span>flowtype</span><span class="punctuation definition string end json"><span>&quot;</span></span></span><span>&#xA0;</span><span class="punctuation definition array end json"><span>]</span></span></span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span class="meta structure dictionary json"><span>&#xA0;&#xA0;</span></span><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></span></span></div><div class="line"><span class="source json"><span class="meta structure dictionary json"><span class="punctuation definition dictionary end json"><span>}</span></span></span></span></div></pre></div>
+<p>If <code>standard</code> is installed globally (i.e. <code>npm install standard --global</code>), then
+be sure to install <code>eslint-plugin-flowtype</code> globally as well, with
 <code>npm install eslint-plugin-flowtype -g</code>.</p>
-<h3 id="user-content-can-you-make-rule-x-configurable" class="deep-link"><a href="#can-you-make-rule-x-configurable">Can you make rule X configurable?</a></h3>
-<p>No. The point of <code>standard</code> is to save you time by picking reasonable rules so you
-can spend your time solving actual problems. If you really do want to configure
-hundreds of eslint rules individually, you can always use <code>eslint</code> directly.</p>
-<p>If you just want to tweak a couple rules, consider using
-<a href="https://github.com/feross/eslint-config-standard">this shareable config</a> and
-layering your changes on top.</p>
-<p>Pro tip: Just use <code>standard</code> and move on. There are actual real problems that you
-could spend your time solving! :P</p>
-<h3 id="user-content-what-about-web-workers" class="deep-link"><a href="#what-about-web-workers">What about Web Workers?</a></h3>
-<p>Add this to the top of your files:</p>
-<div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;eslint-env&#xA0;serviceworker&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div></pre></div>
-<p>This lets <code>standard</code> (as well as humans reading your code) know that <code>self</code> is a
-global in web worker code.</p>
-<h3 id="user-content-what-about-mocha-jasmine-qunit-etc" class="deep-link"><a href="#what-about-mocha-jasmine-qunit-etc">What about Mocha, Jasmine, QUnit, etc?</a></h3>
+<p><em>Note: <code>plugin</code> and <code>plugins</code> are equivalent.</em></p>
+<h2 id="user-content-what-about-mocha-jasmine-qunit-etc" class="deep-link"><a href="#what-about-mocha-jasmine-qunit-etc">What about Mocha, Jasmine, QUnit, etc?</a></h2>
 <p>To support mocha in your test files, add this to the beginning of your test files:</p>
 <div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;eslint-env&#xA0;mocha&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div></pre></div>
+<p>Or, run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--env&#xA0;mocha</span></span></div></pre></div>
 <p>Where <code>mocha</code> can be one of <code>jasmine</code>, <code>qunit</code>, <code>phantomjs</code>, and so on. To see a
 full list, check ESLint&apos;s
 <a href="http://eslint.org/docs/user-guide/configuring.html#specifying-environments">specifying environments</a>
@@ -319,24 +401,39 @@ documentation. For a list of what globals are available for these environments,
 check the
 <a href="https://github.com/sindresorhus/globals/blob/master/globals.json">globals</a> npm
 module.</p>
-<h3 id="user-content-is-there-a-git-pre-commit-hook" class="deep-link"><a href="#is-there-a-git-pre-commit-hook">Is there a Git <code>pre-commit</code> hook?</a></h3>
+<p><em>Note: <code>env</code> and <code>envs</code> are equivalent.</em></p>
+<h2 id="user-content-what-about-web-workers" class="deep-link"><a href="#what-about-web-workers">What about Web Workers?</a></h2>
+<p>Add this to the top of your files:</p>
+<div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="comment block js"><span class="punctuation definition comment js"><span>/*</span></span><span>&#xA0;eslint-env&#xA0;serviceworker&#xA0;</span><span class="punctuation definition comment js"><span>*/</span></span></span></span></div></pre></div>
+<p>This lets <code>standard</code> (as well as humans reading your code) know that <code>self</code> is a
+global in web worker code.</p>
+<h2 id="user-content-can-i-check-code-inside-of-markdown-or-html-files" class="deep-link"><a href="#can-i-check-code-inside-of-markdown-or-html-files">Can I check code inside of Markdown or HTML files?</a></h2>
+<p>To check code inside Markdown files, use <a href="https://www.npmjs.com/package/standard-markdown"><code>standard-markdown</code></a>.</p>
+<p>Alternatively, there are ESLint plugins that can check code inside Markdown, HTML,
+and many other types of language files:</p>
+<p>To check code inside Markdown files, use an ESLint plugin:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;install&#xA0;eslint-plugin-markdown</span></span></div></pre></div>
+<p>Then, to check JS that appears inside code blocks, run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--plugin&#xA0;markdown&#xA0;&apos;**/*.md&apos;</span></span></div></pre></div>
+<p>To check code inside HTML files, use an ESLint plugin:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;install&#xA0;eslint-plugin-html</span></span></div></pre></div>
+<p>Then, to check JS that appears inside <code>&lt;script&gt;</code> tags, run:</p>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--plugin&#xA0;html&#xA0;&apos;**/*.html&apos;</span></span></div></pre></div>
+<h2 id="user-content-is-there-a-git-pre-commit-hook" class="deep-link"><a href="#is-there-a-git-pre-commit-hook">Is there a Git <code>pre-commit</code> hook?</a></h2>
 <p>Funny you should ask!</p>
 <div class="highlight sh"><pre class="editor editor-colors"><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>!/bin/sh</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&#xA0;Ensure&#xA0;all&#xA0;javascript&#xA0;files&#xA0;staged&#xA0;for&#xA0;commit&#xA0;pass&#xA0;standard&#xA0;code&#xA0;style</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source shell"><span>git&#xA0;diff&#xA0;--name-only&#xA0;--cached&#xA0;--relative&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;grep&#xA0;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&apos;</span></span><span>\.jsx\?$</span><span class="punctuation definition string end shell"><span>&apos;</span></span></span><span>&#xA0;</span><span class="keyword operator shell"><span>|</span></span><span>&#xA0;xargs&#xA0;standard</span></span></div><div class="line"><span class="source shell"><span class="meta scope shell"><span class="keyword control shell"><span>if</span></span><span>&#xA0;[&#xA0;</span><span class="variable other shell"><span class="punctuation definition variable shell"><span>$</span></span><span>?</span></span><span>&#xA0;-ne&#xA0;0&#xA0;]</span><span class="keyword operator list shell"><span>;</span></span><span>&#xA0;</span><span class="keyword control shell"><span>then</span></span><span>&#xA0;</span><span class="support function builtin shell"><span>exit</span></span><span>&#xA0;1</span><span class="keyword operator list shell"><span>;</span></span><span>&#xA0;</span><span class="keyword control shell"><span>fi</span></span></span></span></div></pre></div>
-<p>Alternatively, <a href="https://github.com/brigade/overcommit">overcommit</a> is a Git hook
-manager that includes support for running <code>standard</code> as a Git pre-commit hook.
-To enable this, add the following to your <code>.overcommit.yml</code> file:</p>
-<div class="highlight"><pre class="editor editor-colors"><div class="line"><span class="source yaml"><span class="string unquoted yaml"><span class="entity name tag yaml"><span>PreCommit</span><span class="punctuation separator key-value yaml"><span>:</span></span></span></span></span></div><div class="line"><span class="source yaml"><span>&#xA0;&#xA0;</span><span class="string unquoted yaml"><span class="entity name tag yaml"><span>Standard</span><span class="punctuation separator key-value yaml"><span>:</span></span></span></span></span></div><div class="line"><span class="source yaml"><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="string unquoted yaml"><span class="entity name tag yaml"><span>enabled</span><span class="punctuation separator key-value yaml"><span>:</span></span></span><span>&#xA0;</span><span class="string unquoted yaml"><span>true</span></span></span></span></div></pre></div>
-<h3 id="user-content-how-do-i-make-the-output-all-colorful-and-pretty" class="deep-link"><a href="#how-do-i-make-the-output-all-colorful-and-pretty">How do I make the output all colorful and <em>pretty</em>?</a></h3>
+<h2 id="user-content-how-do-i-make-the-output-all-colorful-and-pretty" class="deep-link"><a href="#how-do-i-make-the-output-all-colorful-and-pretty">How do I make the output all colorful and <em>pretty</em>?</a></h2>
 <p>The built-in output is simple and straightforward, but if you like shiny things,
 install <a href="https://www.npmjs.com/package/snazzy">snazzy</a>:</p>
-<div><pre class="editor editor-colors"><div class="line"><span class="text"><span>npm&#xA0;install&#xA0;snazzy</span></span></div></pre></div>
+<div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;npm&#xA0;install&#xA0;snazzy</span></span></div></pre></div>
 <p>And run:</p>
 <div class="highlight bash"><pre class="editor editor-colors"><div class="line"><span class="text"><span>$&#xA0;standard&#xA0;--verbose&#xA0;|&#xA0;snazzy</span></span></div></pre></div>
 <p>There&apos;s also <a href="https://www.npmjs.com/package/standard-tap">standard-tap</a>,
 <a href="https://www.npmjs.com/package/standard-json">standard-json</a>,
 <a href="https://www.npmjs.com/package/standard-reporter">standard-reporter</a>, and
 <a href="https://www.npmjs.com/package/standard-summary">standard-summary</a>.</p>
-<h2 id="user-content-nodejs-api" class="deep-link"><a href="#nodejs-api">Node.js API</a></h2>
+<h2 id="user-content-is-there-a-nodejs-api" class="deep-link"><a href="#is-there-a-nodejs-api">Is there a Node.js API?</a></h2>
+<p>Yes!</p>
 <h3 id="user-content-standardlinttexttext-opts-callback" class="deep-link"><a href="#standardlinttexttext-opts-callback"><code>standard.lintText(text, [opts], callback)</code></a></h3>
 <p>Lint the provided source <code>text</code> to enforce JavaScript Standard Style. An <code>opts</code> object may
 be provided:</p>
@@ -347,11 +444,10 @@ be provided:</p>
 <p>Lint the provided <code>files</code> globs. An <code>opts</code> object may be provided:</p>
 <div class="highlight js"><pre class="editor editor-colors"><div class="line"><span class="source js"><span class="storage type js"><span>var</span></span><span>&#xA0;opts&#xA0;</span><span class="keyword operator assignment js"><span>=</span></span><span>&#xA0;</span><span class="meta brace curly js"><span>{</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;ignore</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="meta brace square js"><span>[</span><span>]</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;file&#xA0;globs&#xA0;to&#xA0;ignore&#xA0;(has&#xA0;sane&#xA0;defaults)</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;cwd</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;current&#xA0;working&#xA0;directory&#xA0;(default:&#xA0;process.cwd())</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;fix</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="constant language boolean false js"><span>false</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;automatically&#xA0;fix&#xA0;problems</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;globals</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="meta brace square js"><span>[</span><span>]</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;global&#xA0;variables&#xA0;to&#xA0;declare</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;plugins</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="meta brace square js"><span>[</span><span>]</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;eslint&#xA0;plugins</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;envs</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="meta brace square js"><span>[</span><span>]</span></span><span class="meta delimiter object comma js"><span>,</span></span><span>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;eslint&#xA0;environment</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span>&#xA0;&#xA0;parser</span><span class="keyword operator js"><span>:</span></span><span>&#xA0;</span><span class="string quoted single js"><span class="punctuation definition string begin js"><span>&apos;</span></span><span class="punctuation definition string end js"><span>&apos;</span></span></span><span>&#xA0;&#xA0;&#xA0;&#xA0;</span><span class="comment line double-slash js"><span class="punctuation definition comment js"><span>//</span></span><span>&#xA0;js&#xA0;parser&#xA0;(e.g.&#xA0;babel-eslint)</span><span>&#xA0;</span></span></span></div><div class="line"><span class="source js"><span class="meta brace curly js"><span>}</span></span></span></div></pre></div>
 <p>The <code>callback</code> will be called with an <code>Error</code> and <code>results</code> object (same as above).</p>
-<h2 id="user-content-irc-channel" class="deep-link"><a href="#irc-channel">IRC channel</a></h2>
-<p>Join us in <code>#standard</code> on freenode.</p>
-<h2 id="user-content-contribute" class="deep-link"><a href="#contribute">Contribute</a></h2>
+<h2 id="user-content-how-do-i-contribute-to-standard" class="deep-link"><a href="#how-do-i-contribute-to-standard">How do I contribute to <code>standard</code>?</a></h2>
 <p>Contributions are welcome! Check out the <a href="https://github.com/feross/standard/issues">issues</a> or the <a href="https://github.com/feross/standard/pulls">PRs</a>, and make your own if you want something that you don&apos;t see there.</p>
-<h3 id="user-content-i-want-to-contribute-to-standard-what-packages-should-i-know-about" class="deep-link"><a href="#i-want-to-contribute-to-standard-what-packages-should-i-know-about">I want to contribute to <code>standard</code>. What packages should I know about?</a></h3>
+<p>Join other contributors in <code>#standard</code> on freenode to chat!</p>
+<p>Here are some important packages in the <code>standard</code> ecosystem:</p>
 <ul>
 <li><strong><a href="https://github.com/feross/standard">standard</a></strong> - this repo
 <ul>

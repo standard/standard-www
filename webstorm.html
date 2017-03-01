@@ -43,7 +43,13 @@
 </nav>
 
 <div class="content">
-<h1><a href="https://www.jetbrains.com/webstorm/">WebStorm/PhpStorm</a> configuration for Standard Style</h1>
+<h1><a href="https://www.jetbrains.com/webstorm/">WebStorm</a> configuration for Standard Style</h1>
+<h2 id="user-content-native-support-for-standard" class="deep-link"><a href="#native-support-for-standard">Native support for <code>standard</code></a></h2>
+<p>WebStorm <a href="https://blog.jetbrains.com/webstorm/2017/01/webstorm-2017-1-eap-171-2272/">recently announced native support</a>
+for <code>standard</code> directly in the IDE!</p>
+<p>This applies to all JetBrains products, including PhpStorm, IntelliJ, RubyMine, etc.</p>
+<p>If you still prefer to configure <code>standard</code> manually, use the following guide.</p>
+<h2 id="user-content-configure-standard-support-manually" class="deep-link"><a href="#configure-standard-support-manually">Configure <code>standard</code> support manually</a></h2>
 <ol>
 <li>Close your IDE.</li>
 <li><a href="https://www.jetbrains.com/help/phpstorm/2016.1/directories-used-by-phpstorm-to-store-settings-caches-plugins-and-logs.html?origin=old_help#d66583e60">Figure out where your configuration lives</a> (<em>IDE Settings</em> section)</li>
@@ -77,12 +83,11 @@ you would like to fix it, <a href="https://docs.npmjs.com/getting-started/fixing
 <ol>
 <li>Start up the IDE and open a <em>Settings</em>/<em>Preferences</em> screen (choose between project and default settings accordingly to your preference)</li>
 <li>Under <code>Editor &gt; Code Style &gt; JavaScript</code> change <code>Scheme</code> to <code>Standard</code></li>
+<li>Under <code>Editor &gt; Code Style &gt; HTML</code> just select <code>Other</code>, in <code>Spaces</code> setting, check <code>In empty tag</code></li>
 <li>Under <code>Editor &gt; Inspections &gt; JavaScript &gt; Code style issues</code> untick <code>Unterminated statement</code></li>
 <li>Under <code>Languages &amp; Frameworks &gt; JavaScript &gt; Code Quality Tools &gt; ESLint</code> just select <code>Enable</code>. If you didn&apos;t install <code>ESLint</code> before and you don&apos;t have it in your dependencies - that&apos;s all. If you do - be sure to use <code>ESLint package</code> of the same version as current version of <code>standard</code> is using. Or just remove your old one - you probably won&apos;t need it anymore</li>
 </ol>
 <hr>
-<p>If you&apos;re a Webstorm or PhpStorm user, <a href="https://youtrack.jetbrains.com/issue/WEB-17331">vote for <code>standard</code> to be one of the default styles</a>
-built into the app.</p>
 
 </div>
 
