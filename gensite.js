@@ -74,8 +74,8 @@ sh.sed('-i', /".*docs\/RULES(.*)\.md/g, '"rules$1.html', join(buildPath, 'rules.
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
 // once everything is built, copy it to root
-sh.rm('../*.html')
-sh.cp('-R', buildPath + '/', resolve(__dirname, '..'))
+sh.rm('dist/*.html')
+sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 
 // copy standard-demo bundle.js to root
-sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, '..', 'standard-demo.js'))
+sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
