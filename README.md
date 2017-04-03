@@ -5,8 +5,6 @@
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
-http://feross.github.io/standard-www
-
 http://standardjs.com
 
 ## Usage
