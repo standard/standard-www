@@ -40,7 +40,6 @@ sh.rm('-rf', mdPath)
 sh.mkdir(buildPath)
 sh.mkdir('-p', logoPath)
 sh.mkdir(mdPath)
-sh.mkdir(mdPath)
 
 sh.cp('-f', join('markdown/*.md'), mdPath)
 sh.cp('-f', join(stdPath, '*.md'), mdPath)
