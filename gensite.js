@@ -76,9 +76,12 @@ sh.find(buildPath)
 // rename files to be internet friendly
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
-// once everything is built, copy it to root
+// once everything is built, copy it to dist
 sh.rm('dist/*.html')
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 
-// copy standard-demo bundle.js to root
+// copy standard-demo bundle.js to dist
 sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
+
+// copy favicons to dist
+sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
