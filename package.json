@@ -40,7 +40,7 @@
     "build-css": "catw -c 'lessc --include-path=layout/style -' 'layout/style/*.less' > dist/main.css",
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
-    "clean": "rimraf dist && mkdirp dist",
+    "clean": "rimraf dist/* && mkdirp dist",
     "serve": "ecstatic dist",
     "start": "npm run clean && npm run build-css && npm run build-html && npm run build-js",
     "test": "standard"
