@@ -61,13 +61,17 @@ files.forEach(function (file) {
   fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
 })
 
-// replace all RULES.md instances in links with rules.html
-sh.sed('-i', /RULES(.*?)\.md/g, 'rules.html', join(buildPath, 'readme.html'))
-sh.sed('-i', /"docs\/RULES(.*?)\.md/g, '"rules$1.html', join(buildPath, 'readme.html'))
-sh.sed('-i', /"docs\/README(.*?)\.md/g, '"readme$1.html', join(buildPath, 'readme.html'))
-sh.sed('-i', /"docs\/webstorm\.md"/g, '"webstorm.html"', join(buildPath, 'readme.html'))
+sh.find(buildPath)
+.filter(function (file) { return file.match(/\.html$/) })
+.forEach(function (f) {
+  // replace all RULES.md instances in links with rules.html
+  sh.sed('-i', /"(docs\/|\.\.\/)?RULES(.*?)\.md/g, '"rules$2.html', f)
 
-sh.sed('-i', /"docs\/RULES(.*?)\.md/g, '"rules$1.html', join(buildPath, 'rules.html'))
+  sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
+  sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
+
+  sh.sed('-i', /"(docs\/|\.\.\/)?webstorm(.*?)\.md/g, '"webstorm$2.html', f)
+})
 
 // rename files to be internet friendly
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
