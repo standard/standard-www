@@ -5,6 +5,12 @@
   "bugs": {
     "url": "https://github.com/feross/standard-www/issues"
   },
+  "dependencies": {
+    "github-slugger": "^1.0.1",
+    "handlebars": "^4.0.3",
+    "marky-deep-links": "^1.0.0",
+    "marky-markdown": "^7.0.0"
+  },
   "devDependencies": {
     "browserify": "^14.0.0",
     "catw": "^1.0.1",
@@ -34,15 +40,9 @@
     "build-css": "catw -c 'lessc --include-path=layout/style -' 'layout/style/*.less' > dist/main.css",
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
-    "start": "npm run clean && npm run build-css && npm run build-html && npm run build-js",
+    "clean": "rimraf dist && mkdirp dist",
     "serve": "ecstatic dist",
-    "test": "standard",
-    "clean": "rimraf dist && mkdirp dist"
-  },
-  "dependencies": {
-    "github-slugger": "^1.0.1",
-    "handlebars": "^4.0.3",
-    "marky-deep-links": "^1.0.0",
-    "marky-markdown": "^7.0.0"
+    "start": "npm run clean && npm run build-css && npm run build-html && npm run build-js",
+    "test": "standard"
   }
 }
