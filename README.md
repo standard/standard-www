@@ -1,7 +1,7 @@
 # standard-www [![travis][travis-image]][travis-url] [![javascript style guide][standard-image]][standard-url]
 
-[travis-image]: https://img.shields.io/travis/feross/standard-www/master.svg
-[travis-url]: https://travis-ci.org/feross/standard-www
+[travis-image]: https://img.shields.io/travis/standard/standard-www/master.svg
+[travis-url]: https://travis-ci.org/standard/standard-www
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
