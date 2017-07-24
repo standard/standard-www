@@ -30,8 +30,8 @@ if (!sh.which('git')) {
   sh.exit(1)
 }
 
-pullOrClone('https://github.com/feross/standard', stdPath)
-pullOrClone('https://github.com/feross/awesome-standard', awesomePath)
+pullOrClone('https://github.com/standard/standard', stdPath)
+pullOrClone('https://github.com/standard/awesome-standard', awesomePath)
 pullOrClone('https://github.com/flet/standard-demo', demoPath)
 
 sh.rm('-rf', buildPath)

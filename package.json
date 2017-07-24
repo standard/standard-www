@@ -1,9 +1,9 @@
 {
   "name": "standard-www",
-  "description": "Website for feross/standard - http://www.standardjs.com",
+  "description": "Website for standard/standard - http://www.standardjs.com",
   "version": "1.0.0",
   "bugs": {
-    "url": "https://github.com/feross/standard-www/issues"
+    "url": "https://github.com/standard/standard-www/issues"
   },
   "dependencies": {
     "github-slugger": "^1.0.1",
@@ -21,7 +21,7 @@
     "shelljs": "^0.6.0",
     "standard": "*"
   },
-  "homepage": "https://github.com/feross/standard-www",
+  "homepage": "https://github.com/standard/standard-www",
   "keywords": [
     "site",
     "standard",
@@ -34,7 +34,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/feross/standard-www.git"
+    "url": "https://github.com/standard/standard-www.git"
   },
   "scripts": {
     "build-css": "catw -c 'lessc --include-path=layout/style -' 'layout/style/*.less' > dist/main.css",

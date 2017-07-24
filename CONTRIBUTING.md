@@ -27,8 +27,8 @@ Tests are run with `npm test`. Unless you're creating a failing test to increase
 
 This repository uses [`standard`][standard-url] to maintain code style and consistency and avoid style arguments. `npm test` runs `standard` so you don't have to!
 
-[standard-image]: https://cdn.rawgit.com/feross/standard/master/badge.svg
-[standard-url]: https://github.com/feross/standard
+[standard-image]: https://cdn.rawgit.com/standard/standard/master/badge.svg
+[standard-url]: https://github.com/standard/standard
 [semistandard-image]: https://cdn.rawgit.com/flet/semistandard/master/badge.svg
 [semistandard-url]: https://github.com/Flet/semistandard
 
