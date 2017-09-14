@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript Standard Style</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link type="text/css" rel="stylesheet" href="main.css" />
+    <link type="text/css" rel="stylesheet" href="/main.css" />
     <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
@@ -26,17 +26,36 @@
     <meta name="theme-color" content="#f3df49">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   </head>
-<body>
+  <body>
 
-{{~> toc}}
+  <nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="demo.html">Try It Out</a></li>
+        <li><a href="/#install">Install</a></li>
+        <li><a href="/rules.html">Rules</a></li>
+        <li><a href="/#why-should-i-use-javascript-standard-style">FAQ</a></li>
+        <li><a href="/awesome.html">Ecosystem</a></li>
+        <li><a href="/changelog.html">Change Log</a></li>
+        <li><a href="/authors.html">Authors</a></li>
+        <li><a href="https://github.com/standard/standard">GitHub</a>
+    </ul>
+  </nav>
 
-<div class="content">
-{{markdown data}}
-</div>
+  <div class="content markdown-body"></div>
 
-<script src="standard-www.js"></script>
+  <script src="/standard-www.js"></script>
 
-{{~> ga}}
+  <!-- Google Analytics -->
+  <script>
+      window.ga = window.ga || function () {
+        (ga.q = ga.q || []).push(arguments)
+      }
+      ga.l = +new Date
+      ga('create', 'UA-3898076-21', 'auto')
+      ga('send', 'pageview')
+  </script>
+  <script async src="//www.google-analytics.com/analytics.js"></script>
 
-</body>
+  </body>
 </html>

@@ -9,7 +9,7 @@
     "github-slugger": "^1.0.1",
     "handlebars": "^4.0.3",
     "marky-deep-links": "^1.0.0",
-    "marky-markdown": "^7.0.0"
+    "sitedown": "^3.3.0"
   },
   "devDependencies": {
     "browserify": "^14.0.0",
@@ -38,7 +38,7 @@
   },
   "scripts": {
     "build-css": "catw -c 'lessc --include-path=layout/style -' 'layout/style/*.less' > dist/main.css",
-    "build-html": "node gensite.js",
+    "build-html": "./prepare.sh",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
     "clean": "rimraf dist/* && mkdirp dist",
     "serve": "ecstatic dist",
