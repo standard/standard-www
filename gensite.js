@@ -30,7 +30,7 @@ if (!sh.which('git')) {
   sh.exit(1)
 }
 
-pullOrClone('https://github.com/standard/standard', stdPath)
+pullOrClone('https://github.com/helloitsjoe/standard', stdPath)
 pullOrClone('https://github.com/standard/awesome-standard', awesomePath)
 pullOrClone('https://github.com/flet/standard-demo', demoPath)
 
@@ -66,6 +66,7 @@ sh.find(buildPath)
 .forEach(function (f) {
   // replace all RULES.md instances in links with rules.html
   sh.sed('-i', /"(docs\/|\.\.\/)?RULES(.*?)\.md/g, '"rules$2.html', f)
+  // sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
 
   sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
   sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
@@ -85,3 +86,6 @@ sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-de
 
 // copy favicons to dist
 sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
+
+// remove tmp dir
+// sh.rm('-rf', 'tmp')
