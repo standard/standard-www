@@ -87,4 +87,4 @@ sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-de
 sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
 
 // remove tmp dir
-// sh.rm('-rf', 'tmp')
+sh.rm('-rf', 'tmp')
