@@ -65,7 +65,7 @@ sh.find(buildPath)
 .filter(function (file) { return file.match(/\.html$/) })
 .forEach(function (f) {
   // replace all RULES.md instances in links with rules.html
-  sh.sed('-i', /"(docs\/|\.\.\/)?RULES(.*?)\.md/g, '"rules$2.html', f)
+  sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
 
   sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
   sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
@@ -85,3 +85,6 @@ sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-de
 
 // copy favicons to dist
 sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
+
+// remove tmp dir
+sh.rm('-rf', 'tmp')
