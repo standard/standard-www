@@ -14,7 +14,7 @@
   "devDependencies": {
     "browserify": "^14.0.0",
     "catw": "^1.0.1",
-    "ecstatic": "^1.4.0",
+    "ecstatic": "^3.1.1",
     "less": "^2.6.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
