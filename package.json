@@ -9,16 +9,16 @@
     "github-slugger": "^1.0.1",
     "handlebars": "^4.0.3",
     "marky-deep-links": "^1.0.0",
-    "marky-markdown": "^7.0.0"
+    "marky-markdown": "^12.0.0"
   },
   "devDependencies": {
-    "browserify": "^14.0.0",
+    "browserify": "^15.2.0",
     "catw": "^1.0.1",
     "ecstatic": "^3.1.1",
     "less": "^2.6.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
-    "shelljs": "^0.6.0",
+    "shelljs": "^0.8.1",
     "standard": "*"
   },
   "homepage": "https://github.com/standard/standard-www",
