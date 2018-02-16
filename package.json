@@ -18,7 +18,7 @@
     "less": "^2.6.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
-    "shelljs": "^0.8.1",
+    "shelljs": "^0.6.0",
     "standard": "*"
   },
   "homepage": "https://github.com/standard/standard-www",
