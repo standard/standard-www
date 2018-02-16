@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 50px;
+	font-size: 48px;
 	line-height: 1.5em;
 }
 
@@ -87,6 +87,52 @@ ul {
 .content > h1:first-child {
 	text-align: center;
 	display: block;
+	margin: 0;
+}
+.content > h1:first-child img {
+	display: block;
+	margin: 25px auto;
+}
+.content > h1:first-child br {
+	display: none;
+}
+
+/* Badges */
+.content > p:nth-child(2) {
+	display: none;
+}
+
+/* Translation links */
+.content > p:nth-child(3) {
+	font-size: 14px;
+	text-align: center;
+	margin: 25px 0;
+	opacity: 0.4;
+	transition: opacity 0.2s linear;
+}
+.content > p:nth-child(3) a {
+	white-space: nowrap;
+}
+.content > p:nth-child(3):hover {
+	opacity: 1;
+}
+
+/* Sponsor logo */
+.content > p:nth-child(4) {
+	text-align: center;
+	margin: 25px 0;
+}
+.content > p:nth-child(4) a {
+	margin-left: 10px;
+}
+.content > p:nth-child(4) strong,
+.content > p:nth-child(4) img {
+	vertical-align: middle;
+}
+
+/* First h2 tag */
+.content > h2:nth-child(5) {
+	text-align: center;
 }
 
 /* Article Body */
