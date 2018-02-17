@@ -89,51 +89,65 @@ ul {
 	display: block;
 	margin: 0;
 }
-.content > h1:first-child img {
+
+.anchor {
+	opacity: 0;
+	margin-right: 5px;
+}
+
+*:hover > .anchor {
+	opacity: 1;
+}
+
+/* README STYLES */
+
+body.readme .content > h1:first-child img {
 	display: block;
 	margin: 25px auto;
 }
-.content > h1:first-child br {
+body.readme .content > h1:first-child br {
 	display: none;
 }
 
 /* Badges */
-.content > p:nth-child(2) {
+body.readme .content > p:nth-child(2) {
 	display: none;
 }
 
 /* Translation links */
-.content > p:nth-child(3) {
+body.readme .content > p:nth-child(3) {
 	font-size: 14px;
 	text-align: center;
 	margin: 25px 0;
 	opacity: 0.4;
 	transition: opacity 0.2s linear;
 }
-.content > p:nth-child(3) a {
+body.readme .content > p:nth-child(3) a {
 	white-space: nowrap;
 }
-.content > p:nth-child(3):hover {
+body.readme .content > p:nth-child(3):hover {
 	opacity: 1;
 }
 
 /* Sponsor logo */
-.content > p:nth-child(4) {
+body.readme .content > p:nth-child(4) {
 	text-align: center;
 	margin: 25px 0;
 }
-.content > p:nth-child(4) a {
+body.readme .content > p:nth-child(4) a {
 	margin-left: 10px;
 }
-.content > p:nth-child(4) strong,
-.content > p:nth-child(4) img {
+body.readme .content > p:nth-child(4) strong,
+body.readme .content > p:nth-child(4) img {
 	vertical-align: middle;
 }
 
 /* First h2 tag */
-.content > h2:nth-child(5) {
+body.readme .content > h2:nth-child(5) {
 	text-align: center;
 }
+
+/* END README STYLES */
 
 /* Article Body */
 
