@@ -62,16 +62,16 @@ files.forEach(function (file) {
 })
 
 sh.find(buildPath)
-.filter(function (file) { return file.match(/\.html$/) })
-.forEach(function (f) {
-  // replace all RULES.md instances in links with rules.html
-  sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
+  .filter(function (file) { return file.match(/\.html$/) })
+  .forEach(function (f) {
+    // replace all RULES.md instances in links with rules.html
+    sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
 
-  sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
-  sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
+    sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
+    sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
 
-  sh.sed('-i', /"(docs\/|\.\.\/)?webstorm(.*?)\.md/g, '"webstorm$2.html', f)
-})
+    sh.sed('-i', /"(docs\/|\.\.\/)?webstorm(.*?)\.md/g, '"webstorm$2.html', f)
+  })
 
 // rename files to be internet friendly
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
