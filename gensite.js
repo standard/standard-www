@@ -86,5 +86,8 @@ sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-de
 // copy favicons to dist
 sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
 
+// copy main.css to dist
+sh.cp('layout/main.css', resolve(__dirname, 'dist'))
+
 // remove tmp dir
 sh.rm('-rf', 'tmp')
