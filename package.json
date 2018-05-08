@@ -16,7 +16,7 @@
     "ecstatic": "^3.1.1",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1",
-    "shelljs": "^0.6.0",
+    "shelljs": "^0.8.2",
     "standard": "*"
   },
   "homepage": "https://github.com/standard/standard-www",
