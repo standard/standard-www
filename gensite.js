@@ -55,7 +55,7 @@ files.forEach(function (file) {
   var name = path.parse(file).name
   var gen = name === 'demo' ? genDemo : genPage
 
-  var htmlData = gen({data: fileData, name: name.toLowerCase()})
+  var htmlData = gen({ data: fileData, name: name.toLowerCase() })
   var fileName = slugger.slug(name) + '.html'
 
   fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
