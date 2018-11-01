@@ -112,7 +112,10 @@ body {
   body.readme .content > p:nth-child(3):hover {
     opacity: 1;
   }
+
+  /* -- DISABLED: No primary sponsor at the moment -- */
   /* Sponsor logo */
+  /*
   body.readme .content > p:nth-child(4) {
     text-align: center;
     margin: 25px 0;
@@ -124,10 +127,17 @@ body {
   body.readme .content > p:nth-child(4) img {
     vertical-align: middle;
   }
+  */
   /* First h2 tag */
+  /*
   body.readme .content > h2:nth-child(5) {
     text-align: center;
   }
+  */
+   body.readme .content > h2:nth-child(4) {
+    text-align: center;
+  }
+
   /* END README STYLES */
   /* Article Body */
   dl dd {
@@ -138,9 +148,9 @@ body {
     overflow-x: auto;
     font-size: 16px;
   }
-  
+
   /* Demo Page Styles */
-  
+
   .demo div#messages {
     display: inline-block;
     vertical-align: top;
@@ -433,4 +443,4 @@ body {
   .meta.line.error.logfile {
     background-color: #751012;
   }
-  
+
