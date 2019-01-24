@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: standardjs.com
+Token: 828fa33478e2426be7f110ea997fb8a36d65ddf79e7d1aec87a4b8dda1388211
