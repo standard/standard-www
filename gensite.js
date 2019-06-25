@@ -36,6 +36,7 @@ pullOrClone('https://github.com/flet/standard-demo', demoPath)
 
 sh.rm('-rf', buildPath)
 sh.rm('-rf', mdPath)
+sh.rm('-rf', 'dist')
 
 sh.mkdir(buildPath)
 sh.mkdir('-p', logoPath)
@@ -83,14 +84,9 @@ sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 // copy standard-demo bundle.js to dist
 sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
 
-// copy favicons to dist
-sh.cp('-R', 'favicons', resolve(__dirname, 'dist'))
-
-// copy main.css to dist
-sh.cp('layout/main.css', resolve(__dirname, 'dist'))
-
-// copy main.css to dist
-sh.cp('-R', '.well-known', resolve(__dirname, 'dist'))
+// copy static to dist
+sh.cp('-R', 'static/', resolve(__dirname, 'dist'))
+sh.cp('-R', 'static/.well-known', resolve(__dirname, 'dist'))
 
 // remove tmp dir
 sh.rm('-rf', 'tmp')

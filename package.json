@@ -35,11 +35,12 @@
     "url": "https://github.com/standard/standard-www.git"
   },
   "scripts": {
+    "build": "npm run build-html && npm run build-js",
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
     "clean": "rimraf dist/* && mkdirp dist",
     "serve": "ecstatic dist --port 4000",
-    "start": "npm run clean && npm run build-html && npm run build-js",
+    "start": "npm run clean && npm run build",
     "test": "standard"
   }
 }
