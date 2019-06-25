@@ -38,7 +38,7 @@
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
     "clean": "rimraf dist/* && mkdirp dist",
-    "serve": "ecstatic dist",
+    "serve": "ecstatic dist --port 4000",
     "start": "npm run clean && npm run build-html && npm run build-js",
     "test": "standard"
   }

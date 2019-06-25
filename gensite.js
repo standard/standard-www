@@ -20,7 +20,7 @@ var demoPage = join('layout/demo.html')
 
 var partials = {
   toc: join('layout/partials/toc.html'),
-  ga: join('layout/partials/ga.html')
+  scripts: join('layout/partials/scripts.html')
 }
 
 var slugger = new GitHubSlugger()
