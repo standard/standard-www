@@ -70,7 +70,7 @@ body {
   }
   /* Content Box */
   .content {
-    max-width: 760px;
+    max-width: 780px;
     margin: 1.5em auto;
   }
   .content > h1:first-child {
@@ -111,6 +111,12 @@ body {
   }
   body.readme .content > p:nth-child(3):hover {
     opacity: 1;
+  }
+
+  /* Who uses JavaScript Standard Style? */
+  tr img {
+    padding: 15px;
+    width: 160px;
   }
 
   /* -- DISABLED: No primary sponsor at the moment -- */
