@@ -78,7 +78,7 @@ sh.find(buildPath)
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
 // once everything is built, copy it to dist
-sh.rm('dist/*.html')
+sh.rm('-f', 'dist/*.html')
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 
 // copy standard-demo bundle.js to dist
