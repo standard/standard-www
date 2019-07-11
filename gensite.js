@@ -80,7 +80,7 @@ sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
 
 // copy static to dist
-sh.cp('-R', 'static/', resolve(__dirname, 'dist'))
+sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
 sh.cp('-R', 'static/.well-known', resolve(__dirname, 'dist'))
 
 // remove tmp dir
