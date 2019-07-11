@@ -10,7 +10,6 @@ var resolve = require('path').resolve
 
 var awesomePath = join('tmp/awesome-standard')
 var buildPath = 'build'
-var logoPath = join(buildPath, 'docs')
 var demoPath = join('tmp/standard-demo')
 var mdPath = join('tmp/markdown')
 var stdPath = join('tmp/standard')
@@ -39,14 +38,12 @@ sh.rm('-rf', mdPath)
 sh.rm('-rf', 'dist')
 
 sh.mkdir(buildPath)
-sh.mkdir('-p', logoPath)
 sh.mkdir(mdPath)
 
 sh.cp('-f', join('markdown/*.md'), mdPath)
 sh.cp('-f', join(stdPath, '*.md'), mdPath)
 sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
 sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
-sh.cp('-R', join(stdDocsPath, 'logos'), logoPath)
 var genPage = markybars.compile(page, partials)
 var genDemo = markybars.compile(demoPage, partials)
 
@@ -78,9 +75,7 @@ sh.find(buildPath)
 sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
 // once everything is built, copy it to dist
-sh.rm('-f', 'dist/*.html')
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
-
 // copy standard-demo bundle.js to dist
 sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
 
