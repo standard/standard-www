@@ -15,498 +15,522 @@ https://github.com/AndrewBelt/WiTeX
 
 /* Page Layout */
 body {
-    background-color: white;
-    font-size: 18px;
-    line-height: 1.5em;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: bold;
-  }
-  h1 {
-    font-size: 48px;
-    line-height: 1.5em;
-  }
-  h2 {
-    font-size: 34px;
-    line-height: 1.5em;
-  }
-  h3 {
-    font-size: 28px;
-    line-height: 1.5em;
-  }
-  h4 {
-    font-size: 24px;
-    line-height: 1.5em;
-  }
-  .deep-link a,
-  .deep-link a:visited {
-    text-decoration: none;
-    color: black;
-  }
-  nav {
-    text-align: center;
+  background-color: white;
+  font-size: 18px;
+  line-height: 1.5em;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+h1 {
+  font-size: 48px;
+  line-height: 1.5em;
+}
+h2 {
+  font-size: 34px;
+  line-height: 1.5em;
+}
+h3 {
+  font-size: 28px;
+  line-height: 1.5em;
+}
+h4 {
+  font-size: 24px;
+  line-height: 1.5em;
+}
+p code {
+  padding-left: 0;
+  padding-right: 0;
+}
+.deep-link a,
+.deep-link a:visited {
+  text-decoration: none;
+  color: black;
+}
+nav {
+  text-align: center;
+  width: 100%;
+}
+nav > ul {
+  padding-top: 1em;
+  padding-left: 0;
+}
+nav > ul > li {
+  display: inline;
+  margin: 0.5em 0.75em;
+  font-size: 22px;
+}
+a,
+a:visited {
+  color: #a00;
+}
+ul {
+  list-style: disc;
+}
+/* Content Box */
+.content {
+  max-width: 780px;
+  margin: 1.5em auto;
+}
+.content > h1:first-child {
+  text-align: center;
+  display: block;
+  margin: 0;
+}
+.anchor {
+  opacity: 0;
+  margin-right: 5px;
+  margin-left: -22px;
+}
+*:hover > .anchor {
+  opacity: 1;
+}
+/* README STYLES */
+body.readme .content > h1:first-child img {
+  display: block;
+  margin: 25px auto;
+}
+body.readme .content > h1:first-child br {
+  display: none;
+}
+/* Badges */
+body.readme .content > p:nth-child(2) {
+  display: none;
+}
+/* Translation links */
+body.readme .content > p:nth-child(3) {
+  font-size: 14px;
+  text-align: center;
+  margin: 25px 0;
+  opacity: 0.4;
+  transition: opacity 0.2s linear;
+}
+body.readme .content > p:nth-child(3) a {
+  white-space: nowrap;
+}
+body.readme .content > p:nth-child(3):hover {
+  opacity: 1;
+}
+
+/* Who uses JavaScript Standard Style? */
+tr img {
+  padding: 15px;
+  width: 160px;
+}
+
+/* -- DISABLED: No primary sponsor at the moment -- */
+/* Sponsor logo */
+/*
+body.readme .content > p:nth-child(4) {
+  text-align: center;
+  margin: 25px 0;
+}
+body.readme .content > p:nth-child(4) a {
+  margin-left: 10px;
+}
+body.readme .content > p:nth-child(4) strong,
+body.readme .content > p:nth-child(4) img {
+  vertical-align: middle;
+}
+*/
+/* First h2 tag */
+/*
+body.readme .content > h2:nth-child(5) {
+  text-align: center;
+}
+*/
+ body.readme .content > h2:nth-child(4) {
+  text-align: center;
+}
+
+/* END README STYLES */
+/* Article Body */
+dl dd {
+  /* center definitions (most useful for display equations) */
+  text-align: center;
+}
+.editor {
+  overflow-x: auto;
+  font-size: 16px;
+}
+
+/* Demo Page Styles */
+
+.demo div#messages {
+  display: inline-block;
+  vertical-align: top;
+  width: 280px;
+}
+.demo .message {
+  padding: 10px;
+  margin: 5px;
+  background-color: lightyellow;
+  border: 1px solid burlywood;
+  font-size: 16px;
+  text-align: auto;
+}
+.demo .success {
+  background-color: lightgreen;
+  border: 1px solid darkgreen;
+  text-align: center;
+  font-weight: bold;
+}
+.demo #versioninfo {
+  display: inline-block;
+  font-size: 6px;
+}
+.demo #javascript-editor {
+  display: inline-block;
+  width: 670px;
+  height: 600px;
+  font-size: 16px;
+  text-align: left;
+}
+.demo .editor-wrapper {
+  text-align: center;
+}
+.demo button {
+  padding: 5px;
+  margin: 5px;
+  font-size: 16px;
+}
+.editor {
+  padding: 10px;
+  background-color: #1d1f21;
+  color: #c5c8c6;
+}
+.editor .invisible-character {
+  color: rgba(197, 200, 198, 0.2);
+}
+.editor .indent-guide {
+  color: rgba(197, 200, 198, 0.2);
+}
+.editor .wrap-guide {
+  background-color: rgba(197, 200, 198, 0.1);
+}
+.editor .gutter {
+  background-color: #292c2f;
+}
+.editor .gutter .cursor-line {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.editor .line-number.cursor-line-no-selection {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.editor .gutter .line-number.folded,
+.editor .gutter .line-number:after,
+.editor .fold-marker:after {
+  color: #fba0e3;
+}
+.editor .invisible {
+  color: #c5c8c6;
+}
+.editor .cursor {
+  border-color: white;
+}
+.editor .selection .region {
+  background-color: #444;
+}
+.editor .source.gfm {
+  color: #999;
+}
+.editor .gfm .markup.heading {
+  color: #eee;
+}
+.editor .gfm .link {
+  color: #555;
+}
+.editor .gfm .variable.list,
+.editor .gfm .support.quote {
+  color: #555;
+}
+.editor .gfm .link .entity {
+  color: #ddd;
+}
+.editor .gfm .raw {
+  color: #aaa;
+}
+.editor .markdown .paragraph {
+  color: #999;
+}
+.editor .markdown .heading {
+  color: #eee;
+}
+.editor .markdown .raw {
+  color: #aaa;
+}
+.editor .markdown .link {
+  color: #555;
+}
+.editor .markdown .link .string {
+  color: #555;
+}
+.editor .markdown .link .string.title {
+  color: #ddd;
+}
+.bracket-matcher .region {
+  border-bottom: 1px solid #f8de7e;
+  margin-top: -1px;
+  opacity: .7;
+}
+.comment {
+  color: #7C7C7C;
+}
+.entity {
+  color: #FFD2A7;
+}
+.entity.name.type {
+  text-decoration: underline;
+  color: #FFFFB6;
+}
+.entity.other.inherited-class {
+  color: #9B5C2E;
+}
+.keyword {
+  color: #96CBFE;
+}
+.keyword.control {
+  color: #96CBFE;
+}
+.keyword.operator {
+  color: #EDEDED;
+}
+.storage {
+  color: #CFCB90;
+}
+.storage.modifier {
+  color: #96CBFE;
+}
+.constant {
+  color: #99CC99;
+}
+.constant.numeric {
+  color: #FF73FD;
+}
+.variable {
+  color: #C6C5FE;
+}
+.invalid.deprecated {
+  text-decoration: underline;
+  color: #FD5FF1;
+}
+.invalid.illegal {
+  color: #FD5FF1;
+  background-color: rgba(86, 45, 86, 0.75);
+}
+.string .source,
+.string .meta.embedded.line {
+  color: #EDEDED;
+}
+.string .punctuation.section.embedded {
+  color: #00A0A0;
+}
+.string .punctuation.section.embedded .source {
+  color: #00A0A0;
+}
+.string {
+  color: #A8FF60;
+}
+.string .constant {
+  color: #00A0A0;
+}
+.string.regexp {
+  color: #E9C062;
+}
+.string.regexp .constant.character.escape,
+.string.regexp .source.ruby.embedded,
+.string.regexp .string.regexp.arbitrary-repetition {
+  color: #FF8000;
+}
+.string.regexp.group {
+  color: #C6A24F;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+.string.regexp.character-class {
+  color: #B18A3D;
+}
+.string .variable {
+  color: #8A9A95;
+}
+.support {
+  color: #FFFFB6;
+}
+.support.function {
+  color: #DAD085;
+}
+.support.constant {
+  color: #FFD2A7;
+}
+.support.type.property-name.css {
+  color: #EDEDED;
+}
+.source .entity.name.tag,
+.source .punctuation.tag {
+  color: #96CBFE;
+}
+.source .entity.other.attribute-name {
+  color: #C6C5FE;
+}
+.entity.other.attribute-name {
+  color: #C6C5FE;
+}
+.entity.name.tag.namespace,
+.entity.other.attribute-name.namespace {
+  color: #E18964;
+}
+.meta.preprocessor.c {
+  color: #8996A8;
+}
+.meta.preprocessor.c .keyword {
+  color: #AFC4DB;
+}
+.meta.cast {
+  color: #676767;
+}
+.meta.sgml.html .meta.doctype,
+.meta.sgml.html .meta.doctype .entity,
+.meta.sgml.html .meta.doctype .string,
+.meta.xml-processing,
+.meta.xml-processing .entity,
+.meta.xml-processing .string {
+  color: #494949;
+}
+.meta.tag .entity,
+.meta.tag > .punctuation,
+.meta.tag.inline .entity {
+  color: #C6C5FE;
+}
+.meta.tag .name,
+.meta.tag.inline .name,
+.meta.tag > .punctuation {
+  color: #96CBFE;
+}
+.meta.selector.css .entity.name.tag {
+  text-decoration: underline;
+  color: #96CBFE;
+}
+.meta.selector.css .entity.other.attribute-name.tag.pseudo-class {
+  color: #8F9D6A;
+}
+.meta.selector.css .entity.other.attribute-name.id {
+  color: #8B98AB;
+}
+.meta.selector.css .entity.other.attribute-name.class {
+  color: #62B1FE;
+}
+.meta.property-group .support.constant.property-value.css,
+.meta.property-value .support.constant.property-value.css {
+  color: #F9EE98;
+}
+.meta.preprocessor.at-rule .keyword.control.at-rule {
+  color: #8693A5;
+}
+.meta.property-value .support.constant.named-color.css,
+.meta.property-value .constant {
+  color: #87C38A;
+}
+.meta.constructor.argument.css {
+  color: #8F9D6A;
+}
+.meta.diff,
+.meta.diff.header {
+  color: #F8F8F8;
+  background-color: #0E2231;
+}
+.meta.separator {
+  color: #60A633;
+  background-color: #242424;
+}
+.meta.line.entry.logfile,
+.meta.line.exit.logfile {
+  background-color: rgba(238, 238, 238, 0.16);
+}
+.meta.line.error.logfile {
+  background-color: #751012;
+}
+
+#carbonads {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+  Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#carbonads {
+  display: flex;
+  max-width: 330px;
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
+  margin: 20px auto;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+#carbonads .carbon-wrap {
+  display: flex;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+}
+
+.carbon-text {
+  font-size: 13px;
+  padding: 10px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 8px 10px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  table {
     width: 100%;
   }
-  nav > ul {
-    padding-top: 1em;
-  }
-  nav > ul > li {
-    display: inline;
-    margin: 0.5em 0.75em;
-    font-size: 22px;
-  }
-  a,
-  a:visited {
-    color: #a00;
-  }
-  ul {
-    list-style: disc;
-  }
-  /* Content Box */
-  .content {
-    max-width: 780px;
-    margin: 1.5em auto;
-  }
-  .content > h1:first-child {
-    text-align: center;
-    display: block;
-    margin: 0;
-  }
-  .anchor {
-    opacity: 0;
-    margin-right: 5px;
-    margin-left: -22px;
-  }
-  *:hover > .anchor {
-    opacity: 1;
-  }
-  /* README STYLES */
-  body.readme .content > h1:first-child img {
-    display: block;
-    margin: 25px auto;
-  }
-  body.readme .content > h1:first-child br {
-    display: none;
-  }
-  /* Badges */
-  body.readme .content > p:nth-child(2) {
-    display: none;
-  }
-  /* Translation links */
-  body.readme .content > p:nth-child(3) {
-    font-size: 14px;
-    text-align: center;
-    margin: 25px 0;
-    opacity: 0.4;
-    transition: opacity 0.2s linear;
-  }
-  body.readme .content > p:nth-child(3) a {
-    white-space: nowrap;
-  }
-  body.readme .content > p:nth-child(3):hover {
-    opacity: 1;
-  }
 
-  /* Who uses JavaScript Standard Style? */
-  tr img {
-    padding: 15px;
-    width: 160px;
-  }
-
-  /* -- DISABLED: No primary sponsor at the moment -- */
-  /* Sponsor logo */
-  /*
-  body.readme .content > p:nth-child(4) {
-    text-align: center;
-    margin: 25px 0;
-  }
-  body.readme .content > p:nth-child(4) a {
-    margin-left: 10px;
-  }
-  body.readme .content > p:nth-child(4) strong,
-  body.readme .content > p:nth-child(4) img {
-    vertical-align: middle;
-  }
-  */
-  /* First h2 tag */
-  /*
-  body.readme .content > h2:nth-child(5) {
-    text-align: center;
-  }
-  */
-   body.readme .content > h2:nth-child(4) {
-    text-align: center;
-  }
-
-  /* END README STYLES */
-  /* Article Body */
-  dl dd {
-    /* center definitions (most useful for display equations) */
-    text-align: center;
-  }
-  .editor {
-    overflow-x: auto;
-    font-size: 16px;
-  }
-
-  /* Demo Page Styles */
-
-  .demo div#messages {
+  td, th {
     display: inline-block;
-    vertical-align: top;
-    width: 280px;
-  }
-  .demo .message {
-    padding: 10px;
-    margin: 5px;
-    background-color: lightyellow;
-    border: 1px solid burlywood;
-    font-size: 16px;
-    text-align: auto;
-  }
-  .demo .success {
-    background-color: lightgreen;
-    border: 1px solid darkgreen;
-    text-align: center;
-    font-weight: bold;
-  }
-  .demo #versioninfo {
-    display: inline-block;
-    font-size: 6px;
-  }
-  .demo #javascript-editor {
-    display: inline-block;
-    width: 670px;
-    height: 600px;
-    font-size: 16px;
-    text-align: left;
-  }
-  .demo .editor-wrapper {
-    text-align: center;
-  }
-  .demo button {
-    padding: 5px;
-    margin: 5px;
-    font-size: 16px;
-  }
-  .editor {
-    padding: 10px;
-    background-color: #1d1f21;
-    color: #c5c8c6;
-  }
-  .editor .invisible-character {
-    color: rgba(197, 200, 198, 0.2);
-  }
-  .editor .indent-guide {
-    color: rgba(197, 200, 198, 0.2);
-  }
-  .editor .wrap-guide {
-    background-color: rgba(197, 200, 198, 0.1);
-  }
-  .editor .gutter {
-    background-color: #292c2f;
-  }
-  .editor .gutter .cursor-line {
-    background-color: rgba(255, 255, 255, 0.14);
-  }
-  .editor .line-number.cursor-line-no-selection {
-    background-color: rgba(255, 255, 255, 0.14);
-  }
-  .editor .gutter .line-number.folded,
-  .editor .gutter .line-number:after,
-  .editor .fold-marker:after {
-    color: #fba0e3;
-  }
-  .editor .invisible {
-    color: #c5c8c6;
-  }
-  .editor .cursor {
-    border-color: white;
-  }
-  .editor .selection .region {
-    background-color: #444;
-  }
-  .editor .source.gfm {
-    color: #999;
-  }
-  .editor .gfm .markup.heading {
-    color: #eee;
-  }
-  .editor .gfm .link {
-    color: #555;
-  }
-  .editor .gfm .variable.list,
-  .editor .gfm .support.quote {
-    color: #555;
-  }
-  .editor .gfm .link .entity {
-    color: #ddd;
-  }
-  .editor .gfm .raw {
-    color: #aaa;
-  }
-  .editor .markdown .paragraph {
-    color: #999;
-  }
-  .editor .markdown .heading {
-    color: #eee;
-  }
-  .editor .markdown .raw {
-    color: #aaa;
-  }
-  .editor .markdown .link {
-    color: #555;
-  }
-  .editor .markdown .link .string {
-    color: #555;
-  }
-  .editor .markdown .link .string.title {
-    color: #ddd;
-  }
-  .bracket-matcher .region {
-    border-bottom: 1px solid #f8de7e;
-    margin-top: -1px;
-    opacity: .7;
-  }
-  .comment {
-    color: #7C7C7C;
-  }
-  .entity {
-    color: #FFD2A7;
-  }
-  .entity.name.type {
-    text-decoration: underline;
-    color: #FFFFB6;
-  }
-  .entity.other.inherited-class {
-    color: #9B5C2E;
-  }
-  .keyword {
-    color: #96CBFE;
-  }
-  .keyword.control {
-    color: #96CBFE;
-  }
-  .keyword.operator {
-    color: #EDEDED;
-  }
-  .storage {
-    color: #CFCB90;
-  }
-  .storage.modifier {
-    color: #96CBFE;
-  }
-  .constant {
-    color: #99CC99;
-  }
-  .constant.numeric {
-    color: #FF73FD;
-  }
-  .variable {
-    color: #C6C5FE;
-  }
-  .invalid.deprecated {
-    text-decoration: underline;
-    color: #FD5FF1;
-  }
-  .invalid.illegal {
-    color: #FD5FF1;
-    background-color: rgba(86, 45, 86, 0.75);
-  }
-  .string .source,
-  .string .meta.embedded.line {
-    color: #EDEDED;
-  }
-  .string .punctuation.section.embedded {
-    color: #00A0A0;
-  }
-  .string .punctuation.section.embedded .source {
-    color: #00A0A0;
-  }
-  .string {
-    color: #A8FF60;
-  }
-  .string .constant {
-    color: #00A0A0;
-  }
-  .string.regexp {
-    color: #E9C062;
-  }
-  .string.regexp .constant.character.escape,
-  .string.regexp .source.ruby.embedded,
-  .string.regexp .string.regexp.arbitrary-repetition {
-    color: #FF8000;
-  }
-  .string.regexp.group {
-    color: #C6A24F;
-    background-color: rgba(255, 255, 255, 0.06);
-  }
-  .string.regexp.character-class {
-    color: #B18A3D;
-  }
-  .string .variable {
-    color: #8A9A95;
-  }
-  .support {
-    color: #FFFFB6;
-  }
-  .support.function {
-    color: #DAD085;
-  }
-  .support.constant {
-    color: #FFD2A7;
-  }
-  .support.type.property-name.css {
-    color: #EDEDED;
-  }
-  .source .entity.name.tag,
-  .source .punctuation.tag {
-    color: #96CBFE;
-  }
-  .source .entity.other.attribute-name {
-    color: #C6C5FE;
-  }
-  .entity.other.attribute-name {
-    color: #C6C5FE;
-  }
-  .entity.name.tag.namespace,
-  .entity.other.attribute-name.namespace {
-    color: #E18964;
-  }
-  .meta.preprocessor.c {
-    color: #8996A8;
-  }
-  .meta.preprocessor.c .keyword {
-    color: #AFC4DB;
-  }
-  .meta.cast {
-    color: #676767;
-  }
-  .meta.sgml.html .meta.doctype,
-  .meta.sgml.html .meta.doctype .entity,
-  .meta.sgml.html .meta.doctype .string,
-  .meta.xml-processing,
-  .meta.xml-processing .entity,
-  .meta.xml-processing .string {
-    color: #494949;
-  }
-  .meta.tag .entity,
-  .meta.tag > .punctuation,
-  .meta.tag.inline .entity {
-    color: #C6C5FE;
-  }
-  .meta.tag .name,
-  .meta.tag.inline .name,
-  .meta.tag > .punctuation {
-    color: #96CBFE;
-  }
-  .meta.selector.css .entity.name.tag {
-    text-decoration: underline;
-    color: #96CBFE;
-  }
-  .meta.selector.css .entity.other.attribute-name.tag.pseudo-class {
-    color: #8F9D6A;
-  }
-  .meta.selector.css .entity.other.attribute-name.id {
-    color: #8B98AB;
-  }
-  .meta.selector.css .entity.other.attribute-name.class {
-    color: #62B1FE;
-  }
-  .meta.property-group .support.constant.property-value.css,
-  .meta.property-value .support.constant.property-value.css {
-    color: #F9EE98;
-  }
-  .meta.preprocessor.at-rule .keyword.control.at-rule {
-    color: #8693A5;
-  }
-  .meta.property-value .support.constant.named-color.css,
-  .meta.property-value .constant {
-    color: #87C38A;
-  }
-  .meta.constructor.argument.css {
-    color: #8F9D6A;
-  }
-  .meta.diff,
-  .meta.diff.header {
-    color: #F8F8F8;
-    background-color: #0E2231;
-  }
-  .meta.separator {
-    color: #60A633;
-    background-color: #242424;
-  }
-  .meta.line.entry.logfile,
-  .meta.line.exit.logfile {
-    background-color: rgba(238, 238, 238, 0.16);
-  }
-  .meta.line.error.logfile {
-    background-color: #751012;
+    width: 49%;
   }
 
-  #carbonads {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
-    Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  td img, th img {
+    width: calc(100% - 30px);
   }
 
-  #carbonads {
-    display: flex;
-    max-width: 330px;
-    background-color: hsl(0, 0%, 98%);
-    box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
-    margin: 20px auto;
+  h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word
   }
-
-  #carbonads a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  #carbonads a:hover {
-    color: inherit;
-  }
-
-  #carbonads span {
-    position: relative;
-    display: block;
-    overflow: hidden;
-  }
-
-  #carbonads .carbon-wrap {
-    display: flex;
-  }
-
-  .carbon-img {
-    display: block;
-    margin: 0;
-    line-height: 1;
-  }
-
-  .carbon-img img {
-    display: block;
-  }
-
-  .carbon-text {
-    font-size: 13px;
-    padding: 10px;
-    line-height: 1.5;
-    text-align: left;
-  }
-
-  .carbon-poweredby {
-    display: block;
-    padding: 8px 10px;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-weight: 600;
-    font-size: 9px;
-    line-height: 1;
-  }
+}
