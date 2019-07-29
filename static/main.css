@@ -534,7 +534,7 @@ dl dd {
     overflow-wrap: break-word
   }
 
-  p li {
+  .content li {
     margin-top: 10px 0;
   }
 }
