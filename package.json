@@ -15,7 +15,7 @@
     "browserify": "^16.1.1",
     "ecstatic": "^4.1.2",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.1",
+    "rimraf": "^3.0.0",
     "shelljs": "^0.8.3",
     "standard": "*"
   },
