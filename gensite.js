@@ -7,6 +7,7 @@ var pullOrClone = require('./lib/pull-or-clone.js')
 var join = path.join
 var sh = require('shelljs')
 var resolve = require('path').resolve
+var { execSync } = require('child_process')
 
 var awesomePath = join('tmp/awesome-standard')
 var buildPath = 'build'
@@ -76,8 +77,9 @@ sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
 // once everything is built, copy it to dist
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
+
 // copy standard-demo bundle.js to dist
-sh.cp('-f', join(demoPath, 'bundle.js'), resolve(__dirname, 'dist', 'standard-demo.js'))
+execSync(`npx browserify -r standard-demo -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
 
 // copy static to dist
 sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
