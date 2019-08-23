@@ -11,7 +11,6 @@ var { execSync } = require('child_process')
 
 var awesomePath = join('tmp/awesome-standard')
 var buildPath = 'build'
-var demoPath = join('tmp/standard-demo')
 var mdPath = join('tmp/markdown')
 var stdPath = join('tmp/standard')
 var stdDocsPath = join('tmp/standard/docs')
@@ -32,7 +31,6 @@ if (!sh.which('git')) {
 
 pullOrClone('https://github.com/standard/standard', stdPath)
 pullOrClone('https://github.com/standard/awesome-standard', awesomePath)
-pullOrClone('https://github.com/flet/standard-demo', demoPath)
 
 sh.rm('-rf', buildPath)
 sh.rm('-rf', mdPath)
@@ -79,7 +77,7 @@ sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 
 // copy standard-demo bundle.js to dist
-execSync(`npx browserify -e ${'./' + demoPath + '/main.js'} -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
+execSync(`npx browserify -e ${require.resolve('standard-demo')} -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
 
 // copy static to dist
 sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
