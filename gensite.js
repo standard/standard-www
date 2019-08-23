@@ -79,7 +79,7 @@ sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
 
 // copy standard-demo bundle.js to dist
-execSync(`npx browserify -r standard-demo -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
+execSync(`npx browserify -e ${'./' + demoPath + '/main.js'} -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
 
 // copy static to dist
 sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
