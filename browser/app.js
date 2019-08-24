@@ -2,6 +2,6 @@
 // this checks whether someone has clicked on an auto-generated id, and updates
 // the URL fragment to not include the prefix.
 
-var rehash = require('marky-deep-links')
+const rehash = require('marky-deep-links')
 
 rehash()
