@@ -1,28 +1,28 @@
 #!/usr/bin/env node
-var fs = require('fs')
-var GitHubSlugger = require('github-slugger')
-var markybars = require('./lib/markybars.js')
-var path = require('path')
-var pullOrClone = require('./lib/pull-or-clone.js')
-var join = path.join
-var sh = require('shelljs')
-var resolve = require('path').resolve
-var { execSync } = require('child_process')
+const fs = require('fs')
+const GitHubSlugger = require('github-slugger')
+const markybars = require('./lib/markybars.js')
+const path = require('path')
+const pullOrClone = require('./lib/pull-or-clone.js')
+const join = path.join
+const sh = require('shelljs')
+const resolve = require('path').resolve
+const { execSync } = require('child_process')
 
-var awesomePath = join('tmp/awesome-standard')
-var buildPath = 'build'
-var mdPath = join('tmp/markdown')
-var stdPath = join('tmp/standard')
-var stdDocsPath = join('tmp/standard/docs')
-var page = join('layout/page.html')
-var demoPage = join('layout/demo.html')
+const awesomePath = join('tmp/awesome-standard')
+const buildPath = 'build'
+const mdPath = join('tmp/markdown')
+const stdPath = join('tmp/standard')
+const stdDocsPath = join('tmp/standard/docs')
+const page = join('layout/page.html')
+const demoPage = join('layout/demo.html')
 
-var partials = {
+const partials = {
   toc: join('layout/partials/toc.html'),
   scripts: join('layout/partials/scripts.html')
 }
 
-var slugger = new GitHubSlugger()
+const slugger = new GitHubSlugger()
 
 if (!sh.which('git')) {
   sh.echo('Sorry, this script requires git')
@@ -43,17 +43,17 @@ sh.cp('-f', join('markdown/*.md'), mdPath)
 sh.cp('-f', join(stdPath, '*.md'), mdPath)
 sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
 sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
-var genPage = markybars.compile(page, partials)
-var genDemo = markybars.compile(demoPage, partials)
+const genPage = markybars.compile(page, partials)
+const genDemo = markybars.compile(demoPage, partials)
 
-var files = sh.ls(mdPath)
+const files = sh.ls(mdPath)
 files.forEach(function (file) {
-  var fileData = fs.readFileSync(join(mdPath, file), 'utf8')
-  var name = path.parse(file).name
-  var gen = name === 'demo' ? genDemo : genPage
+  const fileData = fs.readFileSync(join(mdPath, file), 'utf8')
+  const name = path.parse(file).name
+  const gen = name === 'demo' ? genDemo : genPage
 
-  var htmlData = gen({ data: fileData, name: name.toLowerCase() })
-  var fileName = slugger.slug(name) + '.html'
+  const htmlData = gen({ data: fileData, name: name.toLowerCase() })
+  const fileName = slugger.slug(name) + '.html'
 
   fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
 })
