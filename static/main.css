@@ -100,21 +100,21 @@ body.readme .content > h1:first-child br {
   display: none;
 }
 /* Badges */
-body.readme .content > p:nth-child(2) {
+body.readme .content > p:nth-child(3) {
   display: none;
 }
 /* Translation links */
-body.readme .content > p:nth-child(3) {
+body.readme .content > p:nth-child(4) {
   font-size: 14px;
   text-align: center;
   margin: 25px 0;
   opacity: 0.4;
   transition: opacity 0.2s linear;
 }
-body.readme .content > p:nth-child(3) a {
+body.readme .content > p:nth-child(4) a {
   white-space: nowrap;
 }
-body.readme .content > p:nth-child(3):hover {
+body.readme .content > p:nth-child(4):hover {
   opacity: 1;
 }
 
