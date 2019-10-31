@@ -16,6 +16,7 @@
     "browserify": "^16.1.1",
     "ecstatic": "^4.1.2",
     "mkdirp": "^0.5.1",
+    "nodemon": "^1.19.4",
     "rimraf": "^3.0.0",
     "shelljs": "^0.8.3",
     "standard": "*"
@@ -43,6 +44,7 @@
     "deploy": "git push",
     "serve": "ecstatic dist --port 4000",
     "start": "npm run clean && npm run build",
-    "test": "standard"
+    "test": "standard",
+    "watch": "nodemon --watch layout --watch markdown --watch static --ext js,html,css --exec 'npm run build'"
   }
 }
