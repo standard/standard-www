@@ -45,6 +45,6 @@
     "serve": "ecstatic dist --port 4000",
     "start": "npm run clean && npm run build",
     "test": "standard",
-    "watch": "nodemon --watch layout --watch markdown --watch static --ext js,html,css --exec 'npm run build'"
+    "watch": "npm run serve & nodemon --watch layout --watch markdown --watch static --ext js,html,css --exec 'npm run build'"
   }
 }
