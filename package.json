@@ -41,7 +41,7 @@
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
     "clean": "rimraf dist/* && mkdirp dist",
-    "deploy": "rm -rf node_modules/ && npm install && npm run build && git push",
+    "deploy": "echo 'Deploying via netlify...' && git push",
     "serve": "ecstatic dist --port 4000",
     "start": "npm run clean && npm run build",
     "test": "standard",
