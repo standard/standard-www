@@ -92,6 +92,9 @@ ul {
   opacity: 1;
 }
 /* README STYLES */
+body.readme h1 br:last-child {
+  display: none;
+}
 body.readme .content > h1:first-child img {
   display: block;
   margin: 25px auto;
