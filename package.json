@@ -6,7 +6,7 @@
     "url": "https://github.com/standard/standard-www/issues"
   },
   "dependencies": {
-    "github-slugger": "^1.0.1",
+    "github-slugger": "^1.3.0",
     "handlebars": "^4.0.3",
     "marky-deep-links": "^1.0.0",
     "marky-markdown": "^12.0.0",
