@@ -19,7 +19,7 @@
     "nodemon": "^1.19.4",
     "rimraf": "^3.0.0",
     "shelljs": "^0.8.3",
-    "standard": "*"
+    "standard": "14.3.3"
   },
   "homepage": "https://github.com/standard/standard-www",
   "keywords": [
