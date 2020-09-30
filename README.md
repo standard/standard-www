@@ -1,5 +1,5 @@
 # standard-www [![travis][travis-image]][travis-url] [![javascript style guide][standard-image]][standard-url]
-
+## An amazing website
 [travis-image]: https://img.shields.io/travis/standard/standard-www/master.svg
 [travis-url]: https://travis-ci.org/standard/standard-www
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
