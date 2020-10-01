@@ -9,7 +9,7 @@ https://standardjs.com
 
 ## Usage
 
-This repository is used to generate a web site for [standard](https://github.com/standard/standard)
+This repository is used to generate a website with convenience for [standard](https://github.com/standard/standard)
 
 ### How to Generate a site and deploy it to `gh-pages`
 ```bash
