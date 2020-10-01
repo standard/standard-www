@@ -1,4 +1,4 @@
-# standard-www [![travis][travis-image]][travis-url] [![javascript style guide][standard-image]][standard-url]
+# standard-www [![travis][travis-image]][travis-url] [![javascript style guide][standard-image]][standard-url] - Amazing Project
 
 [travis-image]: https://img.shields.io/travis/standard/standard-www/master.svg
 [travis-url]: https://travis-ci.org/standard/standard-www
