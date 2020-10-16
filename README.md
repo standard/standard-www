@@ -7,7 +7,7 @@
 
 https://standardjs.com
 
-## Usage
+## How to use.
 
 This repository is used to generate a web site for [standard](https://github.com/standard/standard)
 
@@ -36,6 +36,6 @@ npm start
 
 Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
 
-## License
+## License used.
 
 [ISC](LICENSE.md)
