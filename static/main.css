@@ -16,7 +16,7 @@ https://github.com/AndrewBelt/WiTeX
 /* Page Layout */
 body {
   background-color: white;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5em;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -29,24 +29,29 @@ h6 {
   font-weight: bold;
 }
 h1 {
-  font-size: 48px;
-  line-height: 1.5em;
+  font-size: 40px;
+  line-height: 1em;
 }
 h2 {
-  font-size: 34px;
-  line-height: 1.5em;
+  font-size: 30px;
+  line-height: 1em;
 }
 h3 {
-  font-size: 28px;
-  line-height: 1.5em;
+  font-size: 26px;
+  line-height: 1em;
 }
 h4 {
-  font-size: 24px;
-  line-height: 1.5em;
+  font-size: 20px;
+  line-height: 1em;
 }
-p code {
-  padding-left: 0;
-  padding-right: 0;
+code {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background-color: #1d1f21;
+  color: #c5c8c6;
+  border-radius: 2px;
 }
 .deep-link a,
 .deep-link a:visited {
@@ -123,8 +128,8 @@ body.readme .content > p:nth-child(4):hover {
 
 /* Who uses JavaScript Standard Style? */
 tr img {
-  padding: 15px;
-  width: 160px;
+  padding: 20px;
+  width: 150px;
 }
 
 /* -- DISABLED: No primary sponsor at the moment -- */
@@ -203,81 +208,84 @@ dl dd {
   margin: 5px;
   font-size: 16px;
 }
-.editor {
-  padding: 10px;
+.hljs {
+  padding: 15px;
   background-color: #1d1f21;
   color: #c5c8c6;
+  display: block;
+  border-radius: 5px;
+  overflow: auto;
 }
-.editor .invisible-character {
+.hljs .invisible-character {
   color: rgba(197, 200, 198, 0.2);
 }
-.editor .indent-guide {
+.hljs .indent-guide {
   color: rgba(197, 200, 198, 0.2);
 }
-.editor .wrap-guide {
+.hljs .wrap-guide {
   background-color: rgba(197, 200, 198, 0.1);
 }
-.editor .gutter {
+.hljs .gutter {
   background-color: #292c2f;
 }
-.editor .gutter .cursor-line {
+.hljs .gutter .cursor-line {
   background-color: rgba(255, 255, 255, 0.14);
 }
-.editor .line-number.cursor-line-no-selection {
+.hljs .line-number.cursor-line-no-selection {
   background-color: rgba(255, 255, 255, 0.14);
 }
-.editor .gutter .line-number.folded,
-.editor .gutter .line-number:after,
-.editor .fold-marker:after {
+.hljs .gutter .line-number.folded,
+.hljs .gutter .line-number:after,
+.hljs .fold-marker:after {
   color: #fba0e3;
 }
-.editor .invisible {
+.hljs .invisible {
   color: #c5c8c6;
 }
-.editor .cursor {
+.hljs .cursor {
   border-color: white;
 }
-.editor .selection .region {
+.hljs .selection .region {
   background-color: #444;
 }
-.editor .source.gfm {
+.hljs .source.gfm {
   color: #999;
 }
-.editor .gfm .markup.heading {
+.hljs .gfm .markup.heading {
   color: #eee;
 }
-.editor .gfm .link {
+.hljs .gfm .link {
   color: #555;
 }
-.editor .gfm .variable.list,
-.editor .gfm .support.quote {
+.hljs .gfm .variable.list,
+.hljs .gfm .support.quote {
   color: #555;
 }
-.editor .gfm .link .entity {
+.hljs .gfm .link .entity {
   color: #ddd;
 }
-.editor .gfm .raw {
+.hljs .gfm .raw {
   color: #aaa;
 }
-.editor .markdown .paragraph {
+.hljs .markdown .paragraph {
   color: #999;
 }
-.editor .markdown .heading {
+.hljs .markdown .heading {
   color: #eee;
 }
-.editor .markdown .raw {
+.hljs .markdown .raw {
   color: #aaa;
 }
-.editor .markdown .link {
+.hljs .markdown .link {
   color: #555;
 }
-.editor .markdown .link .string {
+.hljs .markdown .link .string {
   color: #555;
 }
-.editor .markdown .link .string.title {
+.hljs .markdown .link .string.title {
   color: #ddd;
 }
-.bracket-matcher .region {
+.bracket-matcher .hljs-region {
   border-bottom: 1px solid #f8de7e;
   margin-top: -1px;
   opacity: .7;

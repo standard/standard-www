@@ -8,8 +8,8 @@
   "dependencies": {
     "github-slugger": "^1.3.0",
     "handlebars": "^4.7.6",
+    "hubdown": "^2.6.0",
     "marky-deep-links": "^1.0.1",
-    "marky-markdown": "^12.0.0",
     "standard-demo": "github:standard/standard-demo"
   },
   "devDependencies": {

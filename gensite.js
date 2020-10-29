@@ -8,6 +8,7 @@ const join = path.join
 const sh = require('shelljs')
 const resolve = require('path').resolve
 const { execSync } = require('child_process')
+const hubdown = require('hubdown')
 
 const awesomePath = join('tmp/awesome-standard')
 const buildPath = 'build'
@@ -29,59 +30,70 @@ if (!sh.which('git')) {
   sh.exit(1)
 }
 
-pullOrClone('https://github.com/standard/standard', stdPath)
-pullOrClone('https://github.com/standard/awesome-standard', awesomePath)
+run()
 
-sh.rm('-rf', buildPath)
-sh.rm('-rf', mdPath)
-sh.rm('-rf', 'dist')
+async function run () {
+  pullOrClone('https://github.com/standard/standard', stdPath)
+  pullOrClone('https://github.com/standard/awesome-standard', awesomePath)
 
-sh.mkdir(buildPath)
-sh.mkdir(mdPath)
+  sh.rm('-rf', buildPath)
+  sh.rm('-rf', mdPath)
+  sh.rm('-rf', 'dist')
 
-sh.cp('-f', join('markdown/*.md'), mdPath)
-sh.cp('-f', join(stdPath, '*.md'), mdPath)
-sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
-sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
-const genPage = markybars.compile(page, partials)
-const genDemo = markybars.compile(demoPage, partials)
+  sh.mkdir(buildPath)
+  sh.mkdir(mdPath)
 
-const files = sh.ls(mdPath)
-files.forEach(function (file) {
-  const fileData = fs.readFileSync(join(mdPath, file), 'utf8')
-  const name = path.parse(file).name
-  const gen = name === 'demo' ? genDemo : genPage
+  sh.cp('-f', join('markdown/*.md'), mdPath)
+  sh.cp('-f', join(stdPath, '*.md'), mdPath)
+  sh.cp('-f', join(stdDocsPath, '*.md'), mdPath)
+  sh.cp('-f', join(awesomePath, 'README.md'), join(mdPath, 'awesome.md'))
+  const genPage = markybars.compile(page, partials)
+  const genDemo = markybars.compile(demoPage, partials)
 
-  const htmlData = gen({ data: fileData, name: name.toLowerCase() })
-  const fileName = slugger.slug(name) + '.html'
+  const files = sh.ls(mdPath)
 
-  fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
-})
+  for (const file of files) {
+    const fileData = fs.readFileSync(join(mdPath, file), 'utf8')
+    const data = (await hubdown(fileData, {
+      highlight: {
+        prefix: ''
+      }
+    })).content
 
-sh.find(buildPath)
-  .filter(function (file) { return file.match(/\.html$/) })
-  .forEach(function (f) {
-    // replace all RULES.md instances in links with rules.html
-    sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
+    const name = path.parse(file).name
+    const gen = name === 'demo' ? genDemo : genPage
 
-    sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
-    sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
+    const htmlData = gen({ data, name: name.toLowerCase() })
+    const fileName = slugger.slug(name) + '.html'
 
-    sh.sed('-i', /"(docs\/|\.\.\/)?webstorm(.*?)\.md/g, '"webstorm$2.html', f)
-  })
+    fs.writeFileSync(join(buildPath, fileName), htmlData, 'utf8')
+  }
 
-// rename files to be internet friendly
-sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
+  sh.find(buildPath)
+    .filter(function (file) { return file.match(/\.html$/) })
+    .forEach(function (f) {
+      // replace all RULES.md instances in links with rules.html
+      sh.sed('-i', /"(.*?)RULES(.*?)\.md/g, '"rules$2.html', f)
 
-// once everything is built, copy it to dist
-sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
+      sh.sed('-i', /"\.\.\/README.md/g, '"index.html', f)
+      sh.sed('-i', /"(.*?)README(.*?)\.md/g, '"readme$2.html', f)
 
-// copy standard-demo bundle.js to dist
-execSync(`npx browserify -e ${require.resolve('standard-demo')} -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
+      sh.sed('-i', /"(docs\/|\.\.\/)?webstorm(.*?)\.md/g, '"webstorm$2.html', f)
+    })
 
-// copy static to dist
-sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
-sh.cp('-R', 'static/.well-known', resolve(__dirname, 'dist'))
+  // rename files to be internet friendly
+  sh.mv('-f', join(buildPath, 'readme.html'), join(buildPath, 'index.html'))
 
-// remove tmp dir
-sh.rm('-rf', 'tmp')
+  // once everything is built, copy it to dist
+  sh.cp('-R', buildPath + '/', resolve(__dirname, 'dist'))
+
+  // copy standard-demo bundle.js to dist
+  execSync(`npx browserify -e ${require.resolve('standard-demo')} -o ${resolve(__dirname, 'dist', 'standard-demo.js')}`)
+
+  // copy static to dist
+  sh.cp('-R', 'static/*', resolve(__dirname, 'dist'))
+  sh.cp('-R', 'static/.well-known', resolve(__dirname, 'dist'))
+
+  // remove tmp dir
+  sh.rm('-rf', 'tmp')
+}
