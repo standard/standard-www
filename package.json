@@ -15,7 +15,6 @@
   "devDependencies": {
     "browserify": "^17.0.0",
     "ecstatic": "^4.1.4",
-    "mkdirp": "^0.5.1",
     "nodemon": "^2.0.6",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",
@@ -40,7 +39,7 @@
     "build": "npm run build-html && npm run build-js",
     "build-html": "node gensite.js",
     "build-js": "browserify browser/app.js > dist/standard-www.js",
-    "clean": "rimraf dist/* && mkdirp dist",
+    "clean": "rimraf dist/* && mkdir -p dist",
     "deploy": "echo 'Deploying via netlify...' && git push",
     "serve": "ecstatic dist --port 4000",
     "start": "npm run clean && npm run build",
