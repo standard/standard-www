@@ -16,7 +16,7 @@ https://github.com/AndrewBelt/WiTeX
 /* Page Layout */
 body {
   background-color: white;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.5em;
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -30,28 +30,30 @@ h6 {
 }
 h1 {
   font-size: 40px;
-  line-height: 1em;
+  line-height: 1.5em;
 }
 h2 {
   font-size: 30px;
-  line-height: 1em;
+  line-height: 1.5em;
 }
 h3 {
   font-size: 26px;
-  line-height: 1em;
+  line-height: 1.5em;
 }
 h4 {
   font-size: 20px;
-  line-height: 1em;
+  line-height: 1.5em;
 }
 code {
+  margin-left: 2px;
+  margin-right: 2px;
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 2px;
   padding-bottom: 2px;
   background-color: #1d1f21;
-  color: #c5c8c6;
-  border-radius: 2px;
+  color: #d8d8d8;
+  border-radius: 4px;
 }
 .deep-link a,
 .deep-link a:visited {
@@ -116,14 +118,11 @@ body.readme .content > p:nth-child(4) {
   font-size: 14px;
   text-align: center;
   margin: 25px 0;
-  opacity: 0.4;
-  transition: opacity 0.2s linear;
+  opacity: 0.8;
 }
+
 body.readme .content > p:nth-child(4) a {
   white-space: nowrap;
-}
-body.readme .content > p:nth-child(4):hover {
-  opacity: 1;
 }
 
 /* Who uses JavaScript Standard Style? */
@@ -209,9 +208,9 @@ dl dd {
   font-size: 16px;
 }
 .hljs {
-  padding: 15px;
+  padding: 10px 15px;
   background-color: #1d1f21;
-  color: #c5c8c6;
+  color: #d8d8d8;
   display: block;
   border-radius: 5px;
   overflow: auto;
