@@ -11,10 +11,10 @@ https://standardjs.com
 
 This repository is used to generate a web site for [standard](https://github.com/standard/standard)
 
-### How to Generate a site and deploy it to `gh-pages`
+### How to Generate a site and deploy it to `netlify`
 ```bash
 git clone https://github.com/flet/standard-www
-./trigger.sh
+git push
 ```
 
 ### Building without deploy
