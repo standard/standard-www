@@ -13,7 +13,7 @@ This repository is used to generate a web site for [standard](https://github.com
 
 ### How to Generate a site and deploy it to `netlify`
 ```bash
-git clone https://github.com/flet/standard-www
+git clone https://github.com/standard/standard-www
 git push
 ```
 
