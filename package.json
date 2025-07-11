@@ -28,6 +28,9 @@
     "website",
     "www"
   ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "license": "ISC",
   "main": "gensite.js",
   "private": true,
